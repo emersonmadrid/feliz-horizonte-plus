@@ -1117,6 +1117,27 @@
         title="Contactar por WhatsApp">
         💬
     </a>
+<script>
+  // Dispara conversión cuando se hace clic en enlaces a WhatsApp
+  (function () {
+    function bind() {
+      var links = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+      links.forEach(function(a){
+        if (a.__wh_click_bound) return;
+        a.__wh_click_bound = true;
+        a.addEventListener('click', function(){
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-17157055294/AVmoCNCF6KYbEL7Gj_U_'
+            });
+          }
+        });
+      });
+    }
+    document.readyState === 'loading' ? 
+      document.addEventListener('DOMContentLoaded', bind) : bind();
+  })();
+</script>
 
 </body>
 
