@@ -7,6 +7,7 @@
     <title>Feliz Horizonte Plus | Centro de Salud Mental Online</title>
     <meta name="description"
         content="Centro de salud mental online premium. Psicología y Psiquiatría desde la comodidad de tu hogar. Atención profesional para Lima Metropolitana.">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         * {
             margin: 0;
@@ -18,7 +19,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #1a202c;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Evita scroll horizontal por las animaciones */
         }
 
         .navbar {
@@ -103,7 +104,7 @@
             font-weight: 800;
             margin-bottom: 25px;
             line-height: 1.2;
-            animation: fadeInUp 0.8s ease;
+            /* animación 'fadeInUp' quitada, se usará AOS */
         }
 
         .hero p {
@@ -111,7 +112,6 @@
             margin-bottom: 20px;
             opacity: 0.95;
             font-weight: 300;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
         }
 
         .hero-badges {
@@ -120,7 +120,6 @@
             gap: 15px;
             flex-wrap: wrap;
             margin: 30px 0;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
         }
 
         .badge {
@@ -144,7 +143,6 @@
             margin-top: 30px;
             transition: all 0.4s ease;
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            animation: fadeInUp 0.8s ease 0.6s backwards;
             position: relative;
             overflow: hidden;
         }
@@ -160,17 +158,8 @@
             margin-right: 10px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        /* Quitamos la animación Keyframe 'fadeInUp' porque ahora usamos AOS */
+        /* @keyframes fadeInUp { ... } */
 
         .trust-section {
             background: white;
@@ -613,14 +602,30 @@
             right: 30px;
             font-size: 1.5em;
             color: #667eea;
+            transition: transform 0.3s ease; /* Transición para el ícono */
+        }
+        
+        /* Estilos para el Acordeón ACTIVO */
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg); /* Gira el '+' a 'x' */
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* Altura suficiente para mostrar la respuesta */
+            padding: 0 30px 25px; /* Devuelve el padding inferior */
         }
 
         .faq-answer {
-            padding: 0 30px 25px;
+            max-height: 0; /* Oculto por defecto */
+            overflow: hidden;
+            transition: all 0.4s ease-out; /* Animación de despliegue */
+            padding: 0 30px; /* Padding L/R, pero 0 Top/Bottom cuando está cerrado */
             color: #4a5568;
             line-height: 1.8;
             font-size: 1.05em;
         }
+        /* Fin de estilos de Acordeón */
+
 
         .cta-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -751,7 +756,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 25px;
-            animation: fadeInDown 0.8s ease;
+            /* animación 'fadeInDown' quitada, se usará AOS */
         }
 
         .pulse-dot {
@@ -853,40 +858,42 @@
     </nav>
     <section class="hero">
         <div class="hero-content">
-            <div class="virtual-impact-badge"><span class="pulse-dot"></span><span>ATENCIÓN ONLINE</span></div>
-            <h1>Tu Salud Mental<br>Es Nuestra Prioridad</h1>
-            <p>Centro de salud mental online con psicología y psiquiatría especializada. Atención profesional desde la
+            <div class="virtual-impact-badge" data-aos="fade-down" data-aos-delay="100">
+                <span class="pulse-dot"></span><span>ATENCIÓN ONLINE</span>
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="200">Tu Salud Mental<br>Es Nuestra Prioridad</h1>
+            <p data-aos="fade-up" data-aos-delay="300">Centro de salud mental online con psicología y psiquiatría especializada. Atención profesional desde la
                 comodidad de tu hogar.</p>
-            <div class="hero-badges">
+            <div class="hero-badges" data-aos="fade-up" data-aos-delay="400">
                 <span class="badge">🔒 100% Confidencial</span>
                 <span class="badge">⏰ Horarios Flexibles</span>
                 <span class="badge">💻 Atención Virtual Segura</span>
             </div>
             <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20quiero%20agendar%20mi%20primera%20consulta"
-                class="cta-button">Agenda Tu Consulta Ahora</a>
+                class="cta-button" data-aos="fade-up" data-aos-delay="500">Agenda Tu Consulta Ahora</a>
         </div>
     </section>
     <section class="trust-section">
         <div class="container">
             <div class="trust-stats">
-                <div class="trust-stat"><span class="trust-number">10+</span><span class="trust-label">Años de
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="100"><span class="trust-number">10+</span><span class="trust-label">Años de
                         Experiencia</span></div>
-                <div class="trust-stat"><span class="trust-number">500+</span><span class="trust-label">Pacientes
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="200"><span class="trust-number">500+</span><span class="trust-label">Pacientes
                         Atendidos</span></div>
-                <div class="trust-stat"><span class="trust-number">100%</span><span class="trust-label">Online y
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="300"><span class="trust-number">100%</span><span class="trust-label">Online y
                         Confidencial</span></div>
-                <div class="trust-stat"><span class="trust-number">24/7</span><span class="trust-label">Respuesta
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="400"><span class="trust-number">24/7</span><span class="trust-label">Respuesta
                         WhatsApp</span></div>
             </div>
         </div>
     </section>
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Nuestro Equipo Profesional</h2>
-            <p class="section-subtitle">Especialistas certificados con amplia experiencia en salud mental, comprometidos
+            <h2 class="section-title" data-aos="fade-up">Nuestro Equipo Profesional</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Especialistas certificados con amplia experiencia en salud mental, comprometidos
                 con tu bienestar emocional.</p>
             <div class="team-grid">
-                <div class="team-card">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="team-image"><img src="images/cintya.png" alt="Lic. Cintya Isabel - Psicóloga Clínica">
                     </div>
                     <div class="team-content">
@@ -911,7 +918,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="team-card">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="team-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><img
                             src="images/yasmin.jpeg" alt="Dra. Yasmín Meneses - Médico Psiquiatra"></div>
                     <div class="team-content">
@@ -936,10 +943,10 @@
     </section>
     <section class="section section-dark">
         <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <p class="section-subtitle">Atención integral en salud mental adaptada a tus necesidades</p>
+            <h2 class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención integral en salud mental adaptada a tus necesidades</p>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <span class="service-icon">🧠</span>
                     <h3>Terapia Psicológica</h3>
                     <p>Sesiones individuales con enfoque cognitivo-conductual para trabajar ansiedad, depresión, estrés
@@ -951,7 +958,7 @@
                         <li>Seguimiento personalizado</li>
                     </ul>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <span class="service-icon">💊</span>
                     <h3>Consulta Psiquiátrica</h3>
                     <p>Evaluación, diagnóstico y tratamiento farmacológico especializado con seguimiento continuo de tu
@@ -963,7 +970,7 @@
                         <li>Modalidades terapéuticas avanzadas</li>
                     </ul>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <span class="service-icon">💑</span>
                     <h3>Terapia de Pareja</h3>
                     <p>Trabajo en conflictos de pareja, comunicación y fortalecimiento de vínculos afectivos para
@@ -980,11 +987,11 @@
     </section>
     <section class="pricing-section">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Planes de Atención</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Inversión en tu salud mental con
+            <h2 class="section-title" style="color: white;" data-aos="fade-up">Planes de Atención</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);" data-aos="fade-up" data-aos-delay="100">Inversión en tu salud mental con
                 profesionales altamente calificados</p>
             <div class="pricing-grid">
-                <div class="pricing-card">
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="pricing-header">
                         <div class="pricing-icon">🧠</div>
                         <h3 class="pricing-title">Terapia Psicológica</h3>
@@ -1003,7 +1010,7 @@
                     <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20quiero%20agendar%20terapia%20psicológica%20con%20la%20Lic.%20Cintya%20Isabel"
                         class="pricing-cta">Agendar Sesión</a>
                 </div>
-                <div class="pricing-card">
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="pricing-header">
                         <div class="pricing-icon">💊</div>
                         <h3 class="pricing-title">Consulta Psiquiátrica</h3>
@@ -1023,19 +1030,21 @@
                         class="pricing-cta">Agendar Consulta</a>
                 </div>
             </div>
-            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-top: 40px; font-size: 1.1em;">💳
+            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-top: 40px; font-size: 1.1em;" data-aos="fade-up" data-aos-delay="400">💳
                 Aceptamos Yape, Plin y Transferencia Bancaria</p>
         </div>
     </section>
 
     <section class="section section-dark">
         <div class="container">
-            <h2 class="section-title">La Experiencia de Nuestros Pacientes</h2>
-            <p class="section-subtitle">Tu bienestar es nuestra mejor carta de presentación.
-            </p>            
+            <h2 class="section-title" data-aos="fade-up">La Experiencia de Nuestros Pacientes</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Tu bienestar es nuestra mejor carta de presentación.
+                <br><em>(Recuerda reemplazar estos ejemplos con testimonios reales y anónimos).</em>
+            </p>
+            
             <div class="testimonial-grid">
                 
-                <div class="testimonial-card">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
                     <p class="testimonial-text">"Tenía muchas dudas sobre la terapia online, pero la Lic. Cintya me hizo sentir en confianza desde el primer día. Sus herramientas prácticas de TCC me han ayudado a manejar mi ansiedad. Ha sido un cambio increíble."</p>
                     <p class="testimonial-author">M.R., 34 años
@@ -1043,7 +1052,7 @@
                     </p>
                 </div>
 
-                <div class="testimonial-card">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
                     <p class="testimonial-text">"La Dra. Yasmín es una profesional excepcional. Me escuchó sin juzgar y me explicó cada paso del tratamiento con paciencia. Su enfoque sobre el duelo fue fundamental para mí. La consulta virtual fue impecable."</p>
                     <p class="testimonial-author">J.V., 45 años
@@ -1051,7 +1060,7 @@
                     </p>
                 </div>
 
-                <div class="testimonial-card">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
                     <p class="testimonial-text">"La flexibilidad de horarios y la comodidad de hacerlo desde casa me permitieron ser constante con mi terapia. Es un servicio de primer nivel, profesional y 100% confidencial. Lo recomiendo totalmente."</p>
                     <p class="testimonial-author">A.G., 29 años
@@ -1065,40 +1074,40 @@
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title">¿Por Qué Elegir Feliz Horizonte Plus?</h2>
-            <p class="section-subtitle">Atención de excelencia adaptada a tu estilo de vida</p>
+            <h2 class="section-title" data-aos="fade-up">¿Por Qué Elegir Feliz Horizonte Plus?</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención de excelencia adaptada a tu estilo de vida</p>
             <div class="benefits-grid">
-                <div class="benefit-card">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="benefit-icon">🏠</div>
                     <h3>Desde Tu Hogar</h3>
                     <p>Conéctate desde cualquier lugar. Sin tráfico, sin desplazamientos, sin perder tiempo valioso de
                         tu día.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="benefit-icon">📅</div>
                     <h3>Horarios Flexibles</h3>
                     <p>Agenda que se adapta a tu ritmo. Sesiones matutinas, vespertinas o de fin de semana según tu
                         disponibilidad.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="benefit-icon">🔐</div>
                     <h3>Máxima Privacidad</h3>
                     <p>Plataforma 100% segura y confidencial. Tu información protegida bajo estricto secreto
                         profesional.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="benefit-icon">👥</div>
                     <h3>Equipo Multidisciplinario</h3>
                     <p>Psicología y Psiquiatría trabajando en conjunto para tu bienestar integral y recuperación
                         completa.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="benefit-icon">🎯</div>
                     <h3>Enfoque Personalizado</h3>
                     <p>Cada tratamiento diseñado específicamente para tus necesidades, objetivos y situación particular.
                     </p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="benefit-icon">📈</div>
                     <h3>Métodos Comprobados</h3>
                     <p>Terapias basadas en evidencia científica con resultados medibles y seguimiento profesional
@@ -1109,9 +1118,9 @@
     </section>
     <section class="faq-section">
         <div class="container">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
-            <p class="section-subtitle">Todo lo que necesitas saber sobre nuestros servicios</p>
-            <div class="faq-container">
+            <h2 class="section-title" data-aos="fade-up">Preguntas Frecuentes</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Todo lo que necesitas saber sobre nuestros servicios</p>
+            <div class="faq-container" data-aos="fade-up" data-aos-delay="200">
                 <div class="faq-item">
                     <div class="faq-question">¿Cómo funcionan las sesiones virtuales?</div>
                     <div class="faq-answer">Las sesiones se realizan por videollamada mediante plataformas seguras como
@@ -1152,12 +1161,12 @@
     </section>
     <section class="cta-section">
         <div class="container">
-            <h2>Da El Primer Paso Hacia Tu Bienestar</h2>
-            <p>No esperes a que los problemas emocionales se vuelvan inmanejables. Agenda tu consulta hoy y comienza tu
+            <h2 data-aos="fade-up">Da El Primer Paso Hacia Tu Bienestar</h2>
+            <p data-aos="fade-up" data-aos-delay="100">No esperes a que los problemas emocionales se vuelvan inmanejables. Agenda tu consulta hoy y comienza tu
                 camino hacia el equilibrio mental con profesionales que realmente se preocupan por ti.</p>
             <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20quiero%20más%20información%20sobre%20Feliz%20Horizonte%20Plus"
-                class="cta-button">Contactar por WhatsApp</a>
-            <p style="margin-top: 30px; font-size: 1.1em; opacity: 0.9;">⚡ Respuesta inmediata • Agenda disponible esta
+                class="cta-button" data-aos="fade-up" data-aos-delay="200">Contactar por WhatsApp</a>
+            <p style="margin-top: 30px; font-size: 1.1em; opacity: 0.9;" data-aos="fade-up" data-aos-delay="300">⚡ Respuesta inmediata • Agenda disponible esta
                 semana</p>
         </div>
     </section>
@@ -1178,6 +1187,27 @@
     </footer>
     <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20necesito%20información" class="whatsapp-float"
         title="Contactar por WhatsApp">💬</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item');
+    
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Cierra todos los demás items para que solo uno esté abierto
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Abre o cierra el item actual
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+
     <script>
         (function () {
             function bind() {
@@ -1198,6 +1228,16 @@
                 document.addEventListener('DOMContentLoaded', bind) : bind();
         })();
     </script>
-</body>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800, // Duración de la animación en ms
+        once: true, // Animar solo una vez al bajar
+        offset: 100 // Empezar la animación 100px antes de que el elemento llegue
+      });
+    </script>
+
+    </body>
 
 </html>
