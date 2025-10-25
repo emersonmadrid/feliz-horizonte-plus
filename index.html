@@ -774,6 +774,65 @@
                 box-shadow: 0 8px 40px rgba(37, 211, 102, 0.8);
             }
         }
+        
+        /* =================================== */
+        /* == ESTILOS PARA TESTIMONIOS == */
+        /* =================================== */
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+            transition: all 0.3s ease;
+            position: relative;
+            border-top: 5px solid #667eea; /* Acento de color */
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .testimonial-rating {
+            font-size: 1.5em;
+            color: #FFC107; /* Color dorado para estrellas */
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1em;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #1a202c;
+        }
+        
+        .testimonial-author span {
+            display: block;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #667eea; /* Color de acento de tu marca */
+            margin-top: 4px;
+        }
+        
+        /* =================================== */
+        /* == FIN ESTILOS TESTIMONIOS == */
+        /* =================================== */
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S054Y40TB8"></script>
     <script>
@@ -968,6 +1027,42 @@
                 Aceptamos Yape, Plin y Transferencia Bancaria</p>
         </div>
     </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">La Experiencia de Nuestros Pacientes</h2>
+            <p class="section-subtitle">Tu bienestar es nuestra mejor carta de presentación.
+            </p>            
+            <div class="testimonial-grid">
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Tenía muchas dudas sobre la terapia online, pero la Lic. Cintya me hizo sentir en confianza desde el primer día. Sus herramientas prácticas de TCC me han ayudado a manejar mi ansiedad. Ha sido un cambio increíble."</p>
+                    <p class="testimonial-author">M.R., 34 años
+                        <span>Paciente de Terapia Psicológica</span>
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"La Dra. Yasmín es una profesional excepcional. Me escuchó sin juzgar y me explicó cada paso del tratamiento con paciencia. Su enfoque sobre el duelo fue fundamental para mí. La consulta virtual fue impecable."</p>
+                    <p class="testimonial-author">J.V., 45 años
+                        <span>Paciente de Consulta Psiquiátrica</span>
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"La flexibilidad de horarios y la comodidad de hacerlo desde casa me permitieron ser constante con mi terapia. Es un servicio de primer nivel, profesional y 100% confidencial. Lo recomiendo totalmente."</p>
+                    <p class="testimonial-author">A.G., 29 años
+                        <span>Paciente</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section class="section">
         <div class="container">
             <h2 class="section-title">¿Por Qué Elegir Feliz Horizonte Plus?</h2>
@@ -1078,6 +1173,7 @@
             <div class="footer-divider"></div>
             <p class="footer-bottom">© 2025 Feliz Horizonte Plus. Todos los derechos reservados.</p>
             <p class="footer-bottom">Lima, Perú</p>
+            <p class="footer-bottom" style="margin-top: 15px;"><a href="politica-de-privacidad.html" style="color: #a0aec0; text-decoration: underline;">Política de Privacidad</a></p>
         </div>
     </footer>
     <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20necesito%20información" class="whatsapp-float"
