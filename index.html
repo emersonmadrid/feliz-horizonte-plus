@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta name="facebook-domain-verification" content="i97uupsq6j0ih27e9mn7o2zh7ou7xr" />
-    <meta charset="UTF-8">
+    <meta charset="UTF-OR">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Horizonte Plus | Centro de Salud Mental Online</title>
+    <title>Feliz Horizonte | Centro de Salud Mental Online y Presencial</title>
     <meta name="description"
-        content="Centro de salud mental online premium. Psicología y Psiquiatría desde la comodidad de tu hogar. Atención profesional para Lima Metropolitana.">
+        content="Centro de salud mental con atención online y presencial. Psicología y Psiquiatría desde la comodidad de tu hogar o en nuestro consultorio. Atención profesional para Lima Metropolitana.">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         * {
@@ -19,7 +20,8 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #1a202c;
-            overflow-x: hidden; /* Evita scroll horizontal por las animaciones */
+            overflow-x: hidden;
+            /* Evita scroll horizontal por las animaciones */
         }
 
         .navbar {
@@ -65,33 +67,34 @@
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
 
-/* MENU HAMBURGUESA */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2em;
-    cursor: pointer;
-    color: #667eea;
-    padding: 5px;
-}
+        /* MENU HAMBURGUESA */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: #667eea;
+            padding: 5px;
+        }
 
-.nav-menu {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
 
-.nav-link {
-    color: #4a5568;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
+        .nav-link {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-.nav-link:hover {
-    color: #667eea;
-}        
+        .nav-link:hover {
+            color: #667eea;
+        }
+
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -350,13 +353,15 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            /* AJUSTADO A 4 COLUMNAS (auto-fit se encarga) */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .service-card {
             background: white;
-            padding: 45px;
+            padding: 40px;
+            /* Reducido un poco para 4 columnas */
             border-radius: 25px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
             transition: all 0.4s ease;
@@ -382,13 +387,15 @@
         }
 
         .service-icon {
-            font-size: 4em;
-            margin-bottom: 25px;
+            font-size: 3.5em;
+            /* Reducido un poco */
+            margin-bottom: 20px;
             display: block;
         }
 
         .service-card h3 {
-            font-size: 1.8em;
+            font-size: 1.6em;
+            /* Reducido un poco */
             color: #1a202c;
             margin-bottom: 15px;
             font-weight: 700;
@@ -396,20 +403,22 @@
 
         .service-card p {
             color: #4a5568;
-            font-size: 1.1em;
-            line-height: 1.8;
-            margin-bottom: 25px;
+            font-size: 1.05em;
+            /* Reducido un poco */
+            line-height: 1.7;
+            margin-bottom: 20px;
         }
 
         .service-features {
             list-style: none;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .service-features li {
-            padding: 10px 0;
+            padding: 8px 0;
+            /* Reducido un poco */
             color: #4a5568;
-            font-size: 1em;
+            font-size: 0.95em;
         }
 
         .service-features li::before {
@@ -417,7 +426,7 @@
             color: #667eea;
             font-weight: bold;
             margin-right: 10px;
-            font-size: 1.5em;
+            font-size: 1.3em;
         }
 
         .pricing-section {
@@ -439,9 +448,11 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            /* AJUSTADO PARA 3 TARJETAS */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
-            max-width: 1100px;
+            max-width: 1200px;
+            /* Aumentado para 3 tarjetas */
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -450,7 +461,8 @@
         .pricing-card {
             background: white;
             border-radius: 30px;
-            padding: 50px;
+            padding: 45px;
+            /* Reducido un poco */
             box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
             transition: all 0.4s ease;
             position: relative;
@@ -474,16 +486,16 @@
 
         .pricing-header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .pricing-icon {
-            font-size: 4em;
+            font-size: 3.5em;
             margin-bottom: 20px;
         }
 
         .pricing-title {
-            font-size: 2em;
+            font-size: 1.8em;
             color: #1a202c;
             margin-bottom: 10px;
             font-weight: 700;
@@ -491,16 +503,16 @@
 
         .pricing-specialist {
             color: #667eea;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: 600;
         }
 
         .price {
             text-align: center;
-            font-size: 4.5em;
+            font-size: 4em;
             font-weight: 800;
             color: #1a202c;
-            margin: 30px 0;
+            margin: 25px 0;
             line-height: 1;
         }
 
@@ -512,14 +524,14 @@
 
         .pricing-features {
             list-style: none;
-            margin: 35px 0;
+            margin: 30px 0;
         }
 
         .pricing-features li {
-            padding: 15px 0;
+            padding: 12px 0;
             color: #4a5568;
             border-bottom: 1px solid #e2e8f0;
-            font-size: 1.05em;
+            font-size: 1em;
         }
 
         .pricing-features li:last-child {
@@ -531,20 +543,20 @@
             color: #25D366;
             font-weight: bold;
             margin-right: 12px;
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
 
         .pricing-cta {
             display: block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 18px 40px;
+            padding: 16px 35px;
             text-align: center;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: 700;
-            margin-top: 30px;
+            margin-top: 25px;
             transition: all 0.3s ease;
         }
 
@@ -629,28 +641,36 @@
             right: 30px;
             font-size: 1.5em;
             color: #667eea;
-            transition: transform 0.3s ease; /* Transición para el ícono */
+            transition: transform 0.3s ease;
+            /* Transición para el ícono */
         }
-        
+
         /* Estilos para el Acordeón ACTIVO */
         .faq-item.active .faq-question::after {
-            transform: rotate(45deg); /* Gira el '+' a 'x' */
+            transform: rotate(45deg);
+            /* Gira el '+' a 'x' */
         }
 
         .faq-item.active .faq-answer {
-            max-height: 300px; /* Altura suficiente para mostrar la respuesta */
-            padding: 0 30px 25px; /* Devuelve el padding inferior */
+            max-height: 300px;
+            /* Altura suficiente para mostrar la respuesta */
+            padding: 0 30px 25px;
+            /* Devuelve el padding inferior */
         }
 
         .faq-answer {
-            max-height: 0; /* Oculto por defecto */
+            max-height: 0;
+            /* Oculto por defecto */
             overflow: hidden;
-            transition: all 0.4s ease-out; /* Animación de despliegue */
-            padding: 0 30px; /* Padding L/R, pero 0 Top/Bottom cuando está cerrado */
+            transition: all 0.4s ease-out;
+            /* Animación de despliegue */
+            padding: 0 30px;
+            /* Padding L/R, pero 0 Top/Bottom cuando está cerrado */
             color: #4a5568;
             line-height: 1.8;
             font-size: 1.05em;
         }
+
         /* Fin de estilos de Acordeón */
 
 
@@ -711,110 +731,113 @@
             font-size: 0.95em;
         }
 
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
 
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        gap: 0;
-    }
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                gap: 0;
+            }
 
-    .nav-menu.active {
-        display: flex;
-    }
+            .nav-menu.active {
+                display: flex;
+            }
 
-    .nav-link, .nav-cta {
-        width: 100%;
-        padding: 15px;
-        text-align: center;
-        border-bottom: 1px solid #e2e8f0;
-    }
+            .nav-link,
+            .nav-cta {
+                width: 100%;
+                padding: 15px;
+                text-align: center;
+                border-bottom: 1px solid #e2e8f0;
+            }
 
-    .nav-cta {
-        margin-top: 10px;
-        border-bottom: none;
-    }
+            .nav-cta {
+                margin-top: 10px;
+                border-bottom: none;
+            }
 
-    .hero h1 {
-        font-size: 2em;
-        line-height: 1.3;
-    }
+            .hero h1 {
+                font-size: 2em;
+                line-height: 1.3;
+            }
 
-    .hero p {
-        font-size: 1.15em;
-    }
+            .hero p {
+                font-size: 1.15em;
+            }
 
-    .section-title {
-        font-size: 2em;
-        line-height: 1.3;
-    }
+            .section-title {
+                font-size: 2em;
+                line-height: 1.3;
+            }
 
-    .section-subtitle {
-        font-size: 1.15em;
-    }
+            .section-subtitle {
+                font-size: 1.15em;
+            }
 
-    .team-grid,
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
+            .team-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
 
-    .team-image {
-        height: 300px;
-    }
+            .team-image {
+                height: 300px;
+            }
 
-    .trust-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
+            .trust-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
 
-    .trust-number {
-        font-size: 3em;
-    }
+            .trust-number {
+                font-size: 3em;
+            }
 
-    .navbar .logo {
-        font-size: 1.2em;
-    }
+            .navbar .logo {
+                font-size: 1.2em;
+            }
 
-    .badge {
-        font-size: 0.9em;
-        padding: 10px 18px;
-    }
+            .badge {
+                font-size: 0.9em;
+                padding: 10px 18px;
+            }
 
-    .cta-button {
-        padding: 18px 35px;
-        font-size: 1.15em;
-    }
+            .cta-button {
+                padding: 18px 35px;
+                font-size: 1.15em;
+            }
 
-    .whatsapp-float {
-        width: 60px;
-        height: 60px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 2em;
-    }
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 2em;
+            }
 
-    .service-card, .benefit-card, .testimonial-card {
-        padding: 30px;
-    }
+            .service-card,
+            .benefit-card,
+            .testimonial-card {
+                padding: 30px;
+            }
 
-    .pricing-card {
-        padding: 35px;
-    }
+            .pricing-card {
+                padding: 35px;
+            }
 
-    .price {
-        font-size: 3.5em;
-    }
-}
+            .price {
+                font-size: 3.5em;
+            }
+        }
 
         .whatsapp-float {
             position: fixed;
@@ -867,67 +890,69 @@
             animation: pulse-dot 2s ease-in-out infinite;
             box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
         }
-/* COMO FUNCIONA */
-.how-it-works {
-    background: white;
-    padding: 80px 20px;
-}
 
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 50px auto 0;
-}
+        /* COMO FUNCIONA */
+        .how-it-works {
+            background: white;
+            padding: 80px 20px;
+        }
 
-.step-card {
-    text-align: center;
-    padding: 40px 30px;
-    border-radius: 20px;
-    background: #f7fafc;
-    position: relative;
-    border: 2px solid #e2e8f0;
-    transition: all 0.3s ease;
-}
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 50px auto 0;
+        }
 
-.step-card:hover {
-    border-color: #667eea;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
-}
+        .step-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: #f7fafc;
+            position: relative;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
 
-.step-number {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.3em;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-}
+        .step-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
 
-.step-card h3 {
-    margin-top: 20px;
-    font-size: 1.4em;
-    color: #1a202c;
-    margin-bottom: 12px;
-    font-weight: 700;
-}
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3em;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
 
-.step-card p {
-    color: #4a5568;
-    line-height: 1.7;
-    font-size: 1.05em;
-}
+        .step-card h3 {
+            margin-top: 20px;
+            font-size: 1.4em;
+            color: #1a202c;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .step-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
         @keyframes pulse {
 
             0%,
@@ -939,7 +964,7 @@
                 box-shadow: 0 8px 40px rgba(37, 211, 102, 0.8);
             }
         }
-        
+
         /* =================================== */
         /* == ESTILOS PARA TESTIMONIOS == */
         /* =================================== */
@@ -959,7 +984,8 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
             transition: all 0.3s ease;
             position: relative;
-            border-top: 5px solid #667eea; /* Acento de color */
+            border-top: 5px solid #667eea;
+            /* Acento de color */
         }
 
         .testimonial-card:hover {
@@ -969,7 +995,8 @@
 
         .testimonial-rating {
             font-size: 1.5em;
-            color: #FFC107; /* Color dorado para estrellas */
+            color: #FFC107;
+            /* Color dorado para estrellas */
             margin-bottom: 15px;
         }
 
@@ -986,15 +1013,16 @@
             font-weight: 700;
             color: #1a202c;
         }
-        
+
         .testimonial-author span {
             display: block;
             font-size: 0.9em;
             font-weight: 500;
-            color: #667eea; /* Color de acento de tu marca */
+            color: #667eea;
+            /* Color de acento de tu marca */
             margin-top: 4px;
         }
-        
+
         /* =================================== */
         /* == FIN ESTILOS TESTIMONIOS == */
         /* =================================== */
@@ -1009,55 +1037,60 @@
 </head>
 
 <body>
-<nav class="navbar">
-    <div class="container">
-        <div class="logo">Feliz Horizonte Plus</div>
-        <button class="menu-toggle" id="menuToggle">☰</button>
-        <div class="nav-menu" id="navMenu">
-            <a href="#equipo" class="nav-link">Equipo</a>
-            <a href="#servicios" class="nav-link">Servicios</a>
-            <a href="#precios" class="nav-link">Precios</a>
-            <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20quiero%20información%20sobre%20sus%20servicios"
-                class="nav-cta">Agendar Consulta</a>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Feliz Horizonte</div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <div class="nav-menu" id="navMenu">
+                <a href="#equipo" class="nav-link">Equipo</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#precios" class="nav-link">Atención Presencial</a>
+                <a href="#precios" class="nav-link">Precios</a>
+                <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20información%20sobre%20sus%20servicios"
+                    class="nav-cta">Agendar Consulta</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <section class="hero">
         <div class="hero-content">
             <div class="virtual-impact-badge" data-aos="fade-down" data-aos-delay="100">
-                <span class="pulse-dot"></span><span>ATENCIÓN ONLINE</span>
+                <span class="pulse-dot"></span><span>ATENCIÓN ONLINE Y PRESENCIAL</span>
             </div>
             <h1 data-aos="fade-up" data-aos-delay="200">Tu Salud Mental<br>Es Nuestra Prioridad</h1>
-            <p data-aos="fade-up" data-aos-delay="300">Centro de salud mental online con psicología y psiquiatría especializada. Atención profesional desde la
-                comodidad de tu hogar.</p>
+            <p data-aos="fade-up" data-aos-delay="300">Centro de salud mental con psicología y psiquiatría
+                especializada. Atención profesional desde la
+                comodidad de tu hogar o en nuestro consultorio.</p>
             <div class="hero-badges" data-aos="fade-up" data-aos-delay="400">
                 <span class="badge">🔒 100% Confidencial</span>
                 <span class="badge">⏰ Horarios Flexibles</span>
-                <span class="badge">💻 Atención Virtual Segura</span>
+                <span class="badge">📍 Atención Presencial</span>
             </div>
-            <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20quiero%20agendar%20mi%20primera%20consulta"
+            <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20agendar%20mi%20primera%20consulta"
                 class="cta-button" data-aos="fade-up" data-aos-delay="500">Agenda Tu Consulta Ahora</a>
         </div>
     </section>
     <section class="how-it-works">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">¿Cómo Funciona?</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">En 3 pasos simples comienza tu camino hacia el bienestar</p>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">En 3 pasos simples comienza tu camino
+                hacia el bienestar</p>
             <div class="steps-grid">
                 <div class="step-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="step-number">1</div>
                     <h3>Contáctanos por WhatsApp</h3>
-                    <p>Te respondemos en menos de 1 hora. Coordinamos tu primera cita según tu disponibilidad.</p>
+                    <p>Te respondemos en menos de 1 hora. Coordinamos tu cita (online o presencial) según tu
+                        disponibilidad.</p>
                 </div>
                 <div class="step-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="step-number">2</div>
                     <h3>Realiza el Pago y Agenda</h3>
-                    <p>Elige tu horario. Aceptamos Yape, Plin o transferencia. Te enviamos el enlace de videollamada.</p>
+                    <p>Elige tu horario. Aceptamos Yape, Plin o transferencia. Te enviamos el enlace (si es virtual) o
+                        la dirección.</p>
                 </div>
                 <div class="step-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="step-number">3</div>
-                    <h3>Conéctate desde Casa</h3>
-                    <p>Tu primera sesión es una evaluación inicial. Comenzamos a trabajar en tu bienestar desde el primer día.</p>
+                    <h3>Inicia tu Terapia</h3>
+                    <p>Conéctate desde casa o visítanos. Empezamos a trabajar en tu bienestar desde el primer día.</p>
                 </div>
             </div>
         </div>
@@ -1065,13 +1098,17 @@
     <section class="trust-section">
         <div class="container">
             <div class="trust-stats">
-                <div class="trust-stat" data-aos="fade-up" data-aos-delay="100"><span class="trust-number">10+</span><span class="trust-label">Años de
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="100"><span
+                        class="trust-number">10+</span><span class="trust-label">Años de
                         Experiencia</span></div>
-                <div class="trust-stat" data-aos="fade-up" data-aos-delay="200"><span class="trust-number">500+</span><span class="trust-label">Pacientes
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="200"><span
+                        class="trust-number">500+</span><span class="trust-label">Pacientes
                         Atendidos</span></div>
-                <div class="trust-stat" data-aos="fade-up" data-aos-delay="300"><span class="trust-number">100%</span><span class="trust-label">Online y
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="300"><span
+                        class="trust-number">100%</span><span class="trust-label">Online y
                         Confidencial</span></div>
-                <div class="trust-stat" data-aos="fade-up" data-aos-delay="400"><span class="trust-number">24/7</span><span class="trust-label">Respuesta
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="400"><span
+                        class="trust-number">24/7</span><span class="trust-label">Respuesta
                         WhatsApp</span></div>
             </div>
         </div>
@@ -1079,7 +1116,8 @@
     <section class="section" id="equipo">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Nuestro Equipo Profesional</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Especialistas certificados con amplia experiencia en salud mental, comprometidos
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Especialistas certificados con amplia
+                experiencia en salud mental, comprometidos
                 con tu bienestar emocional.</p>
             <div class="team-grid">
                 <div class="team-card" data-aos="fade-up" data-aos-delay="200">
@@ -1096,7 +1134,7 @@
                         <p class="team-description">Psicóloga clínica con más de 10 años de experiencia y más de 500
                             pacientes atendidos. Especialista certificada en Psicología Forense con formación avanzada
                             en peritajes psicológicos. Trabajo desde un enfoque cognitivo-conductual, brindando atención
-                            empática y centrada en las necesidades únicas de cada persona.</p>
+                            empática (online y presencial) y centrada en las necesidades únicas de cada persona.</p>
                         <ul class="team-specialties">
                             <li>Terapia Cognitivo Conductual (TCC)</li>
                             <li>Manejo de Ansiedad y Depresión</li>
@@ -1116,7 +1154,8 @@
                         <div class="team-credentials"><strong>CMP 64796 | RNE 039413</strong><br>Médico Cirujano -
                             URP<br>Miembro APP y ISSUP</div>
                         <p class="team-description">Psiquiatra especialista en Tanatología con formación avanzada en
-                            múltiples modalidades terapéuticas. Especialización en Hospital Hermilio Valdizán (Perú) y
+                            múltiples modalidades terapéuticas (atención online). Especialización en Hospital Hermilio
+                            Valdizán (Perú) y
                             Hospital Fray Bernardino Álvarez (México).</p>
                         <ul class="team-specialties">
                             <li>Terapia Dialéctica Conductual (TDC)</li>
@@ -1133,13 +1172,14 @@
     <section class="section section-dark" id="servicios">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención integral en salud mental adaptada a tus necesidades</p>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención integral en salud mental
+                adaptada a tus necesidades</p>
             <div class="services-grid">
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <span class="service-icon">🧠</span>
-                    <h3>Terapia Psicológica</h3>
-                    <p>Sesiones individuales con enfoque cognitivo-conductual para trabajar ansiedad, depresión, estrés
-                        y desarrollo personal.</p>
+                    <span class="service-icon">💻</span>
+                    <h3>Terapia Psicológica Online</h3>
+                    <p>Sesiones individuales virtuales con enfoque cognitivo-conductual para trabajar ansiedad,
+                        depresión y estrés.</p>
                     <ul class="service-features">
                         <li>Sesiones de 50 minutos</li>
                         <li>Plataforma segura (Zoom/Meet)</li>
@@ -1149,7 +1189,7 @@
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <span class="service-icon">💊</span>
-                    <h3>Consulta Psiquiátrica</h3>
+                    <h3>Consulta Psiquiátrica Online</h3>
                     <p>Evaluación, diagnóstico y tratamiento farmacológico especializado con seguimiento continuo de tu
                         proceso.</p>
                     <ul class="service-features">
@@ -1160,15 +1200,27 @@
                     </ul>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <span class="service-icon">📍</span>
+                    <h3>Terapia Presencial</h3>
+                    <p>La calidez de la terapia tradicional. Sesiones en nuestro consultorio privado y seguro en [Tu
+                        Distrito].</p>
+                    <ul class="service-features">
+                        <li>Sesiones de 50 minutos</li>
+                        <li>Ambiente 100% privado</li>
+                        <li>Protocolos de bioseguridad</li>
+                        <li>Atención personalizada</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                     <span class="service-icon">💑</span>
                     <h3>Terapia de Pareja</h3>
-                    <p>Trabajo en conflictos de pareja, comunicación y fortalecimiento de vínculos afectivos para
-                        construir relaciones más saludables.</p>
+                    <p>Trabajo en conflictos de pareja, comunicación y fortalecimiento de vínculos afectivos (Online y
+                        Presencial).</p>
                     <ul class="service-features">
                         <li>Resolución de conflictos</li>
                         <li>Mejora de comunicación</li>
                         <li>Fortalecimiento del vínculo</li>
-                        <li>Sesiones conjuntas online</li>
+                        <li>Sesiones conjuntas</li>
                     </ul>
                 </div>
             </div>
@@ -1177,16 +1229,17 @@
     <section class="pricing-section" id="precios">
         <div class="container">
             <h2 class="section-title" style="color: white;" data-aos="fade-up">Planes de Atención</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);" data-aos="fade-up" data-aos-delay="100">Inversión en tu salud mental con
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);" data-aos="fade-up" data-aos-delay="100">
+                Inversión en tu salud mental con
                 profesionales altamente calificados</p>
             <div class="pricing-grid">
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="pricing-header">
                         <div class="pricing-icon">🧠</div>
-                        <h3 class="pricing-title">Terapia Psicológica</h3>
+                        <h3 class="pricing-title">Psicología Online</h3>
                         <p class="pricing-specialist">Lic. Cintya Isabel</p>
                     </div>
-                    <div class="price">S/. 140<div class="price-period">por sesión</div>
+                    <div class="price">S/. 85<div class="price-period">por sesión</div>
                     </div>
                     <ul class="pricing-features">
                         <li>Sesión individual de 50 minutos</li>
@@ -1196,16 +1249,37 @@
                         <li>Seguimiento personalizado</li>
                         <li>Horarios flexibles</li>
                     </ul>
-                    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20quiero%20agendar%20terapia%20psicológica%20con%20la%20Lic.%20Cintya%20Isabel"
-                        class="pricing-cta">Agendar Sesión</a>
+                    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20agendar%20terapia%20psicológica%20ONLINE%20con%20la%20Lic.%20Cintya%20Isabel"
+                        class="pricing-cta">Agendar Sesión Online</a>
                 </div>
+
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-header">
+                        <div class="pricing-icon">🏠</div>
+                        <h3 class="pricing-title">Psicología Presencial</h3>
+                        <p class="pricing-specialist">Lic. Cintya Isabel</p>
+                    </div>
+                    <div class="price">S/. 89<div class="price-period">por sesión</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Sesión individual de 50 minutos</li>
+                        <li>Consultorio privado</li>
+                        <li>Ambiente seguro y confortable</li>
+                        <li>Material terapéutico incluido</li>
+                        <li>Protocolos de bioseguridad</li>
+                        <li>Ubicación en [Tu Distrito]</li>
+                    </ul>
+                    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20agendar%20terapia%20psicológica%20PRESENCIAL%20con%20la%20Lic.%20Cintya%20Isabel"
+                        class="pricing-cta">Agendar Sesión Presencial</a>
+                </div>
+
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="pricing-header">
                         <div class="pricing-icon">💊</div>
                         <h3 class="pricing-title">Consulta Psiquiátrica</h3>
                         <p class="pricing-specialist">Dra. Yasmín Meneses</p>
                     </div>
-                    <div class="price">S/. 200<div class="price-period">por consulta</div>
+                    <div class="price">S/. 180<div class="price-period">por consulta</div>
                     </div>
                     <ul class="pricing-features">
                         <li>Evaluación psiquiátrica completa</li>
@@ -1215,11 +1289,12 @@
                         <li>Seguimiento farmacológico</li>
                         <li>Atención especializada online</li>
                     </ul>
-                    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20necesito%20consulta%20psiquiátrica%20con%20la%20Dra.%20Yasmín%20Meneses"
+                    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20necesito%20consulta%20psiquiátrica%20con%20la%20Dra.%20Yasmín%20Meneses"
                         class="pricing-cta">Agendar Consulta</a>
                 </div>
             </div>
-            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-top: 40px; font-size: 1.1em;" data-aos="fade-up" data-aos-delay="400">💳
+            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-top: 40px; font-size: 1.1em;"
+                data-aos="fade-up" data-aos-delay="400">💳
                 Aceptamos Yape, Plin y Transferencia Bancaria</p>
         </div>
     </section>
@@ -1227,14 +1302,17 @@
     <section class="section section-dark">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">La Experiencia de Nuestros Pacientes</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Tu bienestar es nuestra mejor carta de presentación.
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Tu bienestar es nuestra mejor carta de
+                presentación.
             </p>
-            
+
             <div class="testimonial-grid">
-                
+
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Tenía muchas dudas sobre la terapia online, pero la Lic. Cintya me hizo sentir en confianza desde el primer día. Sus herramientas prácticas de TCC me han ayudado a manejar mi ansiedad. Ha sido un cambio increíble."</p>
+                    <p class="testimonial-text">"Tenía muchas dudas sobre la terapia online, pero la Lic. Cintya me hizo
+                        sentir en confianza desde el primer día. Sus herramientas prácticas de TCC me han ayudado a
+                        manejar mi ansiedad. Ha sido un cambio increíble."</p>
                     <p class="testimonial-author">M.R., 34 años
                         <span>Paciente de Terapia Psicológica</span>
                     </p>
@@ -1242,7 +1320,9 @@
 
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"La Dra. Yasmín es una profesional excepcional. Me escuchó sin juzgar y me explicó cada paso del tratamiento con paciencia. Su enfoque sobre el duelo fue fundamental para mí. La consulta virtual fue impecable."</p>
+                    <p class="testimonial-text">"La Dra. Yasmín es una profesional excepcional. Me escuchó sin juzgar y
+                        me explicó cada paso del tratamiento con paciencia. Su enfoque sobre el duelo fue fundamental
+                        para mí. La consulta virtual fue impecable."</p>
                     <p class="testimonial-author">J.V., 45 años
                         <span>Paciente de Consulta Psiquiátrica</span>
                     </p>
@@ -1250,7 +1330,9 @@
 
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"La flexibilidad de horarios y la comodidad de hacerlo desde casa me permitieron ser constante con mi terapia. Es un servicio de primer nivel, profesional y 100% confidencial. Lo recomiendo totalmente."</p>
+                    <p class="testimonial-text">"Pude elegir entre ir al consultorio o hacerlo virtual, y esa
+                        flexibilidad me permitió ser constante con mi terapia. Es un servicio de primer nivel,
+                        profesional y 100% confidencial. Lo recomiendo totalmente."</p>
                     <p class="testimonial-author">A.G., 29 años
                         <span>Paciente</span>
                     </p>
@@ -1262,20 +1344,27 @@
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">¿Por Qué Elegir Feliz Horizonte Plus?</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención de excelencia adaptada a tu estilo de vida</p>
+            <h2 class="section-title" data-aos="fade-up">¿Por Qué Elegir Feliz Horizonte?</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención de excelencia adaptada a tu
+                estilo de vida</p>
             <div class="benefits-grid">
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="benefit-icon">🏠</div>
+                    <div class="benefit-icon">💻</div>
                     <h3>Desde Tu Hogar</h3>
                     <p>Conéctate desde cualquier lugar. Sin tráfico, sin desplazamientos, sin perder tiempo valioso de
                         tu día.</p>
                 </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="benefit-icon">📍</div>
+                    <h3>Nuestro Consultorio</h3>
+                    <p>Visítanos en nuestro espacio físico. Un ambiente tranquilo, profesional y seguro para tu terapia
+                        presencial.</p>
+                </div>
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="benefit-icon">📅</div>
                     <h3>Horarios Flexibles</h3>
-                    <p>Agenda que se adapta a tu ritmo. Sesiones matutinas, vespertinas o de fin de semana según tu
-                        disponibilidad.</p>
+                    <p>Agenda que se adapta a tu ritmo. Sesiones matutinas, vespertinas o de fin de semana (Online o
+                        Presencial).</p>
                 </div>
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="benefit-icon">🔐</div>
@@ -1292,14 +1381,7 @@
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="benefit-icon">🎯</div>
                     <h3>Enfoque Personalizado</h3>
-                    <p>Cada tratamiento diseñado específicamente para tus necesidades, objetivos y situación particular.
-                    </p>
-                </div>
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="benefit-icon">📈</div>
-                    <h3>Métodos Comprobados</h3>
-                    <p>Terapias basadas en evidencia científica con resultados medibles y seguimiento profesional
-                        constante.</p>
+                    <p>Cada tratamiento diseñado específicamente para tus necesidades, ya sea online o presencial.</p>
                 </div>
             </div>
         </div>
@@ -1307,13 +1389,20 @@
     <section class="faq-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Preguntas Frecuentes</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Todo lo que necesitas saber sobre nuestros servicios</p>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Todo lo que necesitas saber sobre
+                nuestros servicios</p>
             <div class="faq-container" data-aos="fade-up" data-aos-delay="200">
                 <div class="faq-item">
                     <div class="faq-question">¿Cómo funcionan las sesiones virtuales?</div>
                     <div class="faq-answer">Las sesiones se realizan por videollamada mediante plataformas seguras como
                         Zoom o Google Meet. Solo necesitas una conexión a internet estable, un dispositivo con cámara y
                         un lugar privado. Te enviamos el enlace antes de cada sesión.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Dónde queda el consultorio presencial?</div>
+                    <div class="faq-answer">Nuestro consultorio está ubicado en [Añade tu distrito/dirección aquí],
+                        Lima. Es un espacio privado y confortable, diseñado para tu bienestar y seguridad. Te enviaremos
+                        la dirección exacta al confirmar tu cita.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">¿Qué diferencia hay entre psicología y psiquiatría?</div>
@@ -1334,7 +1423,8 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">¿Qué pasa si necesito cancelar o reprogramar?</div>
-                    <div class="faq-answer">Puedes reprogramar tu cita con al menos 24 horas de anticipación sin costo
+                    <div class="faq-answer">Puedes reprogramar tu cita (online o presencial) con al menos 24 horas de
+                        anticipación sin costo
                         adicional. Cancelaciones con menos tiempo pueden no ser reembolsables. Contáctanos por WhatsApp
                         para cualquier cambio.</div>
                 </div>
@@ -1350,36 +1440,39 @@
     <section class="cta-section">
         <div class="container">
             <h2 data-aos="fade-up">Da El Primer Paso Hacia Tu Bienestar</h2>
-            <p data-aos="fade-up" data-aos-delay="100">No esperes a que los problemas emocionales se vuelvan inmanejables. Agenda tu consulta hoy y comienza tu
+            <p data-aos="fade-up" data-aos-delay="100">No esperes a que los problemas emocionales se vuelvan
+                inmanejables. Agenda tu consulta (online o presencial) hoy y comienza tu
                 camino hacia el equilibrio mental con profesionales que realmente se preocupan por ti.</p>
-            <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20quiero%20más%20información%20sobre%20Feliz%20Horizonte%20Plus"
+            <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20más%20información%20sobre%20sus%20servicios"
                 class="cta-button" data-aos="fade-up" data-aos-delay="200">Contactar por WhatsApp</a>
-            <p style="margin-top: 30px; font-size: 1.1em; opacity: 0.9;" data-aos="fade-up" data-aos-delay="300">⚡ Respuesta inmediata • Agenda disponible esta
+            <p style="margin-top: 30px; font-size: 1.1em; opacity: 0.9;" data-aos="fade-up" data-aos-delay="300">⚡
+                Respuesta inmediata • Agenda disponible esta
                 semana</p>
         </div>
     </section>
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">Feliz Horizonte Plus</div>
-            <p class="footer-info">Centro de Salud Mental Online</p>
-            <p class="footer-info">Atención Psicológica y Psiquiátrica Virtual</p>
+            <div class="footer-logo">Feliz Horizonte</div>
+            <p class="footer-info">Centro de Salud Mental Online y Presencial</p>
+            <p class="footer-info">Atención Psicológica y Psiquiátrica</p>
             <div class="footer-divider"></div>
             <p class="footer-info"><strong>Equipo Profesional:</strong></p>
             <p class="footer-info">Lic. Cintya Isabel - C.Ps.P. 24465</p>
             <p class="footer-info">Dra. Yasmín Meneses B. - CMP 64796 | RNE 039413</p>
             <div class="footer-divider"></div>
-            <p class="footer-bottom">© 2025 Feliz Horizonte Plus. Todos los derechos reservados.</p>
+            <p class="footer-bottom">© 2025 Feliz Horizonte. Todos los derechos reservados.</p>
             <p class="footer-bottom">Lima, Perú</p>
-            <p class="footer-bottom" style="margin-top: 15px;"><a href="politica-de-privacidad.html" style="color: #a0aec0; text-decoration: underline;">Política de Privacidad</a></p>
+            <p class="footer-bottom" style="margin-top: 15px;"><a href="politica-de-privacidad.html"
+                    style="color: #a0aec0; text-decoration: underline;">Política de Privacidad</a></p>
         </div>
     </footer>
-    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE PLUS,%20necesito%20información" class="whatsapp-float"
-        title="Contactar por WhatsApp">💬</a>
+    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20necesito%20información" class="whatsapp-float"
+        title="Contactar por WhatsApp (Online o Presencial)">💬</a>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const faqItems = document.querySelectorAll('.faq-item');
-    
+
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 question.addEventListener('click', () => {
@@ -1395,24 +1488,24 @@
             });
         });
     </script>
-<script>
-    // Menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-    });
+    <script>
+        // Menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
 
-    // Cerrar menú al hacer clic en un enlace
-    document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            menuToggle.textContent = '☰';
+        menuToggle.addEventListener('click', function () {
+            navMenu.classList.toggle('active');
+            menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
         });
-    });
-</script>
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
+            link.addEventListener('click', function () {
+                navMenu.classList.remove('active');
+                menuToggle.textContent = '☰';
+            });
+        });
+    </script>
     <script>
         (function () {
             function bind() {
@@ -1436,13 +1529,13 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init({
-        duration: 800, // Duración de la animación en ms
-        once: true, // Animar solo una vez al bajar
-        offset: 100 // Empezar la animación 100px antes de que el elemento llegue
-      });
+        AOS.init({
+            duration: 800, // Duración de la animación en ms
+            once: true, // Animar solo una vez al bajar
+            offset: 100 // Empezar la animación 100px antes de que el elemento llegue
+        });
     </script>
 
-    </body>
+</body>
 
 </html>
