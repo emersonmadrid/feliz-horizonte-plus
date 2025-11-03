@@ -2,13 +2,36 @@
 <html lang="es">
 
 <head>
+    <!-- ============================================ -->
+    <!-- TRACKING: GA4 + Google Ads -->
+    <!-- ============================================ -->
+    
+    <!-- Google Analytics 4 + Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S054Y40TB8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        // Google Analytics 4
+        gtag('config', 'G-S054Y40TB8');
+        
+        // Google Ads (conversiones)
+        gtag('config', 'AW-17157055294');
+    </script>
+
+    <!-- Meta Pixel Verification (Facebook) -->
     <meta name="facebook-domain-verification" content="i97uupsq6j0ih27e9mn7o2zh7ou7xr" />
-    <meta charset="UTF-OR">
+    
+    <!-- Meta tags básicos -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Horizonte | Centro de Salud Mental Online y Presencial</title>
-    <meta name="description"
-        content="Centro de salud mental con atención online y presencial. Psicología y Psiquiatría desde la comodidad de tu hogar o en nuestro consultorio. Atención profesional para Lima Metropolitana.">
+    <meta name="description" content="Centro de salud mental con atención online y presencial. Psicología y Psiquiatría desde la comodidad de tu hogar o en nuestro consultorio. Atención profesional para Lima Metropolitana.">
+    
+    <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <style>
         * {
             margin: 0;
@@ -1027,31 +1050,6 @@
         /* == FIN ESTILOS TESTIMONIOS == */
         /* =================================== */
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S054Y40TB8">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-S054Y40TB8');
-</script>
-<!-- Event snippet for Clic saliente conversion page -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17157055294/AVmoCNCF6KYbEL7Gj_U_',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
 </head>
 
 <body>
@@ -1524,49 +1522,45 @@ function gtag_report_conversion(url) {
             });
         });
     </script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        (function () {
-            function bind() {
-                var links = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
-                links.forEach(function (a) {
-                    if (a.__wh_click_bound) return;
-                    a.__wh_click_bound = true;
-                    a.addEventListener('click', function () {
-                        if (typeof gtag === 'function') {
-                            gtag('event', 'conversion', {
-                                'send_to': 'AW-17157055294/AVmoCNCF6KYbEL7Gj_U_'
-                            });
-                        }
-                    });
-                });
-            }
-            document.readyState === 'loading' ?
-                document.addEventListener('DOMContentLoaded', bind) : bind();
-        })();
-    </script>
-    <script>
-        // Aplica gtag_report_conversion a todos los enlaces de WhatsApp
-        document.addEventListener('DOMContentLoaded', function() {
-            var links = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
-            links.forEach(function(link) {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var url = this.href;
-                    gtag_report_conversion(url);
-                });
-            });
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
         });
     </script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- ============================================ -->
+    <!-- TRACKING DE WHATSAPP (GA4 + Google Ads) -->
+    <!-- ============================================ -->
     <script>
-        AOS.init({
-            duration: 800, // Duración de la animación en ms
-            once: true, // Animar solo una vez al bajar
-            offset: 100 // Empezar la animación 100px antes de que el elemento llegue
+    document.addEventListener('DOMContentLoaded', function() {
+        // Selecciona todos los enlaces de WhatsApp
+        var whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+        
+        whatsappLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (typeof gtag === 'function') {
+                    // Evento para Google Analytics 4
+                    gtag('event', 'whatsapp_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'WhatsApp CTA',
+                        'value': 1
+                    });
+                    
+                    // Conversión para Google Ads
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17157055294/AVmoCNCF6KYbEL7Gj_U_'
+                    });
+                    
+                    console.log('✓ Evento registrado: WhatsApp click (GA4 + Google Ads)');
+                }
+            });
         });
+    });
     </script>
 
 </body>
-
 </html>
