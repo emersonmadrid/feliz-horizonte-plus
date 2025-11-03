@@ -1485,81 +1485,89 @@
     <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20necesito%20información" class="whatsapp-float"
         title="Contactar por WhatsApp (Online o Presencial)">💬</a>
 
+<!-- ============================================ -->
+    <!-- SCRIPTS: FAQ, Menu, AOS, Tracking -->
+    <!-- ============================================ -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // ===== FAQ ACCORDION =====
             const faqItems = document.querySelectorAll('.faq-item');
-
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 question.addEventListener('click', () => {
-                    // Cierra todos los demás items para que solo uno esté abierto
                     faqItems.forEach(otherItem => {
                         if (otherItem !== item) {
                             otherItem.classList.remove('active');
                         }
                     });
-                    // Abre o cierra el item actual
                     item.classList.toggle('active');
                 });
             });
-        });
-    </script>
-    <script>
-        // Menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
 
-        menuToggle.addEventListener('click', function () {
-            navMenu.classList.toggle('active');
-            menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-        });
+            // ===== MENU HAMBURGUESA =====
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
 
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
-            link.addEventListener('click', function () {
-                navMenu.classList.remove('active');
-                menuToggle.textContent = '☰';
+            menuToggle.addEventListener('click', function () {
+                navMenu.classList.toggle('active');
+                menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
             });
+
+            // Cerrar menú al hacer clic en un enlace
+            document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
+                link.addEventListener('click', function () {
+                    navMenu.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                });
+            });
+
+            // ===== TRACKING DE WHATSAPP =====
+            console.log('🔍 Iniciando tracking de WhatsApp...');
+            
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+            console.log(`📊 Se encontraron ${whatsappLinks.length} enlaces de WhatsApp`);
+            
+            whatsappLinks.forEach(function(link, index) {
+                link.addEventListener('click', function() {
+                    console.log(`🔔 Clic detectado en enlace ${index + 1}`);
+                    
+                    if (typeof gtag === 'function') {
+                        // Evento para Google Analytics 4
+                        gtag('event', 'whatsapp_click', {
+                            'event_category': 'engagement',
+                            'event_label': 'WhatsApp CTA',
+                            'value': 1
+                        });
+                        
+                        // Conversión para Google Ads
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-17157055294/AVmoCNCF6KYbEL7Gj_U_'
+                        });
+                        
+                        console.log('✅ Evento registrado: WhatsApp click (GA4 + Google Ads)');
+                    } else {
+                        console.error('❌ gtag no está definido. Verifica que Google Analytics esté cargado.');
+                    }
+                });
+            });
+
+            // Verificación de Google Analytics
+            if (typeof gtag === 'function') {
+                console.log('✅ Google Analytics (gtag) está activo');
+            } else {
+                console.error('❌ Google Analytics (gtag) NO está cargado');
+            }
         });
     </script>
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 800,
             once: true,
             offset: 100
         });
-    </script>
-
-    <!-- ============================================ -->
-    <!-- TRACKING DE WHATSAPP (GA4 + Google Ads) -->
-    <!-- ============================================ -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Selecciona todos los enlaces de WhatsApp
-        var whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
-        
-        whatsappLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                if (typeof gtag === 'function') {
-                    // Evento para Google Analytics 4
-                    gtag('event', 'whatsapp_click', {
-                        'event_category': 'engagement',
-                        'event_label': 'WhatsApp CTA',
-                        'value': 1
-                    });
-                    
-                    // Conversión para Google Ads
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-17157055294/AVmoCNCF6KYbEL7Gj_U_'
-                    });
-                    
-                    console.log('✓ Evento registrado: WhatsApp click (GA4 + Google Ads)');
-                }
-            });
-        });
-    });
     </script>
 
 </body>
