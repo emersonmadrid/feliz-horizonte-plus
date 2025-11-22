@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <!-- ============================================ -->
-    <!-- TRACKING: GA4 + Google Ads -->
-    <!-- ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Horizonte | Centro de Salud Mental Online y Presencial</title>
+    <meta name="description" content="Centro de salud mental con atención online y presencial. Psicología y Psiquiatría desde la comodidad de tu hogar o en nuestro consultorio.">
     
     <!-- Google Analytics 4 + Google Ads -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J1YQJKPH98"></script>
@@ -12,24 +12,12 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        
-        // Google Analytics 4
         gtag('config', 'G-J1YQJKPH98');
-        
-        // Google Ads (conversiones)
         gtag('config', 'AW-17157055294');
     </script>
 
-    <!-- Meta Pixel Verification (Facebook) -->
     <meta name="facebook-domain-verification" content="i97uupsq6j0ih27e9mn7o2zh7ou7xr" />
     
-    <!-- Meta tags básicos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Horizonte | Centro de Salud Mental Online y Presencial</title>
-    <meta name="description" content="Centro de salud mental con atención online y presencial. Psicología y Psiquiatría desde la comodidad de tu hogar o en nuestro consultorio. Atención profesional para Lima Metropolitana.">
-    
-    <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
@@ -44,16 +32,31 @@
             line-height: 1.6;
             color: #1a202c;
             overflow-x: hidden;
-            /* Evita scroll horizontal por las animaciones */
+        }
+
+        /* URGENCY BANNER */
+        .urgency-banner {
+            background: linear-gradient(90deg, #ff6b6b, #ff8787);
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 0.95em;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            padding: 20px 0;
+            padding: 15px 0;
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
         }
@@ -65,7 +68,7 @@
         }
 
         .logo {
-            font-size: 1.5em;
+            font-size: 1.3em;
             font-weight: 700;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
@@ -73,37 +76,20 @@
             background-clip: text;
         }
 
-        .nav-cta {
-            background: #25D366;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.95em;
-        }
-
-        .nav-cta:hover {
-            background: #20ba5a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        }
-
-        /* MENU HAMBURGUESA */
         .menu-toggle {
             display: none;
             background: none;
             border: none;
-            font-size: 2em;
+            font-size: 1.8em;
             cursor: pointer;
             color: #667eea;
             padding: 5px;
+            z-index: 1001;
         }
 
         .nav-menu {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             align-items: center;
         }
 
@@ -112,16 +98,34 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 0.95em;
         }
 
         .nav-link:hover {
             color: #667eea;
         }
 
+        .nav-cta {
+            background: #25D366;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .nav-cta:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 140px 20px 100px;
+            padding: 120px 20px 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -152,17 +156,46 @@
             z-index: 1;
         }
 
+        .virtual-impact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            padding: 8px 24px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: 700;
+            font-size: 0.8em;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #29e66f;
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
         .hero h1 {
-            font-size: 3.5em;
+            font-size: 3em;
             font-weight: 800;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             line-height: 1.2;
-            /* animación 'fadeInUp' quitada, se usará AOS */
         }
 
         .hero p {
-            font-size: 1.4em;
-            margin-bottom: 20px;
+            font-size: 1.25em;
+            margin-bottom: 15px;
             opacity: 0.95;
             font-weight: 300;
         }
@@ -170,16 +203,16 @@
         .hero-badges {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin: 30px 0;
+            margin: 25px 0;
         }
 
         .badge {
             background: rgba(255, 255, 255, 0.2);
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 1em;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
@@ -188,16 +221,14 @@
             display: inline-block;
             background: #25D366;
             color: white;
-            padding: 20px 50px;
+            padding: 18px 45px;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-weight: 700;
-            margin-top: 30px;
+            margin-top: 25px;
             transition: all 0.4s ease;
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            position: relative;
-            overflow: hidden;
         }
 
         .cta-button:hover {
@@ -208,32 +239,29 @@
 
         .cta-button::before {
             content: '💬';
-            margin-right: 10px;
+            margin-right: 8px;
         }
-
-        /* Quitamos la animación Keyframe 'fadeInUp' porque ahora usamos AOS */
-        /* @keyframes fadeInUp { ... } */
 
         .trust-section {
             background: white;
-            padding: 80px 20px;
+            padding: 70px 20px;
             text-align: center;
         }
 
         .trust-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 35px;
             max-width: 1000px;
             margin: 0 auto;
         }
 
         .trust-stat {
-            padding: 30px;
+            padding: 25px;
         }
 
         .trust-number {
-            font-size: 4em;
+            font-size: 3.5em;
             font-weight: 800;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
@@ -245,13 +273,13 @@
         }
 
         .trust-label {
-            font-size: 1.1em;
+            font-size: 1em;
             color: #4a5568;
             font-weight: 500;
         }
 
         .section {
-            padding: 100px 20px;
+            padding: 90px 20px;
         }
 
         .section-dark {
@@ -260,661 +288,23 @@
 
         .section-title {
             text-align: center;
-            font-size: 3em;
+            font-size: 2.8em;
             color: #1a202c;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-weight: 800;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.3em;
+            font-size: 1.2em;
             color: #4a5568;
-            margin-bottom: 60px;
+            margin-bottom: 55px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 50px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .team-card {
-            background: white;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-        }
-
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
-        }
-
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-        }
-
-        .team-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
-        }
-
-        .team-content {
-            padding: 40px;
-        }
-
-        .team-name {
-            font-size: 2em;
-            color: #1a202c;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .team-role {
-            font-size: 1.2em;
-            color: #667eea;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .team-credentials {
-            color: #718096;
-            font-size: 0.95em;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f7fafc;
-            border-radius: 10px;
-        }
-
-        .team-description {
-            color: #4a5568;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-size: 1.05em;
-        }
-
-        .team-specialties {
-            list-style: none;
-        }
-
-        .team-specialties li {
-            padding: 10px 0;
-            color: #4a5568;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 0.95em;
-        }
-
-        .team-specialties li:last-child {
-            border-bottom: none;
-        }
-
-        .team-specialties li::before {
-            content: '✓';
-            color: #25D366;
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 1.2em;
-        }
-
-        .services-grid {
-            display: grid;
-            /* AJUSTADO A 4 COLUMNAS (auto-fit se encarga) */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: white;
-            padding: 40px;
-            /* Reducido un poco para 4 columnas */
-            border-radius: 25px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: #667eea;
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3.5em;
-            /* Reducido un poco */
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: 1.6em;
-            /* Reducido un poco */
-            color: #1a202c;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            color: #4a5568;
-            font-size: 1.05em;
-            /* Reducido un poco */
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .service-features li {
-            padding: 8px 0;
-            /* Reducido un poco */
-            color: #4a5568;
-            font-size: 0.95em;
-        }
-
-        .service-features li::before {
-            content: '•';
-            color: #667eea;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 1.3em;
-        }
-
-        .pricing-section {
-            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-            padding: 100px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-        }
-
-        .pricing-grid {
-            display: grid;
-            /* AJUSTADO PARA 3 TARJETAS */
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            /* Aumentado para 3 tarjetas */
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: 30px;
-            padding: 45px;
-            /* Reducido un poco */
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 35px 90px rgba(102, 126, 234, 0.4);
-        }
-
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .pricing-icon {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-        }
-
-        .pricing-title {
-            font-size: 1.8em;
-            color: #1a202c;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .pricing-specialist {
-            color: #667eea;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-
-        .price {
-            text-align: center;
-            font-size: 4em;
-            font-weight: 800;
-            color: #1a202c;
-            margin: 25px 0;
-            line-height: 1;
-        }
-
-        .price-period {
-            font-size: 0.3em;
-            color: #718096;
-            font-weight: 500;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 30px 0;
-        }
-
-        .pricing-features li {
-            padding: 12px 0;
-            color: #4a5568;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 1em;
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-features li::before {
-            content: '✓';
-            color: #25D366;
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 1.2em;
-        }
-
-        .pricing-cta {
-            display: block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 16px 35px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: 700;
-            margin-top: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-cta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
-        }
-
-        .benefit-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.5em;
-            color: #1a202c;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .benefit-card p {
-            color: #4a5568;
-            line-height: 1.7;
-            font-size: 1.05em;
-        }
-
-        .faq-section {
-            background: white;
-            padding: 100px 20px;
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: #f7fafc;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            border-color: #667eea;
-        }
-
-        .faq-question {
-            padding: 25px 30px;
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #1a202c;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .faq-question::after {
-            content: '+';
-            position: absolute;
-            right: 30px;
-            font-size: 1.5em;
-            color: #667eea;
-            transition: transform 0.3s ease;
-            /* Transición para el ícono */
-        }
-
-        /* Estilos para el Acordeón ACTIVO */
-        .faq-item.active .faq-question::after {
-            transform: rotate(45deg);
-            /* Gira el '+' a 'x' */
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            /* Altura suficiente para mostrar la respuesta */
-            padding: 0 30px 25px;
-            /* Devuelve el padding inferior */
-        }
-
-        .faq-answer {
-            max-height: 0;
-            /* Oculto por defecto */
-            overflow: hidden;
-            transition: all 0.4s ease-out;
-            /* Animación de despliegue */
-            padding: 0 30px;
-            /* Padding L/R, pero 0 Top/Bottom cuando está cerrado */
-            color: #4a5568;
-            line-height: 1.8;
-            font-size: 1.05em;
-        }
-
-        /* Fin de estilos de Acordeón */
-
-
-        .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 100px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .cta-section h2 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        .cta-section p {
-            font-size: 1.4em;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .footer {
-            background: #1a202c;
-            color: white;
-            padding: 60px 20px 30px;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 2em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .footer-info {
-            color: #a0aec0;
-            margin: 15px 0;
-            font-size: 1.05em;
-        }
-
-        .footer-divider {
-            max-width: 200px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #667eea, transparent);
-            margin: 40px auto 30px;
-        }
-
-        .footer-bottom {
-            color: #718096;
-            font-size: 0.95em;
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                gap: 0;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .nav-link,
-            .nav-cta {
-                width: 100%;
-                padding: 15px;
-                text-align: center;
-                border-bottom: 1px solid #e2e8f0;
-            }
-
-            .nav-cta {
-                margin-top: 10px;
-                border-bottom: none;
-            }
-
-            .hero h1 {
-                font-size: 2em;
-                line-height: 1.3;
-            }
-
-            .hero p {
-                font-size: 1.15em;
-            }
-
-            .section-title {
-                font-size: 2em;
-                line-height: 1.3;
-            }
-
-            .section-subtitle {
-                font-size: 1.15em;
-            }
-
-            .team-grid,
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .team-image {
-                height: 300px;
-            }
-
-            .trust-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-
-            .trust-number {
-                font-size: 3em;
-            }
-
-            .navbar .logo {
-                font-size: 1.2em;
-            }
-
-            .badge {
-                font-size: 0.9em;
-                padding: 10px 18px;
-            }
-
-            .cta-button {
-                padding: 18px 35px;
-                font-size: 1.15em;
-            }
-
-            .whatsapp-float {
-                width: 60px;
-                height: 60px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 2em;
-            }
-
-            .service-card,
-            .benefit-card,
-            .testimonial-card {
-                padding: 30px;
-            }
-
-            .pricing-card {
-                padding: 35px;
-            }
-
-            .price {
-                font-size: 3.5em;
-            }
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5em;
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-            z-index: 999;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
-        }
-
-        .virtual-impact-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
-            padding: 10px 30px;
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            font-weight: 700;
-            font-size: 0.85em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            /* animación 'fadeInDown' quitada, se usará AOS */
-        }
-
-        .pulse-dot {
-            width: 10px;
-            height: 10px;
-            background: #29e66f;
-            border-radius: 50%;
-            animation: pulse-dot 2s ease-in-out infinite;
-            box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
-        }
-
-        /* COMO FUNCIONA */
+        /* HOW IT WORKS */
         .how-it-works {
             background: white;
             padding: 80px 20px;
@@ -976,39 +366,365 @@
             font-size: 1.05em;
         }
 
-        @keyframes pulse {
-
-            0%,
-            100% {
-                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-            }
-
-            50% {
-                box-shadow: 0 8px 40px rgba(37, 211, 102, 0.8);
-            }
+        /* TEAM SECTION */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 45px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        /* =================================== */
-        /* == ESTILOS PARA TESTIMONIOS == */
-        /* =================================== */
+        .team-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
 
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .team-content {
+            padding: 35px;
+        }
+
+        .team-name {
+            font-size: 1.9em;
+            color: #1a202c;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .team-role {
+            font-size: 1.15em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .team-credentials {
+            color: #718096;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 10px;
+        }
+
+        .team-description {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 1.05em;
+        }
+
+        .team-specialties {
+            list-style: none;
+        }
+
+        .team-specialties li {
+            padding: 10px 0;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.95em;
+        }
+
+        .team-specialties li:last-child {
+            border-bottom: none;
+        }
+
+        .team-specialties li::before {
+            content: '✓';
+            color: #25D366;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #667eea;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.6em;
+            color: #1a202c;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: #4a5568;
+            font-size: 0.95em;
+        }
+
+        .service-features li::before {
+            content: '•';
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        /* PRICING */
+        .pricing-section {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            padding: 90px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 35px 90px rgba(102, 126, 234, 0.4);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .pricing-icon {
+            font-size: 3.5em;
+            margin-bottom: 18px;
+        }
+
+        .pricing-title {
+            font-size: 1.7em;
+            color: #1a202c;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .pricing-specialist {
+            color: #667eea;
+            font-size: 1.05em;
+            font-weight: 600;
+        }
+
+        .price {
+            text-align: center;
+            font-size: 3.8em;
+            font-weight: 800;
+            color: #1a202c;
+            margin: 22px 0;
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 0.3em;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 28px 0;
+        }
+
+        .pricing-features li {
+            padding: 11px 0;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.98em;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #25D366;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+
+        .pricing-cta {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 35px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.05em;
+            font-weight: 700;
+            margin-top: 23px;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* BENEFITS */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 38px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 3.8em;
+            margin-bottom: 18px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.45em;
+            color: #1a202c;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        /* TESTIMONIALS */
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
+            gap: 32px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .testimonial-card {
             background: white;
-            padding: 40px;
+            padding: 38px;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
             transition: all 0.3s ease;
             position: relative;
             border-top: 5px solid #667eea;
-            /* Acento de color */
         }
 
         .testimonial-card:hover {
@@ -1017,42 +733,503 @@
         }
 
         .testimonial-rating {
-            font-size: 1.5em;
+            font-size: 1.4em;
             color: #FFC107;
-            /* Color dorado para estrellas */
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .testimonial-text {
-            font-size: 1.1em;
+            font-size: 1.08em;
             color: #4a5568;
             line-height: 1.8;
-            margin-bottom: 25px;
+            margin-bottom: 23px;
             font-style: italic;
         }
 
         .testimonial-author {
-            font-size: 1.1em;
+            font-size: 1.08em;
             font-weight: 700;
             color: #1a202c;
         }
 
         .testimonial-author span {
             display: block;
-            font-size: 0.9em;
+            font-size: 0.88em;
             font-weight: 500;
             color: #667eea;
-            /* Color de acento de tu marca */
             margin-top: 4px;
         }
 
-        /* =================================== */
-        /* == FIN ESTILOS TESTIMONIOS == */
-        /* =================================== */
+        /* FAQ */
+        .faq-section {
+            background: white;
+            padding: 90px 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #f7fafc;
+            border-radius: 15px;
+            margin-bottom: 18px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #667eea;
+        }
+
+        .faq-question {
+            padding: 23px 28px;
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #1a202c;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 28px;
+            font-size: 1.5em;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+            padding: 0 28px 23px;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease-out;
+            padding: 0 28px;
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 90px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8em;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
+            margin-bottom: 38px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 55px 20px 28px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.9em;
+            font-weight: 700;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-info {
+            color: #a0aec0;
+            margin: 14px 0;
+            font-size: 1.05em;
+        }
+
+        .footer-divider {
+            max-width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            margin: 35px auto 28px;
+        }
+
+        .footer-bottom {
+            color: #718096;
+            font-size: 0.95em;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: #25D366;
+            color: white;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4em;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 8px 40px rgba(37, 211, 102, 0.8); }
+        }
+
+        /* CTA STICKY MOBILE - SOLO MOBILE */
+        .sticky-cta-mobile {
+            display: none;
+        }
+
+        /* ========================================= */
+        /* MOBILE RESPONSIVE */
+        /* ========================================= */
+        @media (max-width: 768px) {
+            .urgency-banner {
+                font-size: 0.8em;
+                padding: 10px 15px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: white;
+                flex-direction: column;
+                padding: 75px 20px 20px;
+                gap: 0;
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link, .nav-cta {
+                width: 100%;
+                padding: 16px;
+                text-align: center;
+                border-bottom: 1px solid #e2e8f0;
+                font-size: 1.05em;
+            }
+
+            .nav-cta {
+                margin-top: 10px;
+                border-bottom: none;
+            }
+
+            .logo {
+                font-size: 1.15em;
+            }
+
+            .navbar .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 95px 18px 65px;
+            }
+
+            .hero h1 {
+                font-size: 1.9em;
+                line-height: 1.25;
+            }
+
+            .hero p {
+                font-size: 1.05em;
+            }
+
+            .virtual-impact-badge {
+                font-size: 0.68em;
+                padding: 6px 18px;
+            }
+
+            .badge {
+                font-size: 0.78em;
+                padding: 8px 16px;
+            }
+
+            .cta-button {
+                padding: 15px 32px;
+                font-size: 1.05em;
+                width: 100%;
+                max-width: 340px;
+            }
+
+            .section {
+                padding: 65px 18px;
+            }
+
+            .section-title {
+                font-size: 1.85em;
+                line-height: 1.3;
+            }
+
+            .section-subtitle {
+                font-size: 1.05em;
+            }
+
+            .trust-section {
+                padding: 55px 18px;
+            }
+
+            .trust-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 22px;
+            }
+
+            .trust-number {
+                font-size: 2.6em;
+            }
+
+            .trust-label {
+                font-size: 0.88em;
+            }
+
+            .how-it-works {
+                padding: 65px 18px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .step-card {
+                padding: 35px 25px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .team-image {
+                height: 320px;
+            }
+
+            .team-content {
+                padding: 28px;
+            }
+
+            .team-name {
+                font-size: 1.65em;
+            }
+
+            .team-role {
+                font-size: 1.05em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .service-card {
+                padding: 32px 25px;
+            }
+
+            .service-icon {
+                font-size: 3em;
+            }
+
+            .service-card h3 {
+                font-size: 1.45em;
+            }
+
+            .pricing-section {
+                padding: 70px 18px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .pricing-card {
+                padding: 32px 25px;
+            }
+
+            .pricing-icon {
+                font-size: 3em;
+            }
+
+            .pricing-title {
+                font-size: 1.5em;
+            }
+
+            .price {
+                font-size: 3.2em;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .testimonial-card {
+                padding: 30px 24px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .benefit-card {
+                padding: 32px 25px;
+            }
+
+            .benefit-icon {
+                font-size: 3.2em;
+            }
+
+            .faq-section {
+                padding: 70px 18px;
+            }
+
+            .faq-question {
+                padding: 20px 24px;
+                font-size: 1.05em;
+                padding-right: 50px;
+            }
+
+            .faq-question::after {
+                right: 24px;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 24px 20px;
+            }
+
+            .cta-section {
+                padding: 70px 18px;
+            }
+
+            .cta-section h2 {
+                font-size: 2em;
+                line-height: 1.3;
+            }
+
+            .cta-section p {
+                font-size: 1.1em;
+            }
+
+            .footer {
+                padding: 48px 18px 25px;
+            }
+
+            .footer-logo {
+                font-size: 1.6em;
+            }
+
+            .footer-info {
+                font-size: 0.98em;
+            }
+
+            .whatsapp-float {
+                width: 58px;
+                height: 58px;
+                bottom: 78px;
+                right: 22px;
+                font-size: 2em;
+            }
+
+            /* CTA STICKY MOBILE ACTIVADO */
+            .sticky-cta-mobile {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: #25D366;
+                padding: 14px 18px;
+                z-index: 998;
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+            }
+
+            .sticky-cta-mobile a {
+                display: block;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 1.08em;
+            }
+        }
+
+        /* VERY SMALL MOBILE */
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.6em;
+            }
+
+            .section-title {
+                font-size: 1.6em;
+            }
+
+            .trust-number {
+                font-size: 2.2em;
+            }
+
+            .price {
+                font-size: 2.8em;
+            }
+
+            .cta-button {
+                font-size: 0.98em;
+                padding: 14px 28px;
+            }
+        }
     </style>
 </head>
-
 <body>
+    <!-- Urgency Banner -->
+    <div class="urgency-banner">
+        🔥 ¡Cupos limitados esta semana! Agenda ahora con atención inmediata
+    </div>
+
     <nav class="navbar">
         <div class="container">
             <div class="logo">Feliz Horizonte</div>
@@ -1060,48 +1237,43 @@
             <div class="nav-menu" id="navMenu">
                 <a href="#equipo" class="nav-link">Equipo</a>
                 <a href="#servicios" class="nav-link">Servicios</a>
-                <a href="#precios" class="nav-link">Planes de Atención</a>
                 <a href="#precios" class="nav-link">Precios</a>
-                <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20información%20sobre%20sus%20servicios"
-                    class="nav-cta">Agendar Consulta</a>
+                <a href="https://wa.me/51922346747?text=Hola%20FELIZ%20HORIZONTE,%20quiero%20información" class="nav-cta">Agendar Consulta</a>
             </div>
         </div>
     </nav>
+
     <section class="hero">
         <div class="hero-content">
             <div class="virtual-impact-badge" data-aos="fade-down" data-aos-delay="100">
-                <span class="pulse-dot"></span><span>ATENCIÓN ONLINE Y PRESENCIAL</span>
+                <span class="pulse-dot"></span>
+                <span>ATENCIÓN ONLINE Y PRESENCIAL</span>
             </div>
             <h1 data-aos="fade-up" data-aos-delay="200">Tu Salud Mental<br>Es Nuestra Prioridad</h1>
-            <p data-aos="fade-up" data-aos-delay="300">Centro de salud mental con psicología y psiquiatría
-                especializada. Atención profesional desde la
-                comodidad de tu hogar o en nuestro consultorio.</p>
+            <p data-aos="fade-up" data-aos-delay="300">Centro de salud mental con psicología y psiquiatría especializada. Atención profesional desde la comodidad de tu hogar o en nuestro consultorio.</p>
             <div class="hero-badges" data-aos="fade-up" data-aos-delay="400">
                 <span class="badge">🔒 100% Confidencial</span>
                 <span class="badge">⏰ Horarios Flexibles</span>
                 <span class="badge">📍 Atención Presencial</span>
             </div>
-            <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20agendar%20mi%20primera%20consulta"
-                class="cta-button" data-aos="fade-up" data-aos-delay="500">Agenda Tu Consulta Ahora</a>
+            <a href="https://wa.me/51922346747?text=Hola%20FELIZ%20HORIZONTE,%20quiero%20agendar%20mi%20primera%20consulta" class="cta-button" data-aos="fade-up" data-aos-delay="500">Agenda Tu Consulta Ahora</a>
         </div>
     </section>
+
     <section class="how-it-works">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">¿Cómo Funciona?</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">En 3 pasos simples comienza tu camino
-                hacia el bienestar</p>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">En 3 pasos simples comienza tu camino hacia el bienestar</p>
             <div class="steps-grid">
                 <div class="step-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="step-number">1</div>
                     <h3>Contáctanos por WhatsApp</h3>
-                    <p>Te respondemos en menos de 1 hora. Coordinamos tu cita (online o presencial) según tu
-                        disponibilidad.</p>
+                    <p>Te respondemos en menos de 1 hora. Coordinamos tu cita (online o presencial) según tu disponibilidad.</p>
                 </div>
                 <div class="step-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="step-number">2</div>
                     <h3>Realiza el Pago y Agenda</h3>
-                    <p>Elige tu horario. Aceptamos Yape, Plin o transferencia. Te enviamos el enlace (si es virtual) o
-                        la dirección.</p>
+                    <p>Elige tu horario. Aceptamos Yape, Plin o transferencia. Te enviamos el enlace (si es virtual) o la dirección.</p>
                 </div>
                 <div class="step-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="step-number">3</div>
@@ -1111,30 +1283,34 @@
             </div>
         </div>
     </section>
+
     <section class="trust-section">
         <div class="container">
             <div class="trust-stats">
-                <div class="trust-stat" data-aos="fade-up" data-aos-delay="100"><span
-                        class="trust-number">10+</span><span class="trust-label">Años de
-                        Experiencia</span></div>
-                <div class="trust-stat" data-aos="fade-up" data-aos-delay="200"><span
-                        class="trust-number">500+</span><span class="trust-label">Pacientes
-                        Atendidos</span></div>
-                <div class="trust-stat" data-aos="fade-up" data-aos-delay="300"><span
-                        class="trust-number">100%</span><span class="trust-label">Online y
-                        Confidencial</span></div>
-                <div class="trust-stat" data-aos="fade-up" data-aos-delay="400"><span
-                        class="trust-number">24/7</span><span class="trust-label">Respuesta
-                        WhatsApp</span></div>
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="100">
+                    <span class="trust-number">10+</span>
+                    <span class="trust-label">Años de Experiencia</span>
+                </div>
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="200">
+                    <span class="trust-number">500+</span>
+                    <span class="trust-label">Pacientes Atendidos</span>
+                </div>
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="300">
+                    <span class="trust-number">100%</span>
+                    <span class="trust-label">Online y Confidencial</span>
+                </div>
+                <div class="trust-stat" data-aos="fade-up" data-aos-delay="400">
+                    <span class="trust-number">24/7</span>
+                    <span class="trust-label">Respuesta WhatsApp</span>
+                </div>
             </div>
         </div>
     </section>
+
     <section class="pricing-section" id="precios">
         <div class="container">
             <h2 class="section-title" style="color: white;" data-aos="fade-up">Planes de Atención</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);" data-aos="fade-up" data-aos-delay="100">
-                Inversión en tu salud mental con
-                profesionales altamente calificados</p>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);" data-aos="fade-up" data-aos-delay="100">Inversión en tu salud mental con profesionales altamente calificados</p>
             <div class="pricing-grid">
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="pricing-header">
@@ -1142,8 +1318,7 @@
                         <h3 class="pricing-title">Psicología Online</h3>
                         <p class="pricing-specialist">Lic. Cintya Isabel</p>
                     </div>
-                    <div class="price">S/. 85<div class="price-period">por sesión</div>
-                    </div>
+                    <div class="price">S/. 85<div class="price-period">por sesión</div></div>
                     <ul class="pricing-features">
                         <li>Sesión individual de 50 minutos</li>
                         <li>Terapia Cognitivo Conductual</li>
@@ -1152,8 +1327,7 @@
                         <li>Seguimiento personalizado</li>
                         <li>Horarios flexibles</li>
                     </ul>
-                    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20agendar%20terapia%20psicológica%20ONLINE%20con%20la%20Lic.%20Cintya%20Isabel"
-                        class="pricing-cta">Agendar Sesión Online</a>
+                    <a href="https://wa.me/51922346747?text=Hola%20FELIZ%20HORIZONTE,%20quiero%20agendar%20terapia%20psicológica%20ONLINE%20con%20la%20Lic.%20Cintya%20Isabel" class="pricing-cta">Agendar Sesión Online</a>
                 </div>
 
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
@@ -1162,8 +1336,7 @@
                         <h3 class="pricing-title">Psicología Presencial</h3>
                         <p class="pricing-specialist">Lic. Cintya Isabel</p>
                     </div>
-                    <div class="price">S/. 85<div class="price-period">por sesión</div>
-                    </div>
+                    <div class="price">S/. 85<div class="price-period">por sesión</div></div>
                     <ul class="pricing-features">
                         <li>Sesión individual de 50 minutos</li>
                         <li>Consultorio privado</li>
@@ -1172,8 +1345,7 @@
                         <li>Protocolos de bioseguridad</li>
                         <li>Ubicación en Villa El Salvador</li>
                     </ul>
-                    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20agendar%20terapia%20psicológica%20PRESENCIAL%20con%20la%20Lic.%20Cintya%20Isabel"
-                        class="pricing-cta">Agendar Sesión Presencial</a>
+                    <a href="https://wa.me/51922346747?text=Hola%20FELIZ%20HORIZONTE,%20quiero%20agendar%20terapia%20psicológica%20PRESENCIAL%20con%20la%20Lic.%20Cintya%20Isabel" class="pricing-cta">Agendar Sesión Presencial</a>
                 </div>
 
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
@@ -1182,8 +1354,7 @@
                         <h3 class="pricing-title">Consulta Psiquiátrica</h3>
                         <p class="pricing-specialist">Dra. Yasmín Meneses</p>
                     </div>
-                    <div class="price">S/. 139<div class="price-period">por consulta</div>
-                    </div>
+                    <div class="price">S/. 139<div class="price-period">por consulta</div></div>
                     <ul class="pricing-features">
                         <li>Evaluación psiquiátrica completa</li>
                         <li>Diagnóstico especializado</li>
@@ -1192,24 +1363,21 @@
                         <li>Seguimiento farmacológico</li>
                         <li>Atención especializada online</li>
                     </ul>
-                    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20necesito%20consulta%20psiquiátrica%20con%20la%20Dra.%20Yasmín%20Meneses"
-                        class="pricing-cta">Agendar Consulta</a>
+                    <a href="https://wa.me/51922346747?text=Hola%20FELIZ%20HORIZONTE,%20necesito%20consulta%20psiquiátrica%20con%20la%20Dra.%20Yasmín%20Meneses" class="pricing-cta">Agendar Consulta</a>
                 </div>
             </div>
-            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-top: 40px; font-size: 1.1em;"
-                data-aos="fade-up" data-aos-delay="400">💳
-                Aceptamos Yape, Plin y Transferencia Bancaria</p>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-top: 40px; font-size: 1.1em;" data-aos="fade-up" data-aos-delay="400">💳 Aceptamos Yape, Plin y Transferencia Bancaria</p>
         </div>
-    </section>    
+    </section>
+
     <section class="section" id="equipo">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Nuestro Equipo Profesional</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Especialistas certificados con amplia
-                experiencia en salud mental, comprometidos
-                con tu bienestar emocional.</p>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Especialistas certificados con amplia experiencia en salud mental, comprometidos con tu bienestar emocional.</p>
             <div class="team-grid">
                 <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="team-image"><img src="images/cintya.png" alt="Lic. Cintya Isabel - Psicóloga Clínica">
+                    <div class="team-image">
+                        <img src="images/cintya.png" alt="Lic. Cintya Isabel - Psicóloga Clínica">
                     </div>
                     <div class="team-content">
                         <h3 class="team-name">Lic. Cintya Isabel</h3>
@@ -1219,10 +1387,7 @@
                             Diplomado en Terapia Cognitivo-Conductual<br>
                             <strong>🎓 Especialista en Psicología Forense</strong>
                         </div>
-                        <p class="team-description">Psicóloga clínica con más de 10 años de experiencia y más de 500
-                            pacientes atendidos. Especialista certificada en Psicología Forense con formación avanzada
-                            en peritajes psicológicos. Trabajo desde un enfoque cognitivo-conductual, brindando atención
-                            empática (online y presencial) y centrada en las necesidades únicas de cada persona.</p>
+                        <p class="team-description">Psicóloga clínica con más de 10 años de experiencia y más de 500 pacientes atendidos. Especialista certificada en Psicología Forense con formación avanzada en peritajes psicológicos. Trabajo desde un enfoque cognitivo-conductual, brindando atención empática (online y presencial) y centrada en las necesidades únicas de cada persona.</p>
                         <ul class="team-specialties">
                             <li>Terapia Cognitivo Conductual (TCC)</li>
                             <li>Manejo de Ansiedad y Depresión</li>
@@ -1234,17 +1399,18 @@
                     </div>
                 </div>
                 <div class="team-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="team-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><img
-                            src="images/yasmin.jpeg" alt="Dra. Yasmín Meneses - Médico Psiquiatra"></div>
+                    <div class="team-image">
+                        <img src="images/yasmin.jpeg" alt="Dra. Yasmín Meneses - Médico Psiquiatra">
+                    </div>
                     <div class="team-content">
                         <h3 class="team-name">Dra. Yasmín Meneses B.</h3>
                         <p class="team-role">Médico Psiquiatra</p>
-                        <div class="team-credentials"><strong>CMP 64796 | RNE 039413</strong><br>Médico Cirujano -
-                            URP<br>Miembro APP y ISSUP</div>
-                        <p class="team-description">Psiquiatra especialista en Tanatología con formación avanzada en
-                            múltiples modalidades terapéuticas (atención online). Especialización en Hospital Hermilio
-                            Valdizán (Perú) y
-                            Hospital Fray Bernardino Álvarez (México).</p>
+                        <div class="team-credentials">
+                            <strong>CMP 64796 | RNE 039413</strong><br>
+                            Médico Cirujano - URP<br>
+                            Miembro APP y ISSUP
+                        </div>
+                        <p class="team-description">Psiquiatra especialista en Tanatología con formación avanzada en múltiples modalidades terapéuticas (atención online). Especialización en Hospital Hermilio Valdizán (Perú) y Hospital Fray Bernardino Álvarez (México).</p>
                         <ul class="team-specialties">
                             <li>Terapia Dialéctica Conductual (TDC)</li>
                             <li>Terapia Cognitivo Conductual (TCC)</li>
@@ -1257,17 +1423,16 @@
             </div>
         </div>
     </section>
+
     <section class="section section-dark" id="servicios">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención integral en salud mental
-                adaptada a tus necesidades</p>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención integral en salud mental adaptada a tus necesidades</p>
             <div class="services-grid">
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <span class="service-icon">💻</span>
                     <h3>Terapia Psicológica Online</h3>
-                    <p>Sesiones individuales virtuales con enfoque cognitivo-conductual para trabajar ansiedad,
-                        depresión y estrés.</p>
+                    <p>Sesiones individuales virtuales con enfoque cognitivo-conductual para trabajar ansiedad, depresión y estrés.</p>
                     <ul class="service-features">
                         <li>Sesiones de 50 minutos</li>
                         <li>Plataforma segura (Zoom/Meet)</li>
@@ -1278,8 +1443,7 @@
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <span class="service-icon">💊</span>
                     <h3>Consulta Psiquiátrica Online</h3>
-                    <p>Evaluación, diagnóstico y tratamiento farmacológico especializado con seguimiento continuo de tu
-                        proceso.</p>
+                    <p>Evaluación, diagnóstico y tratamiento farmacológico especializado con seguimiento continuo de tu proceso.</p>
                     <ul class="service-features">
                         <li>Diagnóstico especializado</li>
                         <li>Prescripción médica</li>
@@ -1290,8 +1454,7 @@
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <span class="service-icon">📍</span>
                     <h3>Terapia Presencial</h3>
-                    <p>La calidez de la terapia tradicional. Sesiones en nuestro consultorio privado y seguro en Villa
-                        Salvador.</p>
+                    <p>La calidez de la terapia tradicional. Sesiones en nuestro consultorio privado y seguro en Villa Salvador.</p>
                     <ul class="service-features">
                         <li>Sesiones de 50 minutos</li>
                         <li>Ambiente 100% privado</li>
@@ -1302,8 +1465,7 @@
                 <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                     <span class="service-icon">💑</span>
                     <h3>Terapia de Pareja</h3>
-                    <p>Trabajo en conflictos de pareja, comunicación y fortalecimiento de vínculos afectivos (Online y
-                        Presencial).</p>
+                    <p>Trabajo en conflictos de pareja, comunicación y fortalecimiento de vínculos afectivos (Online y Presencial).</p>
                     <ul class="service-features">
                         <li>Resolución de conflictos</li>
                         <li>Mejora de comunicación</li>
@@ -1315,46 +1477,32 @@
         </div>
     </section>
 
-
     <section class="section section-dark">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">La Experiencia de Nuestros Pacientes</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Tu bienestar es nuestra mejor carta de
-                presentación.
-            </p>
-
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Tu bienestar es nuestra mejor carta de presentación.</p>
             <div class="testimonial-grid">
-
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Tenía muchas dudas sobre la terapia online, pero la Lic. Cintya me hizo
-                        sentir en confianza desde el primer día. Sus herramientas prácticas de TCC me han ayudado a
-                        manejar mi ansiedad. Ha sido un cambio increíble."</p>
+                    <p class="testimonial-text">"Tenía muchas dudas sobre la terapia online, pero la Lic. Cintya me hizo sentir en confianza desde el primer día. Sus herramientas prácticas de TCC me han ayudado a manejar mi ansiedad. Ha sido un cambio increíble."</p>
                     <p class="testimonial-author">M.R., 34 años
                         <span>Paciente de Terapia Psicológica</span>
                     </p>
                 </div>
-
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"La Dra. Yasmín es una profesional excepcional. Me escuchó sin juzgar y
-                        me explicó cada paso del tratamiento con paciencia. Su enfoque sobre el duelo fue fundamental
-                        para mí. La consulta virtual fue impecable."</p>
+                    <p class="testimonial-text">"La Dra. Yasmín es una profesional excepcional. Me escuchó sin juzgar y me explicó cada paso del tratamiento con paciencia. Su enfoque sobre el duelo fue fundamental para mí. La consulta virtual fue impecable."</p>
                     <p class="testimonial-author">J.V., 45 años
                         <span>Paciente de Consulta Psiquiátrica</span>
                     </p>
                 </div>
-
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Pude elegir entre ir al consultorio o hacerlo virtual, y esa
-                        flexibilidad me permitió ser constante con mi terapia. Es un servicio de primer nivel,
-                        profesional y 100% confidencial. Lo recomiendo totalmente."</p>
+                    <p class="testimonial-text">"Pude elegir entre ir al consultorio o hacerlo virtual, y esa flexibilidad me permitió ser constante con mi terapia. Es un servicio de primer nivel, profesional y 100% confidencial. Lo recomiendo totalmente."</p>
                     <p class="testimonial-author">A.G., 29 años
                         <span>Paciente</span>
                     </p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -1362,40 +1510,34 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">¿Por Qué Elegir Feliz Horizonte?</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención de excelencia adaptada a tu
-                estilo de vida</p>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Atención de excelencia adaptada a tu estilo de vida</p>
             <div class="benefits-grid">
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="benefit-icon">💻</div>
                     <h3>Desde Tu Hogar</h3>
-                    <p>Conéctate desde cualquier lugar. Sin tráfico, sin desplazamientos, sin perder tiempo valioso de
-                        tu día.</p>
+                    <p>Conéctate desde cualquier lugar. Sin tráfico, sin desplazamientos, sin perder tiempo valioso de tu día.</p>
                 </div>
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="benefit-icon">📍</div>
                     <h3>Nuestro Consultorio</h3>
-                    <p>Visítanos en nuestro espacio físico. Un ambiente tranquilo, profesional y seguro para tu terapia
-                        presencial.</p>
+                    <p>Visítanos en nuestro espacio físico. Un ambiente tranquilo, profesional y seguro para tu terapia presencial.</p>
                 </div>
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="benefit-icon">📅</div>
                     <h3>Horarios Flexibles</h3>
-                    <p>Agenda que se adapta a tu ritmo. Sesiones matutinas, vespertinas o de fin de semana (Online o
-                        Presencial).</p>
+                    <p>Agenda que se adapta a tu ritmo. Sesiones matutinas, vespertinas o de fin de semana (Online o Presencial).</p>
                 </div>
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="350">
                     <div class="benefit-icon">🔐</div>
                     <h3>Máxima Privacidad</h3>
-                    <p>Plataforma 100% segura y confidencial. Tu información protegida bajo estricto secreto
-                        profesional.</p>
+                    <p>Plataforma 100% segura y confidencial. Tu información protegida bajo estricto secreto profesional.</p>
                 </div>
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="benefit-icon">👥</div>
                     <h3>Equipo Multidisciplinario</h3>
-                    <p>Psicología y Psiquiatría trabajando en conjunto para tu bienestar integral y recuperación
-                        completa.</p>
+                    <p>Psicología y Psiquiatría trabajando en conjunto para tu bienestar integral y recuperación completa.</p>
                 </div>
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="450">
                     <div class="benefit-icon">🎯</div>
                     <h3>Enfoque Personalizado</h3>
                     <p>Cada tratamiento diseñado específicamente para tus necesidades, ya sea online o presencial.</p>
@@ -1403,70 +1545,53 @@
             </div>
         </div>
     </section>
+
     <section class="faq-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Preguntas Frecuentes</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Todo lo que necesitas saber sobre
-                nuestros servicios</p>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Todo lo que necesitas saber sobre nuestros servicios</p>
             <div class="faq-container" data-aos="fade-up" data-aos-delay="200">
                 <div class="faq-item">
                     <div class="faq-question">¿Cómo funcionan las sesiones virtuales?</div>
-                    <div class="faq-answer">Las sesiones se realizan por videollamada mediante plataformas seguras como
-                        Zoom o Google Meet. Solo necesitas una conexión a internet estable, un dispositivo con cámara y
-                        un lugar privado. Te enviamos el enlace antes de cada sesión.</div>
+                    <div class="faq-answer">Las sesiones se realizan por videollamada mediante plataformas seguras como Zoom o Google Meet. Solo necesitas una conexión a internet estable, un dispositivo con cámara y un lugar privado. Te enviamos el enlace antes de cada sesión.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">¿Dónde queda el consultorio presencial?</div>
-                    <div class="faq-answer">Nuestro consultorio está ubicado en Villa El Salvador,
-                        Lima. Es un espacio privado y confortable, diseñado para tu bienestar y seguridad. Te enviaremos
-                        la dirección exacta al confirmar tu cita.</div>
+                    <div class="faq-answer">Nuestro consultorio está ubicado en Villa El Salvador, Lima. Es un espacio privado y confortable, diseñado para tu bienestar y seguridad. Te enviaremos la dirección exacta al confirmar tu cita.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">¿Qué diferencia hay entre psicología y psiquiatría?</div>
-                    <div class="faq-answer">La psicóloga trabaja mediante psicoterapia (conversación y técnicas
-                        terapéuticas), mientras que la psiquiatra, al ser médico, puede evaluar, diagnosticar y
-                        prescribir medicamentos cuando sea necesario. Ambos enfoques son complementarios.</div>
+                    <div class="faq-answer">La psicóloga trabaja mediante psicoterapia (conversación y técnicas terapéuticas), mientras que la psiquiatra, al ser médico, puede evaluar, diagnosticar y prescribir medicamentos cuando sea necesario. Ambos enfoques son complementarios.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">¿Cuántas sesiones necesitaré?</div>
-                    <div class="faq-answer">Depende de cada caso. Algunos procesos se resuelven en 6-8 sesiones,
-                        mientras otros requieren acompañamiento más prolongado. En la primera sesión evaluamos tu
-                        situación y establecemos objetivos claros con un plan de tratamiento personalizado.</div>
+                    <div class="faq-answer">Depende de cada caso. Algunos procesos se resuelven en 6-8 sesiones, mientras otros requieren acompañamiento más prolongado. En la primera sesión evaluamos tu situación y establecemos objetivos claros con un plan de tratamiento personalizado.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">¿Cómo puedo pagar las consultas?</div>
-                    <div class="faq-answer">Aceptamos Yape, Plin y transferencias bancarias. El pago se realiza antes de
-                        cada sesión. Te enviamos los datos de pago al momento de confirmar tu cita.</div>
+                    <div class="faq-answer">Aceptamos Yape, Plin y transferencias bancarias. El pago se realiza antes de cada sesión. Te enviamos los datos de pago al momento de confirmar tu cita.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">¿Qué pasa si necesito cancelar o reprogramar?</div>
-                    <div class="faq-answer">Puedes reprogramar tu cita (online o presencial) con al menos 24 horas de
-                        anticipación sin costo
-                        adicional. Cancelaciones con menos tiempo pueden no ser reembolsables. Contáctanos por WhatsApp
-                        para cualquier cambio.</div>
+                    <div class="faq-answer">Puedes reprogramar tu cita (online o presencial) con al menos 24 horas de anticipación sin costo adicional. Cancelaciones con menos tiempo pueden no ser reembolsables. Contáctanos por WhatsApp para cualquier cambio.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">¿La información que comparto es confidencial?</div>
-                    <div class="faq-answer">Absolutamente. Estamos sujetos al secreto profesional por ley. Tu
-                        información nunca será compartida con terceros sin tu consentimiento explícito, salvo
-                        situaciones de riesgo vital según el código de ética.</div>
+                    <div class="faq-answer">Absolutamente. Estamos sujetos al secreto profesional por ley. Tu información nunca será compartida con terceros sin tu consentimiento explícito, salvo situaciones de riesgo vital según el código de ética.</div>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="cta-section">
         <div class="container">
             <h2 data-aos="fade-up">Da El Primer Paso Hacia Tu Bienestar</h2>
-            <p data-aos="fade-up" data-aos-delay="100">No esperes a que los problemas emocionales se vuelvan
-                inmanejables. Agenda tu consulta (online o presencial) hoy y comienza tu
-                camino hacia el equilibrio mental con profesionales que realmente se preocupan por ti.</p>
-            <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20quiero%20más%20información%20sobre%20sus%20servicios"
-                class="cta-button" data-aos="fade-up" data-aos-delay="200">Contactar por WhatsApp</a>
-            <p style="margin-top: 30px; font-size: 1.1em; opacity: 0.9;" data-aos="fade-up" data-aos-delay="300">⚡
-                Respuesta inmediata • Agenda disponible esta
-                semana</p>
+            <p data-aos="fade-up" data-aos-delay="100">No esperes a que los problemas emocionales se vuelvan inmanejables. Agenda tu consulta (online o presencial) hoy y comienza tu camino hacia el equilibrio mental con profesionales que realmente se preocupan por ti.</p>
+            <a href="https://wa.me/51922346747?text=Hola%20FELIZ%20HORIZONTE,%20quiero%20más%20información%20sobre%20sus%20servicios" class="cta-button" data-aos="fade-up" data-aos-delay="200">Contactar por WhatsApp</a>
+            <p style="margin-top: 30px; font-size: 1.1em; opacity: 0.9;" data-aos="fade-up" data-aos-delay="300">⚡ Respuesta inmediata • Agenda disponible esta semana</p>
         </div>
     </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-logo">Feliz Horizonte</div>
@@ -1479,16 +1604,20 @@
             <div class="footer-divider"></div>
             <p class="footer-bottom">© 2025 Feliz Horizonte. Todos los derechos reservados.</p>
             <p class="footer-bottom">Lima, Perú</p>
-            <p class="footer-bottom" style="margin-top: 15px;"><a href="politica-de-privacidad.html"
-                    style="color: #a0aec0; text-decoration: underline;">Política de Privacidad</a></p>
+            <p class="footer-bottom" style="margin-top: 15px;">
+                <a href="politica-de-privacidad.html" style="color: #a0aec0; text-decoration: underline;">Política de Privacidad</a>
+            </p>
         </div>
     </footer>
-    <a href="https://wa.me/51922346747?text=Hola FELIZ HORIZONTE,%20necesito%20información" class="whatsapp-float"
-        title="Contactar por WhatsApp (Online o Presencial)">💬</a>
 
-<!-- ============================================ -->
-    <!-- SCRIPTS: FAQ, Menu, AOS, Tracking -->
-    <!-- ============================================ -->
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/51922346747?text=Hola%20FELIZ%20HORIZONTE,%20necesito%20información" class="whatsapp-float" title="Contactar por WhatsApp">💬</a>
+
+    <!-- Sticky CTA Mobile -->
+    <div class="sticky-cta-mobile">
+        <a href="https://wa.me/51922346747?text=Hola%20FELIZ%20HORIZONTE,%20quiero%20agendar">💬 Agendar Consulta Ahora</a>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // ===== FAQ ACCORDION =====
@@ -1510,8 +1639,9 @@
             const navMenu = document.getElementById('navMenu');
 
             menuToggle.addEventListener('click', function () {
-                navMenu.classList.toggle('active');
-                menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+                const isActive = navMenu.classList.toggle('active');
+                menuToggle.textContent = isActive ? '✕' : '☰';
+                document.body.style.overflow = isActive ? 'hidden' : '';
             });
 
             // Cerrar menú al hacer clic en un enlace
@@ -1519,6 +1649,7 @@
                 link.addEventListener('click', function () {
                     navMenu.classList.remove('active');
                     menuToggle.textContent = '☰';
+                    document.body.style.overflow = '';
                 });
             });
 
@@ -1570,6 +1701,5 @@
             offset: 100
         });
     </script>
-
 </body>
 </html>
