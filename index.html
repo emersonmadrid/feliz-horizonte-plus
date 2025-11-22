@@ -299,7 +299,7 @@
         .whatsapp-float:hover { transform: scale(1.1); }
 
         /* =========================================
-           RESPONSIVE
+           RESPONSIVE (TABLET & MOBILE)
            ========================================= */
         @media (max-width: 968px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
@@ -312,6 +312,36 @@
                 transform: translateY(-150%); transition: transform 0.4s ease;
             }
             .nav-links.active { transform: translateY(0); }
+        }
+
+        /* CORRECCIÓN EXCLUSIVA PARA CELULARES (TU AJUSTE MÓVIL) */
+        @media (max-width: 480px) {
+            /* 1. Título más compacto para que no ocupe toda la pantalla */
+            .hero-title {
+                font-size: 2.5rem !important; /* Reducido de 3.8rem */
+                margin-bottom: 15px;
+            }
+
+            /* 2. Reducir padding superior para subir todo el contenido */
+            .hero {
+                padding: 80px 0 60px !important;
+            }
+
+            /* 3. Botón de WhatsApp un poco más pequeño para no tapar texto */
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            /* 4. Ajuste del texto del banner superior */
+            .availability-banner {
+                font-size: 0.75rem;
+                padding: 8px;
+                line-height: 1.3;
+            }
         }
     </style>
 </head>
