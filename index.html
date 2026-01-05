@@ -37,7 +37,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="structured-data-clinic">
         {
             "@context": "https://schema.org",
             "@type": "MedicalClinic",
@@ -54,7 +54,7 @@
                 "addressLocality": "Lima",
                 "addressCountry": "PE"
             },
-            "telephone": "+51 922 346 747",
+            "telephone": "",
             "areaServed": "Perú",
             "priceRange": "$$",
             "makesOffer": [
@@ -77,13 +77,11 @@
                     "priceCurrency": "PEN"
                 }
             ],
-            "sameAs": [
-                "https://wa.me/51901689531"
-            ]
+            "sameAs": []
         }
     </script>
 
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="structured-data-site">
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
@@ -93,7 +91,7 @@
             "potentialAction": {
                 "@type": "Action",
                 "name": "Agenda una cita",
-                "target": "https://wa.me/51901689531"
+                "target": ""
             }
         }
     </script>
@@ -1513,7 +1511,7 @@
             </ul>
 
             <div style="margin-top: auto;">
-                <a href="https://wa.me/51901689531?text=Hola,%20quiero%20agendar%20una%20sesión"
+                <a href="#" data-whatsapp-text="Hola,%20quiero%20agendar%20una%20sesión"
                     class="btn btn-whatsapp" style="width: 100%; justify-content: center;">
                     <i class="ri-whatsapp-line"></i>
                     Agendar Sesión
@@ -1538,7 +1536,7 @@
                         listos para ayudarte.
                     </p>
                     <div class="hero-ctas">
-                        <a href="https://wa.me/51901689531?text=Hola,%20quiero%20agendar%20una%20sesión"
+                        <a href="#" data-whatsapp-text="Hola,%20quiero%20agendar%20una%20sesión"
                             class="btn btn-whatsapp">
                             <i class="ri-whatsapp-line"></i>
                             Agendar Sesión
@@ -1702,7 +1700,7 @@
                             <span class="credential">Psicología Forense</span>
                             <span class="credential">TCC</span>
                         </div>
-                        <a href="https://wa.me/51901689531?text=Hola,%20quiero%20cita%20con%20Lic.%20Cintya"
+                        <a href="#" data-whatsapp-text="Hola,%20quiero%20cita%20con%20Lic.%20Cintya"
                             class="btn btn-primary" style="width: 100%; justify-content: center;">
                             <i class="ri-calendar-line"></i>
                             Agendar con Cintya
@@ -1727,7 +1725,7 @@
                             <span class="credential">Tanatología</span>
                             <span class="credential">Autismo</span>
                         </div>
-                        <a href="https://wa.me/51901689531?text=Hola,%20quiero%20cita%20psiquiátrica%20con%20Dra.%20Yasmín"
+                        <a href="#" data-whatsapp-text="Hola,%20quiero%20cita%20psiquiátrica%20con%20Dra.%20Yasmín"
                             class="btn btn-primary" style="width: 100%; justify-content: center;">
                             <i class="ri-calendar-line"></i>
                             Agendar con Yasmín
@@ -1776,7 +1774,7 @@
                             <span>Atención personalizada</span>
                         </li>
                     </ul>
-                    <a href="https://wa.me/51901689531?text=Hola,%20quiero%20agendar%20terapia%20psicológica"
+                    <a href="#" data-whatsapp-text="Hola,%20quiero%20agendar%20terapia%20psicológica"
                         class="btn btn-primary" style="width: 100%; justify-content: center;">
                         Agendar Ahora
                     </a>
@@ -1810,7 +1808,7 @@
                             <span>Seguimiento médico continuo</span>
                         </li>
                     </ul>
-                    <a href="https://wa.me/51901689531?text=Hola,%20necesito%20consulta%20psiquiátrica"
+                    <a href="#" data-whatsapp-text="Hola,%20necesito%20consulta%20psiquiátrica"
                         class="btn btn-outline" style="width: 100%; justify-content: center;">
                         Consultar Disponibilidad
                     </a>
@@ -1936,7 +1934,7 @@
                     Estamos aquí para escucharte y acompañarte en tu proceso. Contáctanos y comencemos juntos este
                     camino hacia tu bienestar.
                 </p>
-                <a href="https://wa.me/51901689531?text=Hola,%20quiero%20información%20sobre%20agendar%20una%20sesión"
+                <a href="#" data-whatsapp-text="Hola,%20quiero%20información%20sobre%20agendar%20una%20sesión"
                     class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 16px 40px;">
                     <i class="ri-whatsapp-line"></i>
                     Contactar por WhatsApp
@@ -1982,10 +1980,10 @@
 
                 <div>
                     <h4>Contacto</h4>
-                    <p
+                    <p id="phone-display"
                         style="margin-bottom: 12px; color: var(--text-light); display: flex; align-items: center; gap: 8px;">
                         <i class="ri-whatsapp-line"></i>
-                        +51 922 346 747
+                        Cargando...
                     </p>
                     <p
                         style="margin-bottom: 20px; color: var(--text-light); display: flex; align-items: center; gap: 8px;">
@@ -2006,7 +2004,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/51901689531?text=Hola%20FELIZ%20HORIZONTE" class="whatsapp-float" target="_blank">
+    <a href="#" data-whatsapp-text="Hola%20FELIZ%20HORIZONTE" class="whatsapp-float" target="_blank">
         <i class="ri-whatsapp-line"></i>
     </a>
 
@@ -2020,7 +2018,52 @@
         });
 
         // ========== TELÉFONO DINÁMICO DESDE JSONBIN ==========
+        const fallbackPhone = '+51 922 346 747';
+
+        function applyPhoneNumber(phone) {
+            const phoneDigits = phone.replace(/\D/g, '');
+
+            // Actualizar todos los enlaces de WhatsApp
+            document.querySelectorAll('[data-whatsapp-text]').forEach(link => {
+                const text = link.getAttribute('data-whatsapp-text') || '';
+                const textParam = text ? `?text=${text}` : '';
+                link.href = `https://wa.me/${phoneDigits}${textParam}`;
+            });
+
+            // Actualizar el teléfono visible
+            const phoneDisplay = document.getElementById('phone-display');
+            if (phoneDisplay) {
+                const textNode = Array.from(phoneDisplay.childNodes).find(
+                    node => node.nodeType === 3 && node.textContent.trim()
+                );
+                if (textNode) {
+                    textNode.textContent = ` ${phone}`;
+                } else {
+                    phoneDisplay.append(` ${phone}`);
+                }
+            }
+
+            // Actualizar JSON-LD (schema.org) con el teléfono
+            const clinicScript = document.getElementById('structured-data-clinic');
+            if (clinicScript) {
+                const clinicData = JSON.parse(clinicScript.textContent);
+                clinicData.telephone = phone;
+                clinicData.sameAs = [`https://wa.me/${phoneDigits}`];
+                clinicScript.textContent = JSON.stringify(clinicData, null, 4);
+            }
+
+            const siteScript = document.getElementById('structured-data-site');
+            if (siteScript) {
+                const siteData = JSON.parse(siteScript.textContent);
+                if (siteData.potentialAction) {
+                    siteData.potentialAction.target = `https://wa.me/${phoneDigits}`;
+                }
+                siteScript.textContent = JSON.stringify(siteData, null, 4);
+            }
+        }
+
         async function loadPhoneNumber() {
+            applyPhoneNumber(fallbackPhone);
             try {
                 const response = await fetch('https://api.jsonbin.io/v3/b/693833a0ae596e708f8de4d8/latest', {
                     headers: {
@@ -2029,14 +2072,10 @@
                 });
                 const data = await response.json();
                 const phone = data.record.phoneNumber;
-
-                // Actualizar todos los enlaces de WhatsApp
-                document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-                    const text = link.href.split('text=')[1] || '';
-                    link.href = `https://wa.me/${phone.replace(/\+/g, '')}?text=${text}`;
-                });
-
-                console.log('✅ Teléfono actualizado a:', phone);
+                if (phone) {
+                    applyPhoneNumber(phone);
+                    console.log('✅ Teléfono actualizado a:', phone);
+                }
             } catch (error) {
                 console.error('❌ Error al cargar teléfono:', error);
             }
@@ -2060,7 +2099,7 @@
         }
 
         // WhatsApp click tracking
-        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        document.querySelectorAll('[data-whatsapp-text]').forEach(link => {
             link.addEventListener('click', () => {
                 if (typeof gtag === 'function') {
                     gtag('event', 'whatsapp_click', {
