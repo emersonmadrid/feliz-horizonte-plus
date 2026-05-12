@@ -251,6 +251,12 @@
             scroll-behavior: smooth;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             color: var(--text);
@@ -1166,6 +1172,14 @@
             .section-header { margin-bottom: 40px; }
             .section-header h2 { font-size: 1.7rem; line-height: 1.25; margin-bottom: 12px; text-wrap: pretty; }
             .section-header p { font-size: 0.95rem; }
+            .section-tag { font-size: 0.75rem; padding: 5px 12px; }
+            .benefits-grid { grid-template-columns: 1fr; gap: 20px; }
+            .benefit-card { padding: 30px 25px; }
+            .process-steps { grid-template-columns: 1fr; gap: 30px; }
+            .team-grid { gap: 30px; }
+            .team-image { height: 300px; }
+            .team-info { padding: 25px; }
+            .pricing-grid { gap: 25px; }
             .testimonials-grid { 
                 display: flex; 
                 overflow-x: auto; 
@@ -1335,7 +1349,7 @@
     </div>
 
     <!-- TESTIMONIOS -->
-    <section class="section testimonials" id="testimonios" style="background: white; padding: 60px 0;">
+    <section class="section testimonials" id="testimonios" style="background: white; padding: 60px 0; overflow: hidden;">
         <div class="container">
             <div class="section-header" data-aos="fade-up" style="margin-bottom: 40px;">
                 <span class="section-tag">Testimonios</span>
