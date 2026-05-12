@@ -542,6 +542,12 @@
             gap: 30px;
             margin-top: 42px;
         }
+        .stats-strip {
+            background: white;
+            padding: 40px 0;
+            border-bottom: 1px solid #f0eeec;
+        }
+        .stats-strip .hero-stats { margin-top: 0; }
         .stat-item { text-align: center; min-width: 0; }
         .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); display: block; }
         .stat-label { font-size: 0.9rem; color: var(--text-light); }
@@ -1133,14 +1139,16 @@
             .nav-links { display: none; }
             .mobile-menu-btn { display: inline-flex; }
             .logo { font-size: 1.3rem; }
-            .top-bar { padding: 10px 0; font-size: 0.85rem; }
-            .hero { padding: 35px 0 55px; text-align: center; }
-            .hero h1 { font-size: 2.1rem; line-height: 1.25; margin-bottom: 20px; }
-            .hero-badge { font-size: 0.75rem; padding: 6px 14px; margin-bottom: 24px; }
-            .hero-text { font-size: 1.05rem; margin-bottom: 32px; line-height: 1.6; max-width: 100%; }
-            .hero-ctas { flex-direction: column; gap: 14px; width: 100%; }
-            .btn { width: 100%; justify-content: center; padding: 15px 24px; font-size: 0.98rem; }
-            .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 40px; width: 100%; }
+            .top-bar { padding: 6px 0; font-size: 0.8rem; }
+            .hero { padding: 25px 0 40px; text-align: center; min-height: calc(100vh - 120px); display: flex; align-items: center; }
+            .hero h1 { font-size: 1.85rem; line-height: 1.2; margin-bottom: 16px; }
+            .hero-badge { font-size: 0.72rem; padding: 5px 12px; margin-bottom: 20px; }
+            .hero-text { font-size: 1rem; margin-bottom: 24px; line-height: 1.5; max-width: 100%; }
+            .hero-ctas { flex-direction: column; gap: 12px; width: 100%; }
+            .hero-secondary-cta { display: none; }
+            .btn { width: 100%; justify-content: center; padding: 14px 24px; font-size: 0.95rem; }
+            .stats-strip { padding: 30px 0; }
+            .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 0; width: 100%; }
             .stat-number { font-size: 1.8rem; }
             .stat-label { font-size: 0.8rem; overflow-wrap: anywhere; }
             .section-header { margin-bottom: 40px; }
@@ -1255,30 +1263,16 @@
                     </div>
                     <h1>Tu bienestar emocional merece <span class="hero-highlight">atención especializada</span></h1>
                     <p class="hero-text">
-                        Encuentra un espacio seguro para trabajar en tu salud mental con psicóloga y psiquiatra certificadas. Trato humano y sin esperas.
+                        Psicología y psiquiatría con trato humano y sin esperas.
                     </p>
                     <div class="hero-ctas">
                         <a href="#" data-whatsapp-text="Hola,%20quiero%20consultar%20horarios%20disponibles" class="btn btn-whatsapp">
                             <i class="ri-whatsapp-line"></i>
-                            Consultar horarios disponibles
+                            Consultar horarios
                         </a>
-                        <a href="#equipo" class="btn btn-outline">
+                        <a href="#equipo" class="btn btn-outline hero-secondary-cta">
                             Conocer especialistas
                         </a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Pacientes Atendidos</span>
-                        </div>
-                        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                            <span class="stat-number">95%</span>
-                            <span class="stat-label">Satisfacción</span>
-                        </div>
-                        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                            <span class="stat-number">24h</span>
-                            <span class="stat-label">Respuesta Rápida</span>
-                        </div>
                     </div>
                 </div>
                 <div class="hero-visual" data-aos="fade-left">
@@ -1296,6 +1290,26 @@
             </div>
         </div>
     </section>
+
+    <!-- STATS STRIP -->
+    <div class="stats-strip">
+        <div class="container">
+            <div class="hero-stats">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Pacientes Atendidos</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Satisfacción</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="stat-number">24h</span>
+                    <span class="stat-label">Respuesta Rápida</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- BENEFICIOS -->
     <section class="section benefits" id="beneficios">
