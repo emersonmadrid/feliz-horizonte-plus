@@ -1176,7 +1176,22 @@
             .pricing-grid { gap: 25px; }
             .price-card { padding: 35px 25px; }
             .popular-badge { top: -13px; padding: 7px 14px; font-size: 0.75rem; letter-spacing: 0.5px; }
-            .testimonials-grid { grid-template-columns: 1fr; gap: 25px; }
+            .testimonials-grid { 
+                display: flex; 
+                overflow-x: auto; 
+                gap: 16px; 
+                padding: 10px 4px 30px; 
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Firefox */
+            }
+            .testimonials-grid::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+            .testimonial { 
+                min-width: 85%; 
+                flex-shrink: 0; 
+                scroll-snap-align: center;
+                padding: 28px 22px; 
+            }
             .faq-grid { grid-template-columns: 1fr; gap: 16px; }
             .cta h2 { font-size: 1.75rem; }
             .footer-grid { grid-template-columns: 1fr; gap: 35px; }
