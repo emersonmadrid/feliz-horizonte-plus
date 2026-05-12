@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Horizonte | Terapia Psicológica que Transforma Vidas</title>
+    <title>Feliz Horizonte | Psicología en Lima y Psiquiatría Online</title>
     <meta name="description"
-        content="Encuentra paz mental con nuestros especialistas. Atención online y presencial en Lima.">
+        content="Centro de salud mental con psicología online o presencial en Villa El Salvador y consulta psiquiátrica 100% online en Perú.">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#7c3aed">
     <link rel="canonical" href="https://felizhorizonte.pe/">
@@ -15,18 +15,18 @@
 
     <meta property="og:locale" content="es_PE">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Feliz Horizonte | Terapia Psicológica que Transforma Vidas">
+    <meta property="og:title" content="Feliz Horizonte | Psicología en Lima y Psiquiatría Online">
     <meta property="og:description"
-        content="Atención psicológica y psiquiátrica con especialistas certificados en Lima. Sesiones online o presenciales.">
+        content="Atención psicológica online o presencial en Villa El Salvador y consulta psiquiátrica 100% online.">
     <meta property="og:url" content="https://felizhorizonte.pe/">
     <meta property="og:site_name" content="Feliz Horizonte">
     <meta property="og:image" content="https://felizhorizonte.pe/images/cintya.png">
     <meta property="og:image:alt" content="Especialista de Feliz Horizonte sonriendo en consulta">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Feliz Horizonte | Terapia Psicológica que Transforma Vidas">
+    <meta name="twitter:title" content="Feliz Horizonte | Psicología en Lima y Psiquiatría Online">
     <meta name="twitter:description"
-        content="Reserva tu terapia psicológica o consulta psiquiátrica en Lima con especialistas certificados.">
+        content="Reserva atención psicológica online o presencial y consulta psiquiátrica virtual con Feliz Horizonte.">
     <meta name="twitter:image" content="https://felizhorizonte.pe/images/cintya.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +43,7 @@
             "@type": "MedicalClinic",
             "name": "Feliz Horizonte",
             "url": "https://felizhorizonte.pe/",
-            "description": "Centro de atención psicológica y psiquiátrica en Lima con especialistas certificados y modalidad online o presencial.",
+            "description": "Centro de salud mental en Lima con atención psicológica online o presencial en Villa El Salvador y consulta psiquiátrica 100% online.",
             "image": [
                 "https://felizhorizonte.pe/images/cintya.png",
                 "https://felizhorizonte.pe/images/yasmin.jpeg"
@@ -75,6 +75,14 @@
                     },
                     "price": "139.00",
                     "priceCurrency": "PEN"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Certificado de Facultades Mentales para Adultos Mayores",
+                        "description": "Evaluación psiquiátrica para adultos mayores, con emisión sujeta a criterio médico y requisitos de la entidad solicitante."
+                    }
                 }
             ],
             "sameAs": []
@@ -131,7 +139,15 @@
                     "name": "¿Qué profesionales me atenderán?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Psicólogos y psiquiatras colegiados con experiencia en ansiedad, depresión y salud mental integral."
+                        "text": "Te atenderá una psicóloga clínica o una médica psiquiatra, según el tipo de atención que necesites."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Emiten certificado de facultades mentales?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sí. La Dra. Yasmín realiza evaluación psiquiátrica para adultos mayores y puede emitir certificado de facultades mentales cuando corresponde según criterio médico. Recomendamos confirmar previamente los requisitos de la notaría o entidad solicitante."
                     }
                 },
                 {
@@ -196,6 +212,12 @@
         img {
             max-width: 100%;
             display: block;
+        }
+
+        html:not(.aos-enabled) [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
         }
 
         .container {
@@ -466,7 +488,7 @@
 
         /* HERO SECTION */
         .hero {
-            padding: 70px 0 100px;
+            padding: 56px 0 72px;
             background: linear-gradient(135deg, #faf5ff 0%, #f3f4f6 100%);
             position: relative;
             overflow: hidden;
@@ -492,6 +514,10 @@
             z-index: 1;
         }
 
+        .hero-grid > * {
+            min-width: 0;
+        }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -508,11 +534,12 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.35rem;
             line-height: 1.15;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: var(--text);
             font-weight: 700;
+            overflow-wrap: break-word;
         }
 
         .hero-highlight {
@@ -525,9 +552,10 @@
         .hero-text {
             font-size: 1.2rem;
             color: var(--text-light);
-            margin-bottom: 35px;
-            line-height: 1.75;
+            margin-bottom: 28px;
+            line-height: 1.6;
             max-width: 600px;
+            overflow-wrap: break-word;
         }
 
         .hero-ctas {
@@ -540,11 +568,12 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-top: 60px;
+            margin-top: 42px;
         }
 
         .stat-item {
             text-align: center;
+            min-width: 0;
         }
 
         .stat-number {
@@ -561,7 +590,7 @@
 
         .hero-visual {
             position: relative;
-            height: 550px;
+            height: 500px;
         }
 
         .hero-card {
@@ -894,6 +923,10 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             padding: 8px 20px;
@@ -902,6 +935,8 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            line-height: 1;
+            white-space: nowrap;
             box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
         }
 
@@ -937,11 +972,84 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            min-width: 0;
+        }
+
+        .price-features span {
+            min-width: 0;
+            overflow-wrap: anywhere;
         }
 
         .price-features i {
             color: var(--success);
             font-size: 1.2rem;
+        }
+
+        .psychiatry-services {
+            margin: 50px auto 0;
+            max-width: 900px;
+            padding: 36px;
+            background: white;
+            border: 1px solid #e7e5e4;
+            border-radius: 24px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+        }
+
+        .psychiatry-services-header {
+            max-width: 680px;
+            margin-bottom: 26px;
+        }
+
+        .psychiatry-services-header h3 {
+            font-size: 1.65rem;
+            margin-bottom: 10px;
+        }
+
+        .psychiatry-services-header p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .psychiatry-services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .psychiatry-service {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 16px;
+            background: #fafaf9;
+            border: 1px solid #f0eeec;
+            border-radius: 16px;
+            min-width: 0;
+        }
+
+        .psychiatry-service i {
+            color: var(--success);
+            font-size: 1.25rem;
+            flex: 0 0 auto;
+            margin-top: 2px;
+        }
+
+        .psychiatry-service strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .psychiatry-service span {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .psychiatry-services-note {
+            margin-top: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         /* TESTIMONIALS */
@@ -1295,6 +1403,7 @@
             .hero-ctas {
                 flex-direction: column;
                 gap: 12px;
+                width: 100%;
             }
 
             .btn {
@@ -1308,6 +1417,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 15px;
                 margin-top: 40px;
+                width: 100%;
             }
 
             .stat-number {
@@ -1316,6 +1426,7 @@
 
             .stat-label {
                 font-size: 0.8rem;
+                overflow-wrap: anywhere;
             }
 
             .section-header {
@@ -1369,6 +1480,26 @@
 
             .price-card.featured {
                 transform: scale(1);
+            }
+
+            .popular-badge {
+                top: -13px;
+                padding: 7px 14px;
+                font-size: 0.75rem;
+                letter-spacing: 0.5px;
+            }
+
+            .psychiatry-services {
+                padding: 28px 22px;
+                margin-top: 35px;
+            }
+
+            .psychiatry-services-header h3 {
+                font-size: 1.35rem;
+            }
+
+            .psychiatry-services-grid {
+                grid-template-columns: 1fr;
             }
 
             .testimonials-grid {
@@ -1526,23 +1657,22 @@
                 <div data-aos="fade-right">
                     <div class="hero-badge">
                         <i class="ri-heart-line"></i>
-                        Atención Profesional en Lima
+                        Centro de Salud Mental
                     </div>
                     <h1>
-                        Estamos aquí para <span class="hero-highlight">acompañarte</span>
+                        Tu salud mental <span class="hero-highlight">importa</span>
                     </h1>
                     <p class="hero-text">
-                        Espacio seguro y confidencial para tu bienestar emocional. Psicólogos y psiquiatras certificados
-                        listos para ayudarte.
+                        Psicología y psiquiatría con trato humano, confidencial y sin juicios.
                     </p>
                     <div class="hero-ctas">
                         <a href="#" data-whatsapp-text="Hola,%20quiero%20agendar%20una%20sesión"
                             class="btn btn-whatsapp">
                             <i class="ri-whatsapp-line"></i>
-                            Agendar Sesión
+                            Agendar sesión
                         </a>
                         <a href="#equipo" class="btn btn-outline">
-                            Conocer Especialistas
+                            Ver especialistas
                         </a>
                     </div>
 
@@ -1599,8 +1729,8 @@
                     <div class="benefit-icon">
                         <i class="ri-award-line"></i>
                     </div>
-                    <h3>Especialistas Certificados</h3>
-                    <p>Psicólogos y psiquiatras con amplia experiencia y formación internacional comprobada.</p>
+                    <h3>Especialistas Certificadas</h3>
+                    <p>Atención con psicóloga clínica y médica psiquiatra colegiadas, cada una desde su especialidad.</p>
                 </div>
 
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
@@ -1608,7 +1738,7 @@
                         <i class="ri-global-line"></i>
                     </div>
                     <h3>Online o Presencial</h3>
-                    <p>Tú decides cómo quieres recibir atención. Máxima flexibilidad y comodidad.</p>
+                    <p>Psicología online o presencial en Villa El Salvador. Psiquiatría disponible en modalidad virtual.</p>
                 </div>
 
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
@@ -1719,11 +1849,11 @@
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Dra. Yasmín Meneses</h3>
-                        <p class="team-title">Médico Psiquiatra Certificada</p>
+                        <p class="team-title">Médica Psiquiatra</p>
                         <p class="team-bio">
-                            Especialista en tratamiento farmacológico, Tanatología y Autismo. Formación internacional
-                            con enfoque integral y humano. <strong style="color: #10b981;">Atención exclusivamente
-                                virtual.</strong>
+                            Especialista en evaluación clínica, tratamiento farmacológico, Tanatología y Autismo.
+                            Formación internacional con enfoque integral y humano. <strong style="color: #10b981;">Atención
+                                exclusivamente virtual.</strong>
                         </p>
                         <div class="team-credentials">
                             <span class="credential">CMP 64796</span>
@@ -1816,6 +1946,10 @@
                             <i class="ri-check-double-line"></i>
                             <span>Seguimiento médico continuo</span>
                         </li>
+                        <li>
+                            <i class="ri-check-double-line"></i>
+                            <span>Evaluación para certificados e informes</span>
+                        </li>
                         <li style="color: #10b981; font-weight: 600;">
                             <i class="ri-video-line"></i>
                             <span>Atención exclusivamente virtual</span>
@@ -1826,6 +1960,58 @@
                         Consultar Disponibilidad
                     </a>
                 </div>
+            </div>
+
+            <div class="psychiatry-services" data-aos="fade-up" data-aos-delay="250">
+                <div class="psychiatry-services-header">
+                    <span class="section-tag">Psiquiatría</span>
+                    <h3>Servicios psiquiátricos adicionales</h3>
+                    <p>
+                        Además de la consulta médica, Feliz Horizonte realiza evaluaciones psiquiátricas para adultos y
+                        adultos mayores que requieren sustento clínico para trámites o seguimiento especializado.
+                    </p>
+                </div>
+
+                <div class="psychiatry-services-grid">
+                    <div class="psychiatry-service">
+                        <i class="ri-file-list-3-line"></i>
+                        <div>
+                            <strong>Certificado de facultades mentales</strong>
+                            <span>Evaluación psiquiátrica para adultos mayores, según criterio médico.</span>
+                        </div>
+                    </div>
+                    <div class="psychiatry-service">
+                        <i class="ri-mental-health-line"></i>
+                        <div>
+                            <strong>Evaluación cognitiva inicial</strong>
+                            <span>Revisión clínica de memoria, orientación, juicio y comprensión.</span>
+                        </div>
+                    </div>
+                    <div class="psychiatry-service">
+                        <i class="ri-article-line"></i>
+                        <div>
+                            <strong>Informe médico psiquiátrico</strong>
+                            <span>Documento clínico elaborado cuando el caso requiere mayor detalle.</span>
+                        </div>
+                    </div>
+                    <div class="psychiatry-service">
+                        <i class="ri-capsule-line"></i>
+                        <div>
+                            <strong>Seguimiento farmacológico</strong>
+                            <span>Control de tratamiento, evolución y ajustes indicados por la especialista.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="psychiatry-services-note">
+                    La emisión de certificados o informes está sujeta a evaluación médica psiquiátrica y a los
+                    requisitos de la entidad que lo solicita.
+                </p>
+                <a href="#" data-whatsapp-text="Hola,%20quiero%20información%20sobre%20certificado%20de%20facultades%20mentales%20para%20adulto%20mayor"
+                    class="btn btn-outline" style="margin-top: 22px;">
+                    <i class="ri-whatsapp-line"></i>
+                    Consultar certificado
+                </a>
             </div>
 
             <p style="text-align: center; margin-top: 40px; color: var(--text-light);">
@@ -1918,8 +2104,14 @@
                 </div>
                 <div class="faq-card" data-aos="fade-up" data-aos-delay="250">
                     <h3><i class="ri-team-line"></i> ¿Qué profesionales me atenderán?</h3>
-                    <p>Solo trabajamos con psicólogos y psiquiatras colegiados, con experiencia en ansiedad, depresión y
-                        salud mental integral.</p>
+                    <p>Te atenderá una psicóloga clínica o una médica psiquiatra, según el tipo de atención que
+                        necesites. Psicología puede ser online o presencial; psiquiatría es 100% online.</p>
+                </div>
+                <div class="faq-card" data-aos="fade-up" data-aos-delay="275">
+                    <h3><i class="ri-file-list-3-line"></i> ¿Emiten certificado de facultades mentales?</h3>
+                    <p>Sí. La Dra. Yasmín realiza evaluación psiquiátrica para adultos mayores y puede emitir certificado
+                        de facultades mentales cuando corresponde según criterio médico. Recomendamos confirmar antes los
+                        requisitos de la notaría o entidad solicitante.</p>
                 </div>
                 <div class="faq-card" data-aos="fade-up" data-aos-delay="300">
                     <h3><i class="ri-calendar-check-line"></i> ¿Puedo cambiar o reprogramar mi sesión?</h3>
@@ -1962,8 +2154,8 @@
                 <div>
                     <span class="footer-logo">Feliz Horizonte</span>
                     <p style="margin-bottom: 20px; color: var(--text-light); line-height: 1.6;">
-                        Centro de atención psicológica y psiquiátrica dedicado a tu bienestar emocional. Profesionales
-                        certificados listos para acompañarte.
+                        Centro de salud mental dedicado a tu bienestar emocional. Psicología online o presencial y
+                        consulta psiquiátrica virtual.
                     </p>
                     <p style="color: var(--text-light); display: flex; align-items: center; gap: 8px;">
                         <i class="ri-map-pin-line"></i>
@@ -2023,12 +2215,15 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
+        // Initialize AOS only when the CDN script is available.
+        if (window.AOS) {
+            document.documentElement.classList.add('aos-enabled');
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        }
 
         // ========== TELÉFONO DINÁMICO DESDE JSONBIN ==========
         const fallbackPhone = '+51 922 346 747';
