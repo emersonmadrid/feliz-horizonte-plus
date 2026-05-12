@@ -791,18 +791,28 @@
         .team-card:hover .team-image img { transform: scale(1.1); }
         .team-badge {
             position: absolute;
-            top: 20px; left: 20px;
-            background: rgba(124,58,237,0.95);
+            top: 0; left: 0;
+            background: var(--primary);
             color: white;
             padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
+            border-bottom-right-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 5;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
         }
         .team-badge.teal-badge {
-            background: rgba(13,148,136,0.95);
-            top: auto; bottom: 12px;
+            background: var(--teal);
+            top: auto; bottom: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 20px;
+        }
+        .team-badge.right-badge {
+            left: auto; right: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 20px;
         }
         .team-info { padding: 35px; }
         .team-name { font-size: 1.6rem; margin-bottom: 8px; }
@@ -1162,6 +1172,7 @@
             .process-steps { grid-template-columns: 1fr; gap: 30px; }
             .team-grid { gap: 30px; }
             .team-image { height: 300px; }
+            .team-info { padding: 25px; }
             .pricing-grid { gap: 25px; }
             .price-card { padding: 35px 25px; }
             .popular-badge { top: -13px; padding: 7px 14px; font-size: 0.75rem; letter-spacing: 0.5px; }
@@ -1543,8 +1554,8 @@
                         <img src="images/yasmin.jpeg"
                              alt="Dra. Yasmín Meneses, médica psiquiatra online en Perú"
                              width="480" height="380" loading="lazy">
-                        <div class="team-badge" style="background:rgba(13,148,136,0.95);">Psiquiatría</div>
-                        <div class="team-badge teal-badge">
+                        <div class="team-badge teal-badge" style="top:0; bottom:auto; border-top-right-radius:0; border-bottom-right-radius:20px;">Psiquiatría</div>
+                        <div class="team-badge teal-badge right-badge">
                             <i class="ri-video-line"></i>&nbsp;Solo Virtual
                         </div>
                     </div>
