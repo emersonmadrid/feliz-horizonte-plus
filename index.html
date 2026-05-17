@@ -31,9 +31,6 @@
         content="Psicología online o presencial en Lima y psiquiatría virtual. Agenda tu cita en menos de 24h.">
     <meta name="twitter:image" content="https://felizhorizonte.pe/images/cintya.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <script type="application/ld+json" id="structured-data-clinic">
         {
             "@context": "https://schema.org",
@@ -252,7 +249,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: var(--text);
             background: var(--bg);
             line-height: 1.6;
@@ -263,7 +260,7 @@
         h1, h2, h3, h4,
         .hero-card-title,
         .author-name {
-            font-family: 'Sora', sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             font-weight: 700;
             line-height: 1.2;
             text-wrap: balance;
@@ -1931,7 +1928,6 @@
         }
 
         function loadDeferredStyles() {
-            loadStylesheet('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap');
             loadStylesheet('https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css');
         }
 
@@ -1942,7 +1938,7 @@
 
         const emailDisplay = document.getElementById('email-display');
         if (emailDisplay) {
-            emailDisplay.textContent = `${emailDisplay.dataset.user}@${emailDisplay.dataset.domain}`;
+            emailDisplay.textContent = [emailDisplay.dataset.user, emailDisplay.dataset.domain].join(String.fromCharCode(64));
         }
 
         function applyPhoneNumber(phone) {
