@@ -25,8 +25,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="dns-prefetch" href="https://api.jsonbin.io">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.woff2?t=1690730386070" as="font" type="font/woff2" crossorigin>
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -627,42 +628,57 @@
         let currentPhone = fallbackPhone;
 
         function applyPhoneNumber(phone) {
-            if (phone === currentPhone && document.getElementById('phone-display').textContent.includes(phone)) return;
+            const phoneDisplay = document.getElementById('phone-display');
+            if (!phoneDisplay) return; // Guard
+            
+            if (phone === currentPhone && phoneDisplay.textContent.includes(phone)) return;
             currentPhone = phone;
             const phoneDigits = phone.replace(/\D/g, '');
 
-            document.querySelectorAll('[data-whatsapp-text]').forEach(link => {
+            // Batch DOM updates
+            const whatsappLinks = document.querySelectorAll('[data-whatsapp-text]');
+            whatsappLinks.forEach(link => {
                 const text = link.getAttribute('data-whatsapp-text') || '';
                 const textParam = text ? `?text=${text}` : '';
-                link.href = `https://wa.me/${phoneDigits}${textParam}`;
+                const newHref = `https://wa.me/${phoneDigits}${textParam}`;
+                if (link.href !== newHref) link.href = newHref;
             });
 
-            const phoneDisplay = document.getElementById('phone-display');
-            if (phoneDisplay) {
-                const textNode = Array.from(phoneDisplay.childNodes).find(
-                    node => node.nodeType === 3 && node.textContent.trim()
-                );
-                if (textNode) {
-                    textNode.textContent = ` ${phone}`;
-                } else {
-                    phoneDisplay.append(` ${phone}`);
-                }
+            const textNode = Array.from(phoneDisplay.childNodes).find(
+                node => node.nodeType === 3 && node.textContent.trim()
+            );
+            if (textNode) {
+                if (textNode.textContent !== ` ${phone}`) textNode.textContent = ` ${phone}`;
+            } else {
+                phoneDisplay.append(` ${phone}`);
             }
 
-            // Update structured data
-            document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            // Update structured data only if it exists
+            const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+            scripts.forEach(script => {
                 try {
-                    const data = JSON.parse(script.textContent);
-                    let changed = false;
-                    if (data.telephone) {
-                        data.telephone = phone;
-                        changed = true;
+                    if (script.textContent.includes('telephone') || script.textContent.includes('wa.me')) {
+                        const data = JSON.parse(script.textContent);
+                        let changed = false;
+                        // Use a helper or direct check
+                        if (data.telephone && data.telephone !== phone) { data.telephone = phone; changed = true; }
+                        if (data.sameAs && Array.isArray(data.sameAs)) {
+                            const newSameAs = data.sameAs.map(url => url.includes('wa.me') ? `https://wa.me/${phoneDigits}` : url);
+                            if (JSON.stringify(data.sameAs) !== JSON.stringify(newSameAs)) {
+                                data.sameAs = newSameAs;
+                                changed = true;
+                            }
+                        }
+                        // For nested potentialAction
+                        if (data.potentialAction && data.potentialAction.target && data.potentialAction.target.includes('wa.me')) {
+                             const newTarget = `https://wa.me/${phoneDigits}`;
+                             if (data.potentialAction.target !== newTarget) {
+                                 data.potentialAction.target = newTarget;
+                                 changed = true;
+                             }
+                        }
+                        if (changed) script.textContent = JSON.stringify(data, null, 4);
                     }
-                    if (data.sameAs && Array.isArray(data.sameAs)) {
-                        data.sameAs = data.sameAs.map(url => url.includes('wa.me') ? `https://wa.me/${phoneDigits}` : url);
-                        changed = true;
-                    }
-                    if (changed) script.textContent = JSON.stringify(data, null, 4);
                 } catch (e) {}
             });
         }
