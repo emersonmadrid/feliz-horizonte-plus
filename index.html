@@ -36,7 +36,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap"
         rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"></noscript>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
 
@@ -266,7 +267,9 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4,
+        .hero-card-title,
+        .author-name {
             font-family: 'Sora', sans-serif;
             font-weight: 700;
             line-height: 1.2;
@@ -569,7 +572,7 @@
         .hero-card-1 { top: 50px; left: 0; width: 280px; z-index: 2; animation: float 6s ease-in-out infinite; }
         .hero-card-2 { bottom: 80px; right: 0; width: 260px; animation: float 6s ease-in-out infinite 2s; }
         .hero-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
-        .hero-card h4 { margin-bottom: 10px; font-size: 1.1rem; }
+        .hero-card-title { margin-bottom: 10px; font-size: 1.1rem; }
         .hero-card p { font-size: 0.9rem; color: var(--text-light); }
         @keyframes float {
             0% { transform: translateY(0); }
@@ -661,7 +664,7 @@
             margin: 0 auto 20px;
             box-shadow: 0 10px 30px rgba(124,58,237,0.2);
         }
-        .step h4 { margin-bottom: 10px; font-size: 1.1rem; }
+        .step h3 { margin-bottom: 10px; font-size: 1.1rem; }
         .step p { font-size: 0.95rem; color: var(--text-light); }
 
         /* ── ¿PSICOLOGÍA O PSIQUIATRÍA? ── (NUEVA SECCIÓN) */
@@ -1030,7 +1033,7 @@
         .author-avatar.teal-avatar {
             background: linear-gradient(135deg, var(--teal), #0f766e);
         }
-        .author-info h5 { margin-bottom: 3px; font-size: 1rem; }
+        .author-name { margin-bottom: 3px; font-size: 1rem; }
         .author-info p { font-size: 0.85rem; color: var(--text-light); }
         .stars { color: #f59e0b; margin-top: 5px; }
 
@@ -1100,7 +1103,7 @@
             margin-bottom: 50px;
         }
         .footer-logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 15px; display: block; }
-        footer h4 { color: var(--text); margin-bottom: 20px; font-size: 1.1rem; font-weight: 600; }
+        .footer-heading { color: var(--text); margin-bottom: 20px; font-size: 1.1rem; font-weight: 600; }
         .footer-links { list-style: none; }
         .footer-links li { margin-bottom: 12px; }
         .footer-links a { color: var(--text-light); text-decoration: none; transition: all 0.3s; font-size: 0.95rem; }
@@ -1225,12 +1228,26 @@
         }
     </style>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17157055294"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'AW-17157055294');
+
+        let googleAdsLoaded = false;
+        function loadGoogleAds() {
+            if (googleAdsLoaded) return;
+            googleAdsLoaded = true;
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17157055294';
+            document.head.appendChild(script);
+            gtag('js', new Date());
+            gtag('config', 'AW-17157055294');
+        }
+
+        ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(eventName => {
+            window.addEventListener(eventName, loadGoogleAds, { once: true, passive: true });
+        });
+        window.addEventListener('load', () => window.setTimeout(loadGoogleAds, 3000));
     </script>
 </head>
 
@@ -1295,6 +1312,7 @@
         </div>
     </div>
 
+    <main id="main-content">
     <!-- HERO -->
     <section class="hero">
         <div class="container">
@@ -1325,12 +1343,12 @@
                 <div class="hero-visual" data-aos="fade-left">
                     <div class="hero-card hero-card-1">
                         <i class="ri-heart-pulse-line"></i>
-                        <h4>Atención Empática</h4>
+                        <p class="hero-card-title">Atención Empática</p>
                         <p>Espacio seguro donde puedes ser tú mismo sin juicios.</p>
                     </div>
                     <div class="hero-card hero-card-2">
                         <i class="ri-shield-check-line"></i>
-                        <h4>100% Confidencial</h4>
+                        <p class="hero-card-title">100% Confidencial</p>
                         <p>Tu privacidad es nuestra prioridad absoluta.</p>
                     </div>
                 </div>
@@ -1375,7 +1393,7 @@
                     <div class="testimonial-author">
                         <div class="author-avatar">MS</div>
                         <div class="author-info">
-                            <h5>María S. <span style="font-size:0.7rem; color:var(--success); font-weight:normal; margin-left:5px;">● Verificado</span></h5>
+                            <p class="author-name">María S. <span style="font-size:0.7rem; color:var(--success); font-weight:normal; margin-left:5px;">● Verificado</span></p>
                             <p>Terapia Psicológica</p>
                             <div class="stars">★★★★★</div>
                         </div>
@@ -1389,7 +1407,7 @@
                     <div class="testimonial-author">
                         <div class="author-avatar teal-avatar">CR</div>
                         <div class="author-info">
-                            <h5>Carlos R. <span style="font-size:0.7rem; color:var(--success); font-weight:normal; margin-left:5px;">● Verificado</span></h5>
+                            <p class="author-name">Carlos R. <span style="font-size:0.7rem; color:var(--success); font-weight:normal; margin-left:5px;">● Verificado</span></p>
                             <p>Consulta Psiquiátrica</p>
                             <div class="stars">★★★★★</div>
                         </div>
@@ -1403,7 +1421,7 @@
                     <div class="testimonial-author">
                         <div class="author-avatar">LP</div>
                         <div class="author-info">
-                            <h5>Laura P. <span style="font-size:0.7rem; color:var(--success); font-weight:normal; margin-left:5px;">● Verificado</span></h5>
+                            <p class="author-name">Laura P. <span style="font-size:0.7rem; color:var(--success); font-weight:normal; margin-left:5px;">● Verificado</span></p>
                             <p>Terapia Online</p>
                             <div class="stars">★★★★★</div>
                         </div>
@@ -1467,22 +1485,22 @@
             <div class="process-steps">
                 <div class="step" data-aos="fade-up" data-aos-delay="100">
                     <div class="step-number">1</div>
-                    <h4>Escríbenos</h4>
+                    <h3>Escríbenos</h3>
                     <p>Cuéntanos qué necesitas por WhatsApp. Estamos para orientarte.</p>
                 </div>
                 <div class="step" data-aos="fade-up" data-aos-delay="200">
                     <div class="step-number">2</div>
-                    <h4>Te Asesoramos</h4>
+                    <h3>Te Asesoramos</h3>
                     <p>Te ayudamos a elegir al profesional ideal según tu motivo de consulta.</p>
                 </div>
                 <div class="step" data-aos="fade-up" data-aos-delay="300">
                     <div class="step-number">3</div>
-                    <h4>Reserva tu Espacio</h4>
+                    <h3>Reserva tu Espacio</h3>
                     <p>Selecciona el horario que mejor te convenga para iniciar tu proceso.</p>
                 </div>
                 <div class="step" data-aos="fade-up" data-aos-delay="400">
                     <div class="step-number">4</div>
-                    <h4>Inicia tu Terapia</h4>
+                    <h3>Inicia tu Terapia</h3>
                     <p>Comienza un acompañamiento profesional enfocado en tu salud y bienestar.</p>
                 </div>
             </div>
@@ -1848,6 +1866,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
@@ -1865,7 +1884,7 @@
                     </p>
                 </div>
                 <div>
-                    <h4>Navegación</h4>
+                    <p class="footer-heading">Navegación</p>
                     <ul class="footer-links">
                         <li><a href="#beneficios">¿Por qué elegirnos?</a></li>
                         <li><a href="#equipo">Nuestro Equipo</a></li>
@@ -1874,7 +1893,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4>Servicios</h4>
+                    <p class="footer-heading">Servicios</p>
                     <ul class="footer-links">
                         <li><a href="#precios">Psicología Clínica</a></li>
                         <li><a href="psiquiatra-online-peru.html">Consulta Psiquiátrica Online</a></li>
@@ -1883,7 +1902,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4>Contacto</h4>
+                    <p class="footer-heading">Contacto</p>
                     <p id="phone-display" style="margin-bottom:12px;color:var(--text-light);display:flex;align-items:center;gap:8px;">
                         <i class="ri-whatsapp-line"></i>
                         Cargando...
@@ -1911,12 +1930,22 @@
         <i class="ri-whatsapp-line"></i>
     </a>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        if (window.AOS) {
+        function initAOS() {
+            if (!window.AOS) return;
             document.documentElement.classList.add('aos-enabled');
             AOS.init({ duration: 800, once: true, offset: 100 });
         }
+
+        function loadAOS() {
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://unpkg.com/aos@next/dist/aos.js';
+            script.onload = initAOS;
+            document.body.appendChild(script);
+        }
+
+        window.addEventListener('load', loadAOS);
 
         // ── TELÉFONO DINÁMICO DESDE JSONBIN ──
         const fallbackPhone = '+51 922 346 747';
