@@ -285,10 +285,10 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
 
-        let googleAdsLoaded = false;
-        function loadGoogleAds() {
-            if (googleAdsLoaded) return;
-            googleAdsLoaded = true;
+        let adsLoaded = false;
+        function loadAds() {
+            if (adsLoaded) return;
+            adsLoaded = true;
             const script = document.createElement('script');
             script.async = true;
             script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17157055294';
@@ -296,10 +296,7 @@
             gtag('js', new Date());
             gtag('config', 'AW-17157055294');
         }
-
-        ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(eventName => {
-            window.addEventListener(eventName, loadGoogleAds, { once: true, passive: true });
-        });
+        ['scroll', 'pointerdown', 'touchstart'].forEach(ev => window.addEventListener(ev, loadAds, {once:true, passive:true}));
     </script>
 </head>
 
@@ -957,7 +954,7 @@
                     <p class="footer-heading">Contacto</p>
                     <p id="phone-display" style="margin-bottom:12px;color:var(--text-light);display:flex;align-items:center;gap:8px;">
                         <i class="ri-whatsapp-line"></i>
-                        Cargando...
+                        +51 922 346 747
                     </p>
                     <p style="margin-bottom:20px;color:var(--text-light);display:flex;align-items:center;gap:8px;">
                         <i class="ri-mail-line"></i>
@@ -983,6 +980,7 @@
     </a>
 
     <script>
+        // ── AOS LIGHTWEIGHT (IntersectionObserver) ──
         if ('IntersectionObserver' in window) {
             const aosObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -992,14 +990,14 @@
                     }
                 });
             }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
             document.querySelectorAll('[data-aos]').forEach(el => aosObserver.observe(el));
         } else {
             document.querySelectorAll('[data-aos]').forEach(el => el.classList.add('aos-animate'));
         }
 
-        // ── TELÉFONO DINÁMICO DESDE JSONBIN ──
+        // ── TELÉFONO DINÁMICO ──
         const fallbackPhone = '+51 922 346 747';
+        let currentPhone = fallbackPhone;
 
         const emailDisplay = document.getElementById('email-display');
         if (emailDisplay) {
@@ -1007,6 +1005,8 @@
         }
 
         function applyPhoneNumber(phone) {
+            if (phone === currentPhone && document.getElementById('phone-display').textContent.includes(phone)) return;
+            currentPhone = phone;
             const phoneDigits = phone.replace(/\D/g, '');
 
             document.querySelectorAll('[data-whatsapp-text]').forEach(link => {
@@ -1027,69 +1027,64 @@
                 }
             }
 
+            // Update structured data
             const clinicScript = document.getElementById('structured-data-clinic');
             if (clinicScript) {
-                const clinicData = JSON.parse(clinicScript.textContent);
-                clinicData.telephone = phone;
-                clinicData.sameAs = [`https://wa.me/${phoneDigits}`];
-                clinicScript.textContent = JSON.stringify(clinicData, null, 4);
+                try {
+                    const clinicData = JSON.parse(clinicScript.textContent);
+                    clinicData.telephone = phone;
+                    clinicData.sameAs = [`https://wa.me/${phoneDigits}`];
+                    clinicScript.textContent = JSON.stringify(clinicData, null, 4);
+                } catch(e) {}
             }
 
             const siteScript = document.getElementById('structured-data-site');
             if (siteScript) {
-                const siteData = JSON.parse(siteScript.textContent);
-                if (siteData.potentialAction) {
-                    siteData.potentialAction.target = `https://wa.me/${phoneDigits}`;
-                }
-                siteScript.textContent = JSON.stringify(siteData, null, 4);
+                try {
+                    const siteData = JSON.parse(siteScript.textContent);
+                    if (siteData.potentialAction) {
+                        siteData.potentialAction.target = `https://wa.me/${phoneDigits}`;
+                    }
+                    siteScript.textContent = JSON.stringify(siteData, null, 4);
+                } catch(e) {}
             }
         }
 
         async function loadPhoneNumber() {
-            applyPhoneNumber(fallbackPhone);
             try {
                 const response = await fetch('https://api.jsonbin.io/v3/b/693833a0ae596e708f8de4d8/latest', {
                     headers: { 'X-Master-Key': '$2a$10$PoS9sCQ8yow158J9pSKvPOVw2wpywEggqC/z5UvNYr5ueZWQQtNaO' }
                 });
                 const data = await response.json();
                 const phone = data.record.phoneNumber;
-                if (phone) {
-                    applyPhoneNumber(phone);
-                    console.log('✅ Teléfono actualizado a:', phone);
-                }
+                if (phone) applyPhoneNumber(phone);
             } catch (error) {
-                console.error('❌ Error al cargar teléfono:', error);
+                console.error('Error loading phone:', error);
             }
         }
 
-        applyPhoneNumber(fallbackPhone);
-        let phoneSynced = false;
-        function syncPhone() {
-            if (phoneSynced) return;
-            phoneSynced = true;
+        let phoneLoaded = false;
+        function triggerPhoneLoad() {
+            if (phoneLoaded) return;
+            phoneLoaded = true;
             loadPhoneNumber();
         }
-
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(syncPhone, { timeout: 5000 });
-        } else {
-            setTimeout(syncPhone, 5000);
-        }
-
-        ['scroll', 'pointerdown', 'touchstart'].forEach(eventName => {
-            window.addEventListener(eventName, syncPhone, { once: true, passive: true });
-        });
+        ['scroll', 'pointerdown', 'touchstart'].forEach(ev => window.addEventListener(ev, triggerPhoneLoad, {once:true, passive:true}));
 
         // ── MENÚ MÓVIL ──
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
-            mobileNav.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            if (mobileNav) {
+                mobileNav.classList.toggle('active');
+                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            }
         }
-        function closeMobileMenu(event) {
+        function closeMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
+            if (mobileNav) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         }
 
         // ── TRACKING WHATSAPP ──

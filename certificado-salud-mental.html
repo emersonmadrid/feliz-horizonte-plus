@@ -301,12 +301,22 @@
         }
     </style>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17157055294"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'AW-17157055294');
+        function gtag() { dataLayer.push(arguments); }
+
+        let adsLoaded = false;
+        function loadAds() {
+            if (adsLoaded) return;
+            adsLoaded = true;
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17157055294';
+            document.head.appendChild(script);
+            gtag('js', new Date());
+            gtag('config', 'AW-17157055294');
+        }
+        ['scroll', 'pointerdown', 'touchstart'].forEach(ev => window.addEventListener(ev, loadAds, {once:true, passive:true}));
     </script>
 </head>
 <body>
@@ -315,7 +325,7 @@
     <nav class="nav">
         <div class="container nav-inner">
             <a href="/" class="logo"><i class="ri-heart-pulse-line"></i> Feliz Horizonte</a>
-            <a href="https://wa.me/51922346747?text=Hola,%20quiero%20información%20sobre%20el%20certificado%20de%20salud%20mental" class="nav-cta" target="_blank">
+            <a href="#" data-whatsapp-text="Hola,%20quiero%20información%20sobre%20el%20certificado%20de%20salud%20mental" class="nav-cta">
                 <i class="ri-whatsapp-line"></i> Consultar precio
             </a>
         </div>
@@ -504,7 +514,7 @@
         <div class="container">
             <h2>¿Necesitas el certificado de salud mental?</h2>
             <p>Escríbenos hoy por WhatsApp con el motivo del trámite y te informamos el costo y disponibilidad.</p>
-            <a href="https://wa.me/51922346747?text=Hola,%20quiero%20información%20sobre%20el%20certificado%20de%20salud%20mental%20para%20trámite%20notarial" class="btn-wa" target="_blank">
+            <a href="#" data-whatsapp-text="Hola,%20quiero%20información%20sobre%20el%20certificado%20de%20salud%20mental%20para%20trámite%20notarial" class="btn-wa">
                 <i class="ri-whatsapp-line"></i> Consultar por WhatsApp
             </a>
         </div>
@@ -514,16 +524,126 @@
     <div class="footer-simple">
         <div class="container">
             <a href="/">← Volver al inicio | Feliz Horizonte</a>
+            <p id="phone-display" style="margin-top:15px; font-weight:600; color:var(--teal); display:flex; align-items:center; justify-content:center; gap:8px;">
+                <i class="ri-whatsapp-line"></i> +51 922 346 747
+            </p>
             <p>© 2025 Feliz Horizonte · <a href="/politica-de-privacidad.html">Política de Privacidad</a> · Lima — Perú</p>
         </div>
     </div>
 
     <!-- WA FLOAT -->
-    <a href="https://wa.me/51922346747?text=Hola,%20quiero%20información%20sobre%20el%20certificado%20de%20salud%20mental" class="wa-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <a href="#" data-whatsapp-text="Hola,%20quiero%20información%20sobre%20el%20certificado%20de%20salud%20mental" class="wa-float" aria-label="Contactar por WhatsApp">
         <i class="ri-whatsapp-line"></i>
     </a>
 
+    <script>
+        // ── AOS LIGHTWEIGHT (IntersectionObserver) ──
+        if ('IntersectionObserver' in window) {
+            const aosObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('aos-animate');
+                        aosObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('[data-aos]').forEach(el => aosObserver.observe(el));
+        } else {
+            document.querySelectorAll('[data-aos]').forEach(el => el.classList.add('aos-animate'));
+        }
+
+        // ── TELÉFONO DINÁMICO ──
+        const fallbackPhone = '+51 922 346 747';
+        let currentPhone = fallbackPhone;
+
+        function applyPhoneNumber(phone) {
+            if (phone === currentPhone && document.getElementById('phone-display').textContent.includes(phone)) return;
+            currentPhone = phone;
+            const phoneDigits = phone.replace(/\D/g, '');
+
+            document.querySelectorAll('[data-whatsapp-text]').forEach(link => {
+                const text = link.getAttribute('data-whatsapp-text') || '';
+                const textParam = text ? `?text=${text}` : '';
+                link.href = `https://wa.me/${phoneDigits}${textParam}`;
+            });
+
+            const phoneDisplay = document.getElementById('phone-display');
+            if (phoneDisplay) {
+                const textNode = Array.from(phoneDisplay.childNodes).find(
+                    node => node.nodeType === 3 && node.textContent.trim()
+                );
+                if (textNode) {
+                    textNode.textContent = ` ${phone}`;
+                } else {
+                    phoneDisplay.append(` ${phone}`);
+                }
+            }
+
+            // Update structured data
+            document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+                try {
+                    const data = JSON.parse(script.textContent);
+                    let changed = false;
+                    if (data.telephone) {
+                        data.telephone = phone;
+                        changed = true;
+                    }
+                    if (data.sameAs && Array.isArray(data.sameAs)) {
+                        data.sameAs = data.sameAs.map(url => url.includes('wa.me') ? `https://wa.me/${phoneDigits}` : url);
+                        changed = true;
+                    }
+                    if (changed) script.textContent = JSON.stringify(data, null, 4);
+                } catch (e) {}
+            });
+        }
+
+        async function loadPhoneNumber() {
+            try {
+                const response = await fetch('https://api.jsonbin.io/v3/b/693833a0ae596e708f8de4d8/latest', {
+                    headers: { 'X-Master-Key': '$2a$10$PoS9sCQ8yow158J9pSKvPOVw2wpywEggqC/z5UvNYr5ueZWQQtNaO' }
+                });
+                const data = await response.json();
+                const phone = data.record.phoneNumber;
+                if (phone) applyPhoneNumber(phone);
+            } catch (error) {
+                console.error('Error loading phone:', error);
+            }
+        }
+
+        let phoneLoaded = false;
+        function triggerPhoneLoad() {
+            if (phoneLoaded) return;
+            phoneLoaded = true;
+            loadPhoneNumber();
+        }
+        ['scroll', 'pointerdown', 'touchstart'].forEach(ev => window.addEventListener(ev, triggerPhoneLoad, {once:true, passive:true}));
+
+        // ── TRACKING WHATSAPP ──
+        document.querySelectorAll('[data-whatsapp-text]').forEach(link => {
+            link.addEventListener('click', () => {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'whatsapp_click', {
+                        'event_category': 'engagement',
+                        'event_label': link.textContent.trim()
+                    });
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17157055294/AVmoCNCF6KYbEL7Gj_U_'
+                    });
+                }
+            });
+        });
+
+        // ── SMOOTH SCROLL ──
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+
 </body>
-</html>
-dy>
 </html>
