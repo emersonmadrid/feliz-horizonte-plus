@@ -268,54 +268,6 @@
 
         img { max-width: 100%; display: block; }
 
-        [class^="ri-"],
-        [class*=" ri-"] {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 1em;
-            height: 1em;
-            font-style: normal;
-            line-height: 1;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Symbol", sans-serif;
-            font-weight: 700;
-            speak: never;
-        }
-        [class^="ri-"]::before,
-        [class*=" ri-"]::before { content: "•"; }
-        .ri-arrow-right-line::before,
-        .ri-arrow-right-s-line::before { content: "›"; }
-        .ri-article-line::before,
-        .ri-file-list-3-line::before { content: "☰"; }
-        .ri-award-line::before { content: "★"; }
-        .ri-brain-line::before,
-        .ri-mental-health-line::before { content: "◎"; }
-        .ri-calendar-check-line::before,
-        .ri-calendar-line::before { content: "□"; }
-        .ri-capsule-line::before { content: "+"; }
-        .ri-check-double-line::before,
-        .ri-checkbox-circle-fill::before { content: "✓"; }
-        .ri-close-line::before { content: "×"; }
-        .ri-computer-line::before,
-        .ri-video-line::before { content: "▣"; }
-        .ri-customer-service-2-line::before { content: "☎"; }
-        .ri-flashlight-line::before { content: "!"; }
-        .ri-focus-3-line::before { content: "◉"; }
-        .ri-global-line::before { content: "○"; }
-        .ri-hand-heart-line::before,
-        .ri-heart-fill::before,
-        .ri-heart-line::before,
-        .ri-heart-pulse-line::before { content: "♥"; }
-        .ri-mail-line::before { content: "✉"; }
-        .ri-map-pin-line::before { content: "⌖"; }
-        .ri-menu-line::before { content: "☰"; }
-        .ri-secure-payment-line::before,
-        .ri-shield-check-line::before { content: "✓"; }
-        .ri-team-line::before { content: "◦"; }
-        .ri-time-line::before { content: "◷"; }
-        .ri-wallet-line::before { content: "$"; }
-        .ri-whatsapp-line::before { content: "☎"; }
-
         html:not(.aos-enabled) [data-aos] {
             opacity: 1 !important;
             transform: none !important;
@@ -1968,6 +1920,19 @@
     </a>
 
     <script>
+        function loadStylesheet(href) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = href;
+            document.head.appendChild(link);
+        }
+
+        function loadDeferredStyles() {
+            loadStylesheet('https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css');
+        }
+
+        window.addEventListener('load', () => window.setTimeout(loadDeferredStyles, 1));
+
         // ── TELÉFONO DINÁMICO DESDE JSONBIN ──
         const fallbackPhone = '+51 922 346 747';
 
