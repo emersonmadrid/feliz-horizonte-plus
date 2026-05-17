@@ -33,6 +33,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"></noscript>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
 
     <script type="application/ld+json" id="structured-data-clinic">
         {
@@ -1240,6 +1247,7 @@
         ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(eventName => {
             window.addEventListener(eventName, loadGoogleAds, { once: true, passive: true });
         });
+        window.addEventListener('load', () => window.setTimeout(loadGoogleAds, 3000));
     </script>
 </head>
 
@@ -1901,7 +1909,7 @@
                     </p>
                     <p style="margin-bottom:20px;color:var(--text-light);display:flex;align-items:center;gap:8px;">
                         <i class="ri-mail-line"></i>
-                        <span id="email-display" data-user="contacto" data-domain="felizhorizonte.pe"></span>
+                        contacto@felizhorizonte.pe
                     </p>
                     <a href="politica-de-privacidad.html"
                         style="color:var(--primary);text-decoration:none;font-size:0.9rem;font-weight:500;">
@@ -1923,27 +1931,24 @@
     </a>
 
     <script>
-        function loadStylesheet(href) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            document.head.appendChild(link);
+        function initAOS() {
+            if (!window.AOS) return;
+            document.documentElement.classList.add('aos-enabled');
+            AOS.init({ duration: 800, once: true, offset: 100 });
         }
 
-        function loadDeferredStyles() {
-            loadStylesheet('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap');
-            loadStylesheet('https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css');
+        function loadAOS() {
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://unpkg.com/aos@next/dist/aos.js';
+            script.onload = initAOS;
+            document.body.appendChild(script);
         }
 
-        window.addEventListener('load', () => window.setTimeout(loadDeferredStyles, 1));
+        window.addEventListener('load', loadAOS);
 
         // ── TELÉFONO DINÁMICO DESDE JSONBIN ──
         const fallbackPhone = '+51 922 346 747';
-
-        const emailDisplay = document.getElementById('email-display');
-        if (emailDisplay) {
-            emailDisplay.textContent = `${emailDisplay.dataset.user}@${emailDisplay.dataset.domain}`;
-        }
 
         function applyPhoneNumber(phone) {
             const phoneDigits = phone.replace(/\D/g, '');
