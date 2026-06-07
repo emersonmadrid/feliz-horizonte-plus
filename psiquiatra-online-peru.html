@@ -729,7 +729,7 @@
 
         // ── TELÉFONO DINÁMICO ──
         const fallbackPhone = '+51 922 346 747';
-        let currentPhone = fallbackPhone;
+        let currentPhone = null;
 
         function applyPhoneNumber(phone) {
             const phoneDisplay = document.getElementById('phone-display');
@@ -786,6 +786,9 @@
                 } catch (e) {}
             });
         }
+
+        // Initialize immediately with fallback
+        applyPhoneNumber(fallbackPhone);
 
         async function loadPhoneNumber() {
             try {
