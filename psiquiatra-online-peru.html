@@ -262,7 +262,7 @@
         .fw-item { display: flex; gap: 14px; align-items: flex-start; padding: 20px 22px; background: var(--teal-light); border: 1px solid var(--teal-border); border-radius: 16px; }
         .fw-item i { color: var(--teal); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
         .fw-item strong { display: block; margin-bottom: 4px; font-size: 1rem; }
-        .fw-item span { color: var(--text-light); font-size: 0.9rem; line-height: 1.5; }
+        .fw-item span { color: var(--text-light); font-size: 1rem; line-height: 1.5; }
 
         /* CÓMO FUNCIONA */
         .how { background: var(--bg); }
@@ -272,7 +272,7 @@
         .step-num { width: 60px; height: 60px; background: white; border: 3px solid var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--teal); margin: 0 auto 16px; box-shadow: 0 6px 20px rgba(13,148,136,0.2); }
         .step-box h4 { font-size: 1rem; margin-bottom: 8px; }
         .step-box h3 { font-size: 1rem; margin-bottom: 8px; }
-        .step-box p { font-size: 0.88rem; color: var(--text-light); line-height: 1.5; }
+        .step-box p { font-size: 1rem; color: var(--text-light); line-height: 1.5; }
 
         /* QUÉ INCLUYE */
         .includes { background: white; }
@@ -281,7 +281,7 @@
         .inc-card:hover { border-color: var(--teal); box-shadow: 0 10px 30px rgba(13,148,136,0.08); transform: translateY(-5px); }
         .inc-card i { font-size: 2rem; color: var(--teal); margin-bottom: 16px; display: inline-block; }
         .inc-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-        .inc-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.55; }
+        .inc-card p { font-size: 1rem; color: var(--text-light); line-height: 1.55; }
 
         /* PRECIO */
         .pricing-sec { background: var(--bg); }
@@ -299,7 +299,7 @@
         .faq-item { background: var(--bg); border: 1px solid #e7e5e4; border-radius: 16px; padding: 22px 24px; }
         .faq-item h3 { font-size: 1.05rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .faq-item h3 i { color: var(--teal); flex-shrink: 0; }
-        .faq-item p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+        .faq-item p { color: var(--text-light); font-size: 1rem; line-height: 1.7; }
 
         /* CTA FINAL */
         .cta-sec { background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); text-align: center; padding: 80px 0; }
@@ -316,7 +316,7 @@
         .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
         .testi-card { padding: 30px; background: #fafaf9; border: 1px solid #e7e5e4; border-radius: 20px; position: relative; }
         .testi-card i { color: #f59e0b; font-size: 1.2rem; margin-right: 2px; }
-        .testi-card p { font-size: 0.95rem; font-style: italic; color: #444; margin: 16px 0; line-height: 1.6; }
+        .testi-card p { font-size: 1rem; font-style: italic; color: #444; margin: 16px 0; line-height: 1.6; }
         .testi-author { font-size: 0.85rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         /* WHATSAPP FLOAT */
@@ -339,13 +339,17 @@
             .delay-300 { transition-delay: 300ms; }
             .delay-400 { transition-delay: 400ms; }
             .delay-500 { transition-delay: 500ms; }
+            @media (max-width: 768px) {
+                [data-aos] { transform: translateY(15px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+                [class*="delay-"] { transition-delay: 0ms !important; }
+            }
         }
 
         /* RESPONSIVE */
         @media (max-width: 992px) {
             .hero { padding: 40px 0 20px; }
             .hero-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-            .hero-card-wrap { display: block !important; max-width: 100%; margin: 0 auto 30px; }
+            .hero-card-wrap { display: block !important; max-width: 100%; margin: 0 auto 50px; }
             .hero-portrait { height: 400px; }
             .hero h1 { font-size: 2.1rem; margin-bottom: 12px; }
             .hero-sub { font-size: 0.95rem; margin: 0 auto 16px; }
@@ -354,8 +358,8 @@
             .hero-price-block, .hero-stars { margin-bottom: 8px; justify-content: center; }
             .price-amount { font-size: 1.8rem; }
             .hero-ctas { justify-content: center; flex-direction: column; gap: 10px; width: 100%; }
-            .btn-wa { width: 100%; justify-content: center; }
-            .btn-teal { display: none; }
+            .btn-wa { width: 100%; justify-content: center; min-height: 54px; padding: 16px 24px; font-size: 1.1rem; }
+            .btn-teal { display: inline-flex; width: 100%; justify-content: center; background: transparent; color: var(--teal-dark); border: none; font-size: 0.9rem; margin-top: -4px; padding: 8px; }
             .trust-bar { margin: 0 auto; justify-content: center; padding: 12px 16px; flex-wrap: wrap; }
             .trust-item { font-size: 0.8rem; }
             .trust-divider { display: none; }
@@ -366,18 +370,19 @@
         }
         @media (max-width: 640px) {
             section { padding: 50px 0; }
+            .container { padding: 0 16px; }
             .section-title { font-size: 1.7rem; }
-            .fw-grid { grid-template-columns: 1fr; }
-            .steps { grid-template-columns: 1fr; }
-            .inc-grid { grid-template-columns: 1fr; }
-            .testi-grid { grid-template-columns: 1fr; }
+            .fw-grid { grid-template-columns: 1fr; gap: 24px; }
+            .steps { grid-template-columns: 1fr; gap: 32px; }
+            .inc-grid { grid-template-columns: 1fr; gap: 20px; }
+            .testi-grid { grid-template-columns: 1fr; gap: 20px; }
             .price-box { padding: 30px 20px; margin-top: 20px; }
             .nav-inner .logo { font-size: 1.1rem; }
-            .nav-cta { padding: 8px 14px; font-size: 0.85rem; }
-            .fw-item span, .step-box p, .inc-card p { font-size: 0.95rem; }
-            .wa-float { width: 56px; height: 56px; padding: 0; justify-content: center; border-radius: 50%; bottom: 20px; right: 20px; }
-            .wa-float i { font-size: 1.8rem; margin: 0; }
-            .wa-float-text { display: none; }
+            .nav-cta { display: none; }
+            .wa-float { width: 100%; height: auto; border-radius: 0; bottom: 0; right: 0; left: 0; padding: 16px; justify-content: center; z-index: 1000; font-size: 1.1rem; }
+            .wa-float i { font-size: 1.6rem; margin: 0; }
+            .wa-float-text { display: inline; }
+            body { padding-bottom: 70px; }
         }
     </style>
 
@@ -418,12 +423,12 @@
                 <div>
                     <div class="hero-badge"><span class="live-dot"></span> Consulta 100% Online · Perú</div>
                     <h1>Psiquiatra online en Perú <span>con receta válida</span></h1>
-                    <p class="hero-sub">Recupera tu tranquilidad mental con el apoyo de una especialista empática. Obtén diagnóstico, tratamiento y receta médica — en un espacio seguro y sin salir de casa.</p>
+                    <p class="hero-sub">Recupera tu <b>tranquilidad mental</b> con el apoyo de una especialista empática. Obtén <b>diagnóstico, tratamiento y receta médica</b> en un espacio seguro y <b>sin salir de casa</b>.</p>
                     
                     <div class="hero-mobile-group">
                         <div class="hero-price-block">
                             <span class="price-amount">S/ 139</span>
-                            <span class="price-desc">por consulta completa</span>
+                            <span class="price-desc">por consulta completa <br/><span style="font-size:0.85rem;font-weight:500;">(Incluye receta médica y plan)</span></span>
                         </div>
                         <div class="hero-stars">
                             <div class="stars-icons"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
@@ -471,48 +476,48 @@
         <div class="container">
             <span class="section-tag" data-aos>¿Es para mí?</span>
             <h2 class="section-title" data-aos>No tienes que atravesar esto a solas</h2>
-            <p class="section-sub" data-aos>Buscar ayuda médica es un gran paso. Estamos aquí para guiarte de forma segura y confidencial si sientes que el malestar emocional está limitando tu vida diaria.</p>
+            <p class="section-sub" data-aos>Buscar ayuda médica es un gran paso. Te guiamos de forma <b>segura y confidencial</b> si el <b>malestar emocional limita tu vida diaria</b>.</p>
             <div class="fw-grid">
                 <div class="fw-item" data-aos>
                     <i class="ri-mental-health-line"></i>
                     <div>
                         <strong>Depresión o ansiedad severa</strong>
-                        <span>Cuando los síntomas son intensos, persistentes y afectan tu funcionamiento diario.</span>
+                        <span>Cuando los síntomas son <b>intensos, persistentes</b> y afectan tu <b>día a día</b>.</span>
                     </div>
                 </div>
                 <div class="fw-item delay-100" data-aos>
                     <i class="ri-capsule-line"></i>
                     <div>
                         <strong>Necesitas medicación o la tienes y quieres revisarla</strong>
-                        <span>Solo un psiquiatra puede prescribir, ajustar o suspender tratamiento farmacológico.</span>
+                        <span>Solo un médico psiquiatra puede <b>prescribir, ajustar o suspender</b> tu medicación de <b>forma segura</b>.</span>
                     </div>
                 </div>
                 <div class="fw-item" data-aos>
                     <i class="ri-stethoscope-line"></i>
                     <div>
                         <strong>Diagnóstico de trastorno mental</strong>
-                        <span>Trastorno bipolar, TDAH, TOC, esquizofrenia, trastorno límite de personalidad, entre otros.</span>
+                        <span><b>Trastorno bipolar, TDAH, TOC</b>, esquizofrenia, trastorno límite de la personalidad, entre otros.</span>
                     </div>
                 </div>
                 <div class="fw-item delay-100" data-aos>
                     <i class="ri-article-line"></i>
                     <div>
                         <strong>Necesitas informe o certificado psiquiátrico</strong>
-                        <span>Evaluación para trámites legales, notariales o certificado de facultades mentales.</span>
+                        <span>Evaluación clínica para <b>trámites legales, notariales</b> o certificado de <b>facultades mentales</b>.</span>
                     </div>
                 </div>
                 <div class="fw-item" data-aos>
                     <i class="ri-focus-3-line"></i>
                     <div>
                         <strong>Autismo (TEA)</strong>
-                        <span>Evaluación clínica y orientación especializada para personas con Trastorno del Espectro Autista.</span>
+                        <span>Evaluación y <b>orientación especializada</b> para personas en el <b>Espectro Autista (TEA)</b>.</span>
                     </div>
                 </div>
                 <div class="fw-item delay-100" data-aos>
                     <i class="ri-heart-pulse-line"></i>
                     <div>
                         <strong>Duelo o pérdida (Tanatología)</strong>
-                        <span>Acompañamiento especializado en procesos de duelo complejos o anticipatorio.</span>
+                        <span><b>Acompañamiento especializado</b> en procesos de duelo <b>complejos o anticipatorios</b>.</span>
                     </div>
                 </div>
             </div>
@@ -524,27 +529,27 @@
         <div class="container">
             <span class="section-tag" data-aos>Proceso simple</span>
             <h2 class="section-title" data-aos>¿Cómo es la consulta psiquiátrica online?</h2>
-            <p class="section-sub" data-aos>Todo desde tu celular o laptop. Sin desplazarte, sin salas de espera.</p>
+            <p class="section-sub" data-aos>Todo desde tu <b>celular o laptop</b>. Sin desplazarte, <b>sin salas de espera</b>.</p>
             <div class="steps">
                 <div class="step-box" data-aos>
                     <div class="step-num">1</div>
                     <h3>Escríbenos por WhatsApp</h3>
-                    <p>Cuéntanos brevemente tu motivo de consulta y coordinaremos tu cita.</p>
+                    <p>Cuéntanos tu <b>motivo de consulta</b> y coordinaremos tu cita <b>el mismo día</b>.</p>
                 </div>
                 <div class="step-box delay-100" data-aos>
                     <div class="step-num">2</div>
                     <h3>Confirma y paga</h3>
-                    <p>Reserva tu horario con pago por Yape, Plin o transferencia BCP/Interbank.</p>
+                    <p>Reserva tu horario pagando de forma segura con <b>Yape, Plin o transferencia</b>.</p>
                 </div>
                 <div class="step-box delay-200" data-aos>
                     <div class="step-num">3</div>
                     <h3>Entra a la videollamada</h3>
-                    <p>La Dra. Yasmín te contacta a la hora acordada. Solo necesitas cámara y micrófono.</p>
+                    <p>Te contactamos a la hora acordada. Solo necesitas tu <b>celular con cámara y micrófono</b>.</p>
                 </div>
                 <div class="step-box delay-300" data-aos>
                     <div class="step-num">4</div>
                     <h3>Recibe tu receta y plan</h3>
-                    <p>Al terminar recibes tu diagnóstico, receta médica y plan de tratamiento.</p>
+                    <p>Al terminar, recibes tu <b>diagnóstico, receta médica válida</b> y tu plan de tratamiento.</p>
                 </div>
             </div>
         </div>
@@ -555,37 +560,37 @@
         <div class="container">
             <span class="section-tag" data-aos>Consulta completa</span>
             <h2 class="section-title" data-aos>¿Qué incluye la consulta de S/ 139?</h2>
-            <p class="section-sub" data-aos>Una sola consulta cubre todo lo que necesitas para iniciar o continuar tu tratamiento.</p>
+            <p class="section-sub" data-aos>Una sola consulta cubre <b>todo lo que necesitas</b> para iniciar o continuar tu tratamiento.</p>
             <div class="inc-grid">
                 <div class="inc-card" data-aos>
                     <i class="ri-stethoscope-line" aria-hidden="true"></i>
                     <h3>Evaluación médica completa</h3>
-                    <p>Historia clínica, exploración del estado mental y revisión de antecedentes relevantes.</p>
+                    <p><b>Historia clínica</b>, exploración de tu estado mental y revisión de <b>antecedentes relevantes</b>.</p>
                 </div>
                 <div class="inc-card delay-100" data-aos>
                     <i class="ri-file-list-3-line" aria-hidden="true"></i>
                     <h3>Diagnóstico psiquiátrico</h3>
-                    <p>Diagnóstico clínico basado en criterios internacionales (DSM-5 / CIE-11).</p>
+                    <p>Diagnóstico clínico basado en <b>criterios internacionales</b> (DSM-5 / CIE-11).</p>
                 </div>
                 <div class="inc-card delay-200" data-aos>
                     <i class="ri-capsule-line" aria-hidden="true"></i>
                     <h3>Receta médica válida</h3>
-                    <p>Receta firmada con CMP 64796, válida en farmacias de todo el Perú.</p>
+                    <p>Receta médica firmada (CMP), <b>válida en farmacias de todo el Perú</b>.</p>
                 </div>
                 <div class="inc-card" data-aos>
                     <i class="ri-map-pin-2-line" aria-hidden="true"></i>
                     <h3>Plan de tratamiento</h3>
-                    <p>Indicaciones claras sobre medicación, seguimiento y recomendaciones terapéuticas.</p>
+                    <p><b>Indicaciones claras</b> sobre medicación, seguimiento y <b>recomendaciones terapéuticas</b>.</p>
                 </div>
                 <div class="inc-card delay-100" data-aos>
                     <i class="ri-message-3-line" aria-hidden="true"></i>
                     <h3>Seguimiento por WhatsApp</h3>
-                    <p>Consultas breves de seguimiento entre sesiones para dudas sobre el tratamiento.</p>
+                    <p><b>Consultas breves por chat</b> para resolver cualquier duda sobre tu medicación.</p>
                 </div>
                 <div class="inc-card delay-200" data-aos>
                     <i class="ri-shield-check-line" aria-hidden="true"></i>
                     <h3>Confidencialidad total</h3>
-                    <p>Tu información está protegida bajo secreto médico y protocolos clínicos.</p>
+                    <p>Tu información está <b>100% protegida</b> bajo estricto <b>secreto médico</b>.</p>
                 </div>
             </div>
         </div>
