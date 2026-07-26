@@ -273,7 +273,7 @@
                     "name": "¿Qué medios de pago aceptan?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Recibimos pagos vía Yape, Plin y transferencias bancarias BCP o Interbank."
+                        "text": "Recibimos pagos vía Yape y transferencias bancarias. Otros medios se confirman por WhatsApp."
                     }
                 }
             ]
@@ -803,7 +803,7 @@
 
             <p style="text-align:center; margin-top:40px; color:var(--text-light);">
                 <i class="ri-secure-payment-line"></i>
-                Aceptamos: Yape · Plin · Transferencia BCP / Interbank
+                Aceptamos: Yape · Transferencias bancarias · Otros medios previa coordinación
             </p>
 
             <!-- SERVICIOS PSIQUIÁTRICOS ADICIONALES (costo por separado) -->
@@ -893,7 +893,7 @@
                 </div>
                 <div class="faq-card" data-aos="fade-up" data-aos-delay="350">
                     <h3><i class="ri-customer-service-2-line"></i> ¿Qué medios de pago aceptan?</h3>
-                    <p>Aceptamos Yape, Plin y transferencias bancarias (BCP e Interbank) para confirmar tu atención de forma rápida.</p>
+                    <p>Aceptamos Yape y transferencias bancarias. Otros medios se confirman por WhatsApp antes de confirmar tu atención.</p>
                 </div>
             </div>
         </div>
@@ -1002,7 +1002,7 @@
 
         // ── TELÉFONO DINÁMICO ──
         const fallbackPhone = '+51 922 346 747';
-        let currentPhone = fallbackPhone;
+        let currentPhone = '';
 
         const emailDisplay = document.getElementById('email-display');
         if (emailDisplay) {
@@ -1064,6 +1064,8 @@
                 } catch (e) {}
             });
         }
+
+        applyPhoneNumber(fallbackPhone);
 
         async function loadPhoneNumber() {
             try {
