@@ -260,9 +260,14 @@
         .for-whom { background: white; }
         .fw-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; }
         .fw-item { display: flex; gap: 14px; align-items: flex-start; padding: 20px 22px; background: var(--teal-light); border: 1px solid var(--teal-border); border-radius: 16px; }
+        a.fw-item { color: inherit; cursor: pointer; text-decoration: none; }
         .fw-item i { color: var(--teal); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
         .fw-item strong { display: block; margin-bottom: 4px; font-size: 1rem; }
         .fw-item span { color: var(--text-light); font-size: 1rem; line-height: 1.5; }
+        .fw-item .fw-cta { display: flex; align-items: center; gap: 6px; width: fit-content; margin-top: 10px; color: var(--teal); font-weight: 800; font-size: 0.92rem; }
+        .fw-item .fw-cta i { font-size: 1rem; margin-top: 0; transition: transform 0.2s ease; }
+        .fw-item:hover .fw-cta i { transform: translateX(4px); }
+        .fw-item:focus-visible { outline: 3px solid rgba(13,148,136,0.38); outline-offset: 3px; }
 
         /* CÓMO FUNCIONA */
         .how { background: var(--bg); }
@@ -410,7 +415,7 @@
     <nav class="nav">
         <div class="container nav-inner">
             <a href="/" class="logo"><i class="ri-heart-pulse-line" aria-hidden="true"></i> Feliz Horizonte</a>
-            <a href="#" data-whatsapp-text="Hola,%20quiero%20consulta%20psiquiátrica%20online" class="nav-cta" role="button" aria-label="Agendar consulta por WhatsApp">
+            <a href="https://wa.me/51922346747?text=Hola,%20quiero%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online" data-whatsapp-text="Hola,%20quiero%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online" class="nav-cta" role="button" aria-label="Agendar consulta por WhatsApp" target="_blank" rel="noopener">
                 <i class="ri-whatsapp-line" aria-hidden="true"></i> Agendar ahora
             </a>
         </div>
@@ -438,8 +443,8 @@
 
                     <div class="hero-cta-wrapper">
                         <div class="hero-ctas">
-                            <a href="#" data-whatsapp-text="Hola,%20quiero%20ver%20horarios%20para%20consulta%20psiquiátrica%20online" class="btn-wa" role="button" aria-label="Ver horarios disponibles por WhatsApp">
-                                <i class="ri-whatsapp-line" aria-hidden="true"></i> Ver horarios disponibles
+                            <a href="https://wa.me/51922346747?text=Hola,%20quiero%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online%20y%20preguntar%20horarios%20disponibles%20esta%20semana" data-whatsapp-text="Hola,%20quiero%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online%20y%20preguntar%20horarios%20disponibles%20esta%20semana" class="btn-wa" role="button" aria-label="Agendar consulta por WhatsApp" target="_blank" rel="noopener">
+                                <i class="ri-whatsapp-line" aria-hidden="true"></i> Agendar por WhatsApp
                             </a>
                             <a href="#como-funciona" class="btn-teal" aria-label="Ir a la sección de cómo funciona">
                                 <i class="ri-information-line" aria-hidden="true"></i> Cómo funciona
@@ -478,48 +483,54 @@
             <h2 class="section-title" data-aos>No tienes que atravesar esto a solas</h2>
             <p class="section-sub" data-aos>Buscar ayuda médica es un gran paso. Te guiamos de forma <b>segura y confidencial</b> si el <b>malestar emocional limita tu vida diaria</b>.</p>
             <div class="fw-grid">
-                <div class="fw-item" data-aos>
+                <a href="https://wa.me/51922346747?text=Hola,%20quisiera%20consultar%20porque%20estoy%20viviendo%20s%C3%ADntomas%20de%20depresi%C3%B3n%20o%20ansiedad%20severa%20que%20afectan%20mi%20d%C3%ADa%20a%20d%C3%ADa" data-whatsapp-text="Hola,%20quisiera%20consultar%20porque%20estoy%20viviendo%20s%C3%ADntomas%20de%20depresi%C3%B3n%20o%20ansiedad%20severa%20que%20afectan%20mi%20d%C3%ADa%20a%20d%C3%ADa" class="fw-item" data-aos target="_blank" rel="noopener">
                     <i class="ri-mental-health-line"></i>
                     <div>
                         <strong>Depresión o ansiedad severa</strong>
                         <span>Cuando los síntomas son <b>intensos, persistentes</b> y afectan tu <b>día a día</b>.</span>
+                        <span class="fw-cta">Consultar este caso <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
                     </div>
-                </div>
-                <div class="fw-item delay-100" data-aos>
+                </a>
+                <a href="https://wa.me/51922346747?text=Hola,%20quisiera%20consultar%20porque%20necesito%20medicaci%C3%B3n%20o%20quiero%20revisar%20la%20medicaci%C3%B3n%20que%20ya%20estoy%20tomando" data-whatsapp-text="Hola,%20quisiera%20consultar%20porque%20necesito%20medicaci%C3%B3n%20o%20quiero%20revisar%20la%20medicaci%C3%B3n%20que%20ya%20estoy%20tomando" class="fw-item delay-100" data-aos target="_blank" rel="noopener">
                     <i class="ri-capsule-line"></i>
                     <div>
                         <strong>Necesitas medicación o la tienes y quieres revisarla</strong>
                         <span>Solo un médico psiquiatra puede <b>prescribir, ajustar o suspender</b> tu medicación de <b>forma segura</b>.</span>
+                        <span class="fw-cta">Consultar este caso <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
                     </div>
-                </div>
-                <div class="fw-item" data-aos>
+                </a>
+                <a href="https://wa.me/51922346747?text=Hola,%20quisiera%20consultar%20porque%20necesito%20una%20evaluaci%C3%B3n%20o%20diagn%C3%B3stico%20de%20trastorno%20mental" data-whatsapp-text="Hola,%20quisiera%20consultar%20porque%20necesito%20una%20evaluaci%C3%B3n%20o%20diagn%C3%B3stico%20de%20trastorno%20mental" class="fw-item" data-aos target="_blank" rel="noopener">
                     <i class="ri-stethoscope-line"></i>
                     <div>
                         <strong>Diagnóstico de trastorno mental</strong>
                         <span><b>Trastorno bipolar, TDAH, TOC</b>, esquizofrenia, trastorno límite de la personalidad, entre otros.</span>
+                        <span class="fw-cta">Consultar este caso <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
                     </div>
-                </div>
-                <div class="fw-item delay-100" data-aos>
+                </a>
+                <a href="https://wa.me/51922346747?text=Hola,%20quisiera%20consultar%20porque%20necesito%20un%20informe%20o%20certificado%20psiqui%C3%A1trico" data-whatsapp-text="Hola,%20quisiera%20consultar%20porque%20necesito%20un%20informe%20o%20certificado%20psiqui%C3%A1trico" class="fw-item delay-100" data-aos target="_blank" rel="noopener">
                     <i class="ri-article-line"></i>
                     <div>
                         <strong>Necesitas informe o certificado psiquiátrico</strong>
                         <span>Evaluación clínica para <b>trámites legales, notariales</b> o certificado de <b>facultades mentales</b>.</span>
+                        <span class="fw-cta">Consultar este caso <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
                     </div>
-                </div>
-                <div class="fw-item" data-aos>
+                </a>
+                <a href="https://wa.me/51922346747?text=Hola,%20quisiera%20consultar%20por%20evaluaci%C3%B3n%20u%20orientaci%C3%B3n%20especializada%20sobre%20Autismo%20TEA" data-whatsapp-text="Hola,%20quisiera%20consultar%20por%20evaluaci%C3%B3n%20u%20orientaci%C3%B3n%20especializada%20sobre%20Autismo%20TEA" class="fw-item" data-aos target="_blank" rel="noopener">
                     <i class="ri-focus-3-line"></i>
                     <div>
                         <strong>Autismo (TEA)</strong>
                         <span>Evaluación y <b>orientación especializada</b> para personas en el <b>Espectro Autista (TEA)</b>.</span>
+                        <span class="fw-cta">Consultar este caso <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
                     </div>
-                </div>
-                <div class="fw-item delay-100" data-aos>
+                </a>
+                <a href="https://wa.me/51922346747?text=Hola,%20quisiera%20consultar%20porque%20estoy%20atravesando%20un%20duelo%20o%20p%C3%A9rdida%20y%20necesito%20acompa%C3%B1amiento%20especializado" data-whatsapp-text="Hola,%20quisiera%20consultar%20porque%20estoy%20atravesando%20un%20duelo%20o%20p%C3%A9rdida%20y%20necesito%20acompa%C3%B1amiento%20especializado" class="fw-item delay-100" data-aos target="_blank" rel="noopener">
                     <i class="ri-heart-pulse-line"></i>
                     <div>
                         <strong>Duelo o pérdida (Tanatología)</strong>
                         <span><b>Acompañamiento especializado</b> en procesos de duelo <b>complejos o anticipatorios</b>.</span>
+                        <span class="fw-cta">Consultar este caso <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -640,8 +651,8 @@
                     <li><i class="ri-check-double-line"></i> Seguimiento por WhatsApp</li>
                 </ul>
                 <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:12px;">
-                    <a href="#" data-whatsapp-text="Hola,%20quiero%20ver%20horarios%20para%20consulta%20psiquiátrica%20online" class="btn-wa" style="width:100%;justify-content:center;">
-                        <i class="ri-whatsapp-line"></i> Ver horarios disponibles
+                    <a href="https://wa.me/51922346747?text=Hola,%20quiero%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online%20de%20S%2F%20139%20y%20consultar%20horarios%20disponibles" data-whatsapp-text="Hola,%20quiero%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online%20de%20S%2F%20139%20y%20consultar%20horarios%20disponibles" class="btn-wa" style="width:100%;justify-content:center;" target="_blank" rel="noopener">
+                        <i class="ri-whatsapp-line"></i> Escribir por WhatsApp
                     </a>
                     <span style="font-size:0.8rem; color:var(--text-light); text-align:center;">* Consulta disponibilidad sin compromiso</span>
                 </div>
@@ -689,8 +700,8 @@
         <div class="container">
             <h2>Da el primer paso hacia tu bienestar</h2>
             <p>No postergues tu tranquilidad emocional. Escríbenos hoy y coordina tu cita en un ambiente humano y libre de prejuicios. Respondemos en menos de 24 horas.</p>
-            <a href="#" data-whatsapp-text="Hola,%20quiero%20ver%20horarios%20para%20consulta%20psiquiátrica%20online" class="btn-wa">
-                <i class="ri-whatsapp-line"></i> Ver horarios disponibles
+            <a href="https://wa.me/51922346747?text=Hola,%20quiero%20dar%20el%20primer%20paso%20y%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online" data-whatsapp-text="Hola,%20quiero%20dar%20el%20primer%20paso%20y%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online" class="btn-wa" target="_blank" rel="noopener">
+                <i class="ri-whatsapp-line"></i> Agendar por WhatsApp
             </a>
         </div>
     </section>
@@ -707,7 +718,7 @@
     </div>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="#" data-whatsapp-text="Hola,%20quiero%20ver%20horarios%20para%20consulta%20psiquiátrica%20online" class="wa-float" role="button" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/51922346747?text=Hola,%20tengo%20dudas%20antes%20de%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online" data-whatsapp-text="Hola,%20tengo%20dudas%20antes%20de%20agendar%20una%20consulta%20psiqui%C3%A1trica%20online" class="wa-float" role="button" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">
         <i class="ri-whatsapp-line" aria-hidden="true"></i> <span class="wa-float-text">¿Tienes dudas?</span>
     </a>
 
