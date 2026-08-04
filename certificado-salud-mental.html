@@ -306,6 +306,26 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
 
+        // ── CAPTURA DE GCLID (para conversiones offline por WhatsApp) ──
+        (function () {
+            var gclid = new URLSearchParams(window.location.search).get('gclid');
+            if (gclid) {
+                try {
+                    localStorage.setItem('fh_gclid', gclid);
+                    localStorage.setItem('fh_gclid_ts', Date.now().toString());
+                } catch (e) {}
+            }
+        })();
+        function fhGetStoredGclid() {
+            try {
+                var gclid = localStorage.getItem('fh_gclid');
+                var ts = parseInt(localStorage.getItem('fh_gclid_ts') || '0', 10);
+                var NINETY_DAYS_MS = 90 * 24 * 60 * 60 * 1000;
+                if (gclid && ts && (Date.now() - ts) < NINETY_DAYS_MS) return gclid;
+            } catch (e) {}
+            return null;
+        }
+
         let adsLoaded = false;
         function loadAds() {
             if (adsLoaded) return;
@@ -567,9 +587,12 @@
 
             // Batch DOM updates
             const whatsappLinks = document.querySelectorAll('[data-whatsapp-text]');
+            const gclid = fhGetStoredGclid();
             whatsappLinks.forEach(link => {
                 const text = link.getAttribute('data-whatsapp-text') || '';
-                const textParam = text ? `?text=${text}` : '';
+                let decodedText = text ? decodeURIComponent(text) : '';
+                if (gclid) decodedText += (decodedText ? '\n\n' : '') + `(Ref: ${gclid})`;
+                const textParam = decodedText ? `?text=${encodeURIComponent(decodedText)}` : '';
                 const newHref = `https://wa.me/${phoneDigits}${textParam}`;
                 if (link.href !== newHref) link.href = newHref;
             });
