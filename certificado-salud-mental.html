@@ -306,15 +306,32 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
 
-        // ── CAPTURA DE GCLID (para conversiones offline por WhatsApp) ──
+        // ── CAPTURA DE GCLID + CÓDIGO CORTO (para conversiones offline por WhatsApp) ──
+        var FH_LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzCDZtuqZ-OQPTnKsLne9vygJDzviKyFyA9JyhXo98vvvVqO8tAjOVHKHSt9IQQ_eVx/exec';
+        function fhGenerarCodigo() {
+            var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            var codigo = 'FH';
+            for (var i = 0; i < 7; i++) codigo += chars[Math.floor(Math.random() * chars.length)];
+            return codigo;
+        }
         (function () {
             var gclid = new URLSearchParams(window.location.search).get('gclid');
-            if (gclid) {
-                try {
-                    localStorage.setItem('fh_gclid', gclid);
-                    localStorage.setItem('fh_gclid_ts', Date.now().toString());
-                } catch (e) {}
-            }
+            if (!gclid) return;
+            try {
+                if (localStorage.getItem('fh_gclid') === gclid && localStorage.getItem('fh_codigo')) return;
+
+                var codigo = fhGenerarCodigo();
+                localStorage.setItem('fh_gclid', gclid);
+                localStorage.setItem('fh_gclid_ts', Date.now().toString());
+                localStorage.setItem('fh_codigo', codigo);
+
+                fetch(FH_LEADS_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ codigo: codigo, gclid: gclid, pagina: window.location.pathname }),
+                    keepalive: true
+                }).catch(function () {});
+            } catch (e) {}
         })();
         function fhGetStoredGclid() {
             try {
@@ -322,6 +339,15 @@
                 var ts = parseInt(localStorage.getItem('fh_gclid_ts') || '0', 10);
                 var NINETY_DAYS_MS = 90 * 24 * 60 * 60 * 1000;
                 if (gclid && ts && (Date.now() - ts) < NINETY_DAYS_MS) return gclid;
+            } catch (e) {}
+            return null;
+        }
+        function fhGetStoredCode() {
+            try {
+                var codigo = localStorage.getItem('fh_codigo');
+                var ts = parseInt(localStorage.getItem('fh_gclid_ts') || '0', 10);
+                var NINETY_DAYS_MS = 90 * 24 * 60 * 60 * 1000;
+                if (codigo && ts && (Date.now() - ts) < NINETY_DAYS_MS) return codigo;
             } catch (e) {}
             return null;
         }
@@ -587,11 +613,11 @@
 
             // Batch DOM updates
             const whatsappLinks = document.querySelectorAll('[data-whatsapp-text]');
-            const gclid = fhGetStoredGclid();
+            const codigo = fhGetStoredCode();
             whatsappLinks.forEach(link => {
                 const text = link.getAttribute('data-whatsapp-text') || '';
                 let decodedText = text ? decodeURIComponent(text) : '';
-                if (gclid) decodedText += (decodedText ? '\n\n' : '') + `(Ref: ${gclid})`;
+                if (codigo) decodedText += (decodedText ? '\n\n' : '') + `Código: ${codigo}`;
                 const textParam = decodedText ? `?text=${encodeURIComponent(decodedText)}` : '';
                 const newHref = `https://wa.me/${phoneDigits}${textParam}`;
                 if (link.href !== newHref) link.href = newHref;
