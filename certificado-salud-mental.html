@@ -363,7 +363,7 @@
             gtag('js', new Date());
             gtag('config', 'AW-17157055294');
         }
-        ['scroll', 'pointerdown', 'touchstart'].forEach(ev => window.addEventListener(ev, loadAds, {once:true, passive:true}));
+        loadAds();
     </script>
 </head>
 <body>
