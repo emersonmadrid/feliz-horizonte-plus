@@ -96,29 +96,62 @@
     <script type="application/ld+json" id="structured-data-clinic">
         {
             "@context": "https://schema.org",
-            "@type": "MedicalClinic",
+            "@type": ["MedicalClinic", "LocalBusiness"],
             "name": "Feliz Horizonte",
             "url": "https://felizhorizonte.pe/",
-            "description": "Consultorio de salud mental en Lima con atención psicológica online o presencial en Villa El Salvador y consulta psiquiátrica 100% online.",
+            "description": "Centro especializado en salud mental en Lima con atención psicológica presencial en Villa El Salvador y online, y psiquiatría 100% online para todo el Perú.",
             "image": [
                 "https://felizhorizonte.pe/images/cintya.webp",
                 "https://felizhorizonte.pe/images/yasmin-social.jpg"
+            ],
+            "medicalSpecialty": [
+                "Psychology",
+                "Psychiatry",
+                "MentalHealth"
             ],
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Villa El Salvador",
                 "addressLocality": "Lima",
+                "addressRegion": "Lima",
                 "addressCountry": "PE"
             },
             "telephone": "+51922346747",
-            "areaServed": "Perú",
+            "areaServed": {
+                "@type": "Country",
+                "name": "Perú"
+            },
             "priceRange": "$$",
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                        "Sunday"
+                    ],
+                    "opens": "09:00",
+                    "closes": "22:00"
+                }
+            ],
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "35",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
             "makesOffer": [
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "MedicalTherapy",
-                        "name": "Terapia Psicológica Individual"
+                        "name": "Terapia Psicológica Individual y de Pareja",
+                        "description": "Sesión de 50 minutos presencial en Villa El Salvador u online vía videollamada para ansiedad, depresión y relaciones."
                     },
                     "price": "89.00",
                     "priceCurrency": "PEN"
@@ -127,7 +160,8 @@
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "MedicalTherapy",
-                        "name": "Consulta Psiquiátrica"
+                        "name": "Consulta Psiquiátrica Online",
+                        "description": "Evaluación médica psiquiátrica completa por videollamada con emisión de receta médica digital oficial por la Dra. Yasmín Meneses."
                     },
                     "price": "139.00",
                     "priceCurrency": "PEN"
@@ -136,12 +170,14 @@
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Certificado de Facultades Mentales para Adultos Mayores",
-                        "description": "Evaluación psiquiátrica para adultos mayores, con emisión sujeta a criterio médico y requisitos de la entidad solicitante."
+                        "name": "Certificado de Salud Mental y Facultades Mentales",
+                        "description": "Evaluación médica y psicológica oficial para trámites notariales, laborales y universitarios."
                     }
                 }
             ],
-            "sameAs": []
+            "sameAs": [
+                "https://wa.me/51922346747"
+            ]
         }
     </script>
 
@@ -155,7 +191,7 @@
             "potentialAction": {
                 "@type": "Action",
                 "name": "Agenda una cita",
-                "target": ""
+                "target": "https://wa.me/51922346747"
             }
         }
     </script>
@@ -164,10 +200,10 @@
         [
             {
                 "@context": "https://schema.org",
-                "@type": "Person",
-                "name": "Cintya Isabel",
+                "@type": ["Person", "Psychologist"],
+                "name": "Lic. Cintya Isabel Huauya Macavilca",
                 "jobTitle": "Psicóloga Clínica",
-                "description": "Psicóloga clínica especializada en Terapia Cognitivo Conductual, ansiedad, depresión y gestión emocional. Atención online y presencial en Villa El Salvador, Lima.",
+                "description": "Psicóloga clínica especializada en Terapia Cognitivo Conductual, ansiedad, depresión y gestión emocional. Atención presencial en Villa El Salvador y online.",
                 "image": "https://felizhorizonte.pe/images/cintya.webp",
                 "url": "https://felizhorizonte.pe/#equipo",
                 "worksFor": {
@@ -177,24 +213,25 @@
                 },
                 "hasCredential": {
                     "@type": "EducationalOccupationalCredential",
-                    "credentialCategory": "Colegiatura",
+                    "credentialCategory": "Colegiatura Profesional",
                     "recognizedBy": {
                         "@type": "Organization",
                         "name": "Colegio de Psicólogos del Perú"
                     },
                     "identifier": "C.Ps.P. 24465"
                 },
-                "knowsAbout": ["Terapia Cognitivo Conductual", "Ansiedad", "Depresión", "Psicología Forense", "Gestión Emocional"]
+                "knowsAbout": ["Terapia Cognitivo Conductual", "Ansiedad", "Depresión", "Terapia de Pareja", "Psicología Forense", "Gestión Emocional"]
             },
             {
                 "@context": "https://schema.org",
-                "@type": "Person",
-                "name": "Yasmín Meneses",
+                "@type": ["Person", "Physician"],
+                "name": "Dra. Yasmín Meneses",
                 "honorificPrefix": "Dra.",
                 "jobTitle": "Médica Psiquiatra",
-                "description": "Médica psiquiatra con formación internacional. Especialista en evaluación clínica, tratamiento farmacológico, Tanatología y Autismo. Atención 100% online en Perú.",
+                "medicalSpecialty": "Psychiatry",
+                "description": "Médica psiquiatra colegiada con formación internacional. Especialista en evaluación clínica médica, tratamiento farmacológico, receta médica oficial, Tanatología y Autismo. Atención 100% online en Perú.",
                 "image": "https://felizhorizonte.pe/images/yasmin.webp",
-                "url": "https://felizhorizonte.pe/#equipo",
+                "url": "https://felizhorizonte.pe/psiquiatra-online-peru.html",
                 "worksFor": {
                     "@type": "MedicalClinic",
                     "name": "Feliz Horizonte",
@@ -209,7 +246,7 @@
                     },
                     "identifier": "CMP 64796"
                 },
-                "knowsAbout": ["Psiquiatría", "Tanatología", "Autismo", "Tratamiento Farmacológico", "Certificados de Facultades Mentales"]
+                "knowsAbout": ["Psiquiatría", "Diagnóstico Clínico", "Tratamiento Farmacológico", "Receta Médica Digital", "Tanatología", "Autismo", "Certificados de Facultades Mentales"]
             }
         ]
     </script>

@@ -92,22 +92,75 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "MedicalClinic",
+        "@type": ["MedicalClinic", "LocalBusiness"],
         "name": "Feliz Horizonte — Psiquiatría Online",
         "url": "https://felizhorizonte.pe/psiquiatra-online-peru.html",
-        "description": "Consulta psiquiátrica online en Perú con médica psiquiatra certificada. Evaluación profesional, orientación clínica y plan de seguimiento desde S/ 139.",
+        "description": "Consulta psiquiátrica online en Perú con médica psiquiatra certificada Dra. Yasmín Meneses (CMP 64796). Evaluación profesional, orientación clínica, diagnóstico y emisión de receta médica digital oficial por S/ 139.",
         "image": "https://felizhorizonte.pe/images/yasmin.webp",
+        "medicalSpecialty": "Psychiatry",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Villa El Salvador",
             "addressLocality": "Lima",
             "addressCountry": "PE"
         },
         "telephone": "+51922346747",
-        "areaServed": "Perú",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Perú"
+        },
         "priceRange": "S/ 139",
-        "availableService": {
-            "@type": "MedicalTherapy",
-            "name": "Consulta Psiquiátrica Online"
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "09:00",
+                "closes": "22:00"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "35",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "employee": {
+            "@context": "https://schema.org",
+            "@type": ["Person", "Physician"],
+            "name": "Dra. Yasmín Meneses",
+            "honorificPrefix": "Dra.",
+            "jobTitle": "Médica Psiquiatra",
+            "medicalSpecialty": "Psychiatry",
+            "image": "https://felizhorizonte.pe/images/yasmin.webp",
+            "url": "https://felizhorizonte.pe/psiquiatra-online-peru.html",
+            "hasCredential": {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "Colegiatura Médica",
+                "recognizedBy": {
+                    "@type": "Organization",
+                    "name": "Colegio Médico del Perú"
+                },
+                "identifier": "CMP 64796"
+            },
+            "knowsAbout": [
+                "Psiquiatría",
+                "Evaluación Psiquiátrica Online",
+                "Tratamiento Farmacológico",
+                "Receta Médica Digital",
+                "Ansiedad y Depresión",
+                "Certificados de Facultades Mentales"
+            ]
+        },
+        "makesOffer": {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "MedicalTherapy",
+                "name": "Consulta Psiquiátrica Online por Videollamada",
+                "description": "Evaluación médica psiquiátrica integral por videollamada y receta médica oficial válida a nivel nacional."
+            },
+            "price": "139.00",
+            "priceCurrency": "PEN"
         },
         "sameAs": ["https://wa.me/51922346747"]
     }
